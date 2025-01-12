@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="eu" version="2.1">
+<TS version="2.1" language="eu">
 <context>
     <name>AboutDlg</name>
     <message>
@@ -28,19 +28,47 @@
     </message>
     <message>
         <source>Content layout:</source>
-        <translation type="unfinished" />
+        <translation>Edukiaren antolakuntza:</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Jatorrizkoa</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Sortu azpikarpeta</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Ez sortu azpikarpeta</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation>Eskuzkoa</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Berezgaitasunezkoa</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metadatuak jaso dira</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Fitxategiak egiaztatuta</translation>
+    </message>
+    <message>
+        <source>Stop condition:</source>
+        <translation>Gelditze-egoera:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>(Bat ere ez)</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Gehitu ilararen goiko aldera.</translation>
     </message>
 </context>
 <context>
@@ -77,16 +105,20 @@
         <translation>Pausatu torrentak</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Ezabatu torrentak</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Kategoria Berria</translation>
     </message>
     <message>
         <source>Edit category...</source>
         <translation>Editatu kategoria...</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Add subcategory...</source>
+        <translation>Gehitu azpikategoria...</translation>
     </message>
 </context>
 <context>
@@ -144,10 +176,6 @@
         <translation>Ezinezkoa programa hobespenak gordetzea, qBittorrent zihurrenik erdietsiezina da.</translation>
     </message>
     <message>
-        <source>IRC: #qbittorrent on Freenode</source>
-        <translation>IRC: #qbittorrent Freenode-an</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Ezezaguna</translation>
     </message>
@@ -160,36 +188,28 @@
         <translation>Emaritza denbora muga 0 eta 525600 minutu artekoa izan behar da.</translation>
     </message>
     <message>
-        <source>The port used for incoming connections must be between 1 and 65535.</source>
-        <translation type="vanished">Barrurako elkarketetarako erabilitzeko ataka 1 eta 65535 artekoa izan behar da.</translation>
-    </message>
-    <message>
         <source>The port used for the Web UI must be between 1 and 65535.</source>
-        <translation>Web EI-ak erabiltzeko ataka 1024 eta 65535 artekoa izan behar da.</translation>
+        <translation type="vanished">Web EI-ak erabiltzeko ataka 1024 eta 65535 artekoa izan behar da.</translation>
     </message>
     <message>
         <source>Unable to log in, qBittorrent is probably unreachable.</source>
-        <translation>Ezinezkoa saioa hastea, qBittorrent zihurrenik eskuraezina dago.</translation>
+        <translation type="vanished">Ezinezkoa saioa hastea, qBittorrent zihurrenik eskuraezina dago.</translation>
     </message>
     <message>
         <source>Invalid Username or Password.</source>
-        <translation>Erabiltzaile-izen edo Sarhitz baliogabea.</translation>
+        <translation type="vanished">Erabiltzaile-izen edo Sarhitz baliogabea.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Erabiltzaile-izena</translation>
+        <translation type="vanished">Erabiltzaile-izena</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Sarhitza</translation>
+        <translation type="vanished">Sarhitza</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>Hasi Saioa</translation>
-    </message>
-    <message>
-        <source>Original authors</source>
-        <translation>Jatorrizko egileak</translation>
+        <translation type="vanished">Hasi Saioa</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -284,10 +304,6 @@
         <translation>Igo tokiko torrenta</translation>
     </message>
     <message>
-        <source>Are you sure you want to delete the selected torrents from the transfer list?</source>
-        <translation>Zihur zaude hautaturiko torrentak ezabatzea nahi dituzula eskualdaketa zerrendatik?</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Gorde</translation>
     </message>
@@ -333,42 +349,62 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
-        <translation>qBittorrent itzali egin da</translation>
+        <translation type="vanished">qBittorrent itzali egin da</translation>
     </message>
     <message>
         <source>Open documentation</source>
-        <translation type="unfinished" />
+        <translation>Ireki dokumentazioa</translation>
     </message>
     <message>
         <source>Register to handle magnet links...</source>
-        <translation type="unfinished" />
+        <translation>Izena eman magnet estekak kudeatzeko...</translation>
     </message>
     <message>
         <source>Unable to add peers. Please ensure you are adhering to the IP:port format.</source>
-        <translation type="unfinished" />
+        <translation>Ezin izan dira parekoak gehitu. Mesedez, ziurtatu IP:ataka formatuarekin bat datorrela.</translation>
     </message>
     <message>
         <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
-        <translation type="unfinished" />
+        <translation type="vanished">JavaScript behar da! JavaScript gaitu behar duzu web interfazeak ondo funtzionatu dezan</translation>
     </message>
     <message>
         <source>Name cannot be empty</source>
-        <translation type="unfinished" />
+        <translation>Izena ezin da hutsik egon</translation>
     </message>
     <message>
         <source>Name is unchanged</source>
-        <translation type="unfinished" />
+        <translation>Izena aldatu gabe dago</translation>
     </message>
     <message>
         <source>Failed to update name</source>
-        <translation type="unfinished" />
+        <translation>Izena eguneratzeak huts egin du</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished" />
+        <translation>Ados</translation>
     </message>
     <message>
         <source>The port used for incoming connections must be between 0 and 65535.</source>
+        <translation>Sarrerako elkarketetarako erabiliriko atakak 0 eta 65535 bitartekoa izan behar du.</translation>
+    </message>
+    <message>
+        <source>Original author</source>
+        <translation>Jatorrizko egilea</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the selected torrents from the transfer list?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The port used for the WebUI must be between 1 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>%1 has been shutdown</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the WebUI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -435,10 +471,6 @@
         <translation>Pausatu</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Ezabatu</translation>
-    </message>
-    <message>
         <source>Pause All</source>
         <translation>Pasatu Denak</translation>
     </message>
@@ -477,7 +509,7 @@
     <message>
         <source>[D: %1, U: %2] qBittorrent %3</source>
         <comment>D = Download; U = Upload; %3 is qBittorrent version</comment>
-        <translation>[J: %1, I: %2] qBittorrent %3</translation>
+        <translation type="vanished">[J: %1, I: %2] qBittorrent %3</translation>
     </message>
     <message>
         <source>Alternative speed limits</source>
@@ -501,82 +533,110 @@
     </message>
     <message>
         <source>Move up in the queue</source>
-        <translation type="unfinished" />
+        <translation>Igo ilaran</translation>
     </message>
     <message>
         <source>Move Up Queue</source>
-        <translation type="unfinished" />
+        <translation>Igo ilaran</translation>
     </message>
     <message>
         <source>Bottom of Queue</source>
-        <translation type="unfinished" />
+        <translation>Ilararen behean</translation>
     </message>
     <message>
         <source>Move to the bottom of the queue</source>
-        <translation type="unfinished" />
+        <translation>Mugitu ilararen beherenera</translation>
     </message>
     <message>
         <source>Top of Queue</source>
-        <translation type="unfinished" />
+        <translation>Ilararen goian</translation>
     </message>
     <message>
         <source>Move Down Queue</source>
-        <translation type="unfinished" />
+        <translation>Jaitsi ilaran</translation>
     </message>
     <message>
         <source>Move down in the queue</source>
-        <translation type="unfinished" />
+        <translation>Jaitsi ilaran</translation>
     </message>
     <message>
         <source>Move to the top of the queue</source>
-        <translation type="unfinished" />
+        <translation>Mugitu ilararen gorenera</translation>
     </message>
     <message>
         <source>Your browser does not support this feature</source>
-        <translation type="unfinished" />
+        <translation>Zure nabigatzailea ez da ezaugarri honekin bateragarria</translation>
     </message>
     <message>
         <source>To use this feature, the WebUI needs to be accessed over HTTPS</source>
-        <translation type="unfinished" />
+        <translation>Ezaugarri hau erabiltzeko, WebUIa HTTPS bidez atzitu behar da</translation>
     </message>
     <message>
         <source>Connection status: Firewalled</source>
-        <translation type="unfinished" />
+        <translation>Konexio egoera: suhesi atzean</translation>
     </message>
     <message>
         <source>Connection status: Connected</source>
-        <translation type="unfinished" />
+        <translation>Konexio egoera: konektatuta</translation>
     </message>
     <message>
         <source>Alternative speed limits: Off</source>
-        <translation type="unfinished" />
+        <translation>Abiadura muga alternatiboak: ezgaituta</translation>
     </message>
     <message>
         <source>Download speed icon</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Connection status</source>
-        <translation type="unfinished" />
+        <translation>Deskarga-abiadura ikonoa</translation>
     </message>
     <message>
         <source>Alternative speed limits: On</source>
-        <translation type="unfinished" />
+        <translation>Abiadura muga alternatiboak: gaituta</translation>
     </message>
     <message>
         <source>Upload speed icon</source>
-        <translation type="unfinished" />
+        <translation>Karga-abiadura ikonoa</translation>
     </message>
     <message>
         <source>Connection status: Disconnected</source>
-        <translation type="unfinished" />
+        <translation>Konexio egoera: deskonektatuta</translation>
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS irakurlea</translation>
     </message>
     <message>
         <source>RSS</source>
+        <translation>RSS</translation>
+    </message>
+    <message>
+        <source>Filters Sidebar</source>
+        <translation>Iragazkien alboko barra</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Ezeztatu</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Kendu</translation>
+    </message>
+    <message>
+        <source>Would you like to resume all torrents?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Would you like to pause all torrents?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Execution Log</source>
+        <translation>Ekintza Oharra</translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>[D: %1, U: %2]</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -604,7 +664,7 @@
     </message>
     <message>
         <source>Web UI</source>
-        <translation>Web EI</translation>
+        <translation type="vanished">Web EI</translation>
     </message>
     <message>
         <source>Language</source>
@@ -617,10 +677,6 @@
     <message>
         <source>Email notification upon download completion</source>
         <translation>Post@ jakinarazpena jeitsiera osatutakoan</translation>
-    </message>
-    <message>
-        <source>Run external program on torrent completion</source>
-        <translation>Ekin kanpoko programa torrenta osatutakoan</translation>
     </message>
     <message>
         <source>IP Filtering</source>
@@ -727,10 +783,6 @@
         <translation>Erabili UPnP / NAT-PMP ataka nire bideratzailetik bidaltzeko</translation>
     </message>
     <message>
-        <source>Use different port on each startup</source>
-        <translation type="vanished">Erabili ataka ezberdina abiarazte bakoitzean</translation>
-    </message>
-    <message>
         <source>Connections Limits</source>
         <translation>Elkarketa Mugak</translation>
     </message>
@@ -759,10 +811,6 @@
         <translation>Mota:</translation>
     </message>
     <message>
-        <source>(None)</source>
-        <translation>(Bat ere ez)</translation>
-    </message>
-    <message>
         <source>SOCKS4</source>
         <translation>SOCKS4</translation>
     </message>
@@ -785,10 +833,6 @@
     <message>
         <source>Use proxy for peer connections</source>
         <translation>Erabili proxya hartzaile elkarketetarako</translation>
-    </message>
-    <message>
-        <source>Use proxy only for torrents</source>
-        <translation>Erabili proxya torrententzat bakarrik</translation>
     </message>
     <message>
         <source>Filter path (.dat, .p2p, .p2b):</source>
@@ -970,11 +1014,11 @@
     </message>
     <message>
         <source>The Web UI username must be at least 3 characters long.</source>
-        <translation>Web EI erabiltzaile-izenak gutxienez 3 hizkirriko luzera izan behar du.</translation>
+        <translation type="vanished">Web EI erabiltzaile-izenak gutxienez 3 hizkirriko luzera izan behar du.</translation>
     </message>
     <message>
         <source>The Web UI password must be at least 6 characters long.</source>
-        <translation>Web EI sarhitzak gutxienez 6 hizkirriko luzera izan behar du.</translation>
+        <translation type="vanished">Web EI sarhitzak gutxienez 6 hizkirriko luzera izan behar du.</translation>
     </message>
     <message>
         <source>minutes</source>
@@ -1014,7 +1058,7 @@
     </message>
     <message>
         <source>Use alternative Web UI</source>
-        <translation>Erabili aukerazko Web EI</translation>
+        <translation type="vanished">Erabili aukerazko Web EI</translation>
     </message>
     <message>
         <source>Default Save Path:</source>
@@ -1022,7 +1066,7 @@
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation>Web EI agiri kokaleku alternatiboa ezin da hutsik egon.</translation>
+        <translation type="vanished">Web EI agiri kokaleku alternatiboa ezin da hutsik egon.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
@@ -1098,107 +1142,91 @@
     </message>
     <message>
         <source>Info: The password is saved unencrypted</source>
-        <translation type="unfinished" />
+        <translation>Info: pasahitza zifratu gabe gordetzen da</translation>
     </message>
     <message>
         <source>μTP-TCP mixed mode algorithm:</source>
-        <translation type="unfinished" />
+        <translation>uTP-TCP algoritmo modu nahastua:</translation>
     </message>
     <message>
         <source>Upload rate based</source>
-        <translation type="unfinished" />
+        <translation>Karga tasan oinarrituta</translation>
     </message>
     <message>
         <source>%G: Tags (separated by comma)</source>
-        <translation type="unfinished" />
+        <translation>%G: etiketak (komaz bananduta)</translation>
     </message>
     <message>
         <source>Socket backlog size:</source>
-        <translation type="unfinished" />
+        <translation>Socket lan-atzeratuaren tamaina:</translation>
     </message>
     <message>
         <source>Enable super seeding for torrent</source>
-        <translation type="unfinished" />
+        <translation>Gaitu super-hedatzea torrentarentzat</translation>
     </message>
     <message>
         <source>Prefer TCP</source>
-        <translation type="unfinished" />
+        <translation>Hobetsi TCP</translation>
     </message>
     <message>
         <source>Outstanding memory when checking torrents:</source>
-        <translation type="unfinished" />
+        <translation>Memoria bikaina torrentak egiaztatzean:</translation>
     </message>
     <message>
         <source>Anti-leech</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Enable OS cache:</source>
-        <translation type="unfinished" />
+        <translation>Izain-aurkakoa</translation>
     </message>
     <message>
         <source>When ratio reaches</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>When seeding time reaches</source>
-        <translation type="unfinished" />
+        <translation>Erlazioa hona heltzerakoan</translation>
     </message>
     <message>
         <source>Allow multiple connections from the same IP address:</source>
-        <translation type="unfinished" />
+        <translation>Baimendu IP berdineko konexio ugari:</translation>
     </message>
     <message>
         <source>File pool size:</source>
-        <translation type="unfinished" />
+        <translation>Fitxategi multzoaren neurria:</translation>
     </message>
     <message>
         <source>Any interface</source>
-        <translation type="unfinished" />
+        <translation>Edozein interfaze</translation>
     </message>
     <message>
         <source>Always announce to all tiers:</source>
-        <translation type="unfinished" />
+        <translation>Iragarri beti maila guztietara:</translation>
     </message>
     <message>
         <source>Embedded tracker port:</source>
-        <translation type="unfinished" />
+        <translation>Kapsulatutako jarraitzailearen ataka:</translation>
     </message>
     <message>
         <source>Fastest upload</source>
-        <translation type="unfinished" />
+        <translation>Karga azkarrena</translation>
     </message>
     <message>
         <source>Pause torrent</source>
-        <translation type="unfinished" />
+        <translation>Pausatu torrenta</translation>
     </message>
     <message>
         <source>Remove torrent and its files</source>
-        <translation type="unfinished" />
+        <translation>Kendu torrenta eta bere fitxategiak</translation>
     </message>
     <message>
         <source>qBittorrent Section</source>
-        <translation type="unfinished" />
+        <translation>qBitorrent atala</translation>
     </message>
     <message>
         <source>Send buffer watermark factor:</source>
-        <translation type="unfinished" />
+        <translation>Bidali buffer urmarka faktorea:</translation>
     </message>
     <message>
         <source>libtorrent Section</source>
         <translation>libtorrent Atala</translation>
     </message>
     <message>
-        <source>Outgoing ports (Min) [0: Disabled]:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>IP Address to report to trackers (requires restart):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Recheck torrents on completion:</source>
-        <translation type="unfinished" />
+        <translation>Berregiaztatu torrentak osatutakoan:</translation>
     </message>
     <message>
         <source>Allow encryption</source>
@@ -1206,191 +1234,163 @@
     </message>
     <message>
         <source>Send upload piece suggestions:</source>
-        <translation type="unfinished" />
+        <translation>Bidali karga zati iradokizunak:</translation>
     </message>
     <message>
         <source>Enable embedded tracker:</source>
-        <translation type="unfinished" />
+        <translation>Gaitu kapsulatutako jarraitzailea:</translation>
     </message>
     <message>
         <source>Remove torrent</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Outgoing ports (Max) [0: Disabled]:</source>
-        <translation type="unfinished" />
+        <translation>Kendu torrenta</translation>
     </message>
     <message>
         <source>Asynchronous I/O threads:</source>
-        <translation type="unfinished" />
+        <translation>S/I hari asinkronoak:</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished" />
+        <translation>s</translation>
     </message>
     <message>
         <source>Send buffer watermark:</source>
-        <translation type="unfinished" />
+        <translation>Bidali buffer urmarka:</translation>
     </message>
     <message>
         <source>Peer proportional (throttles TCP)</source>
-        <translation type="unfinished" />
+        <translation>Parekoekiko proportzionala (TCP mugatzen du)</translation>
     </message>
     <message>
         <source>Fixed slots</source>
-        <translation type="unfinished" />
+        <translation>Tarte finkoak</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished" />
+        <translation>Aurreratua</translation>
     </message>
     <message>
         <source>min</source>
-        <translation type="unfinished" />
+        <translation>min</translation>
     </message>
     <message>
         <source>Upload choking algorithm:</source>
-        <translation type="unfinished" />
+        <translation>Karga choking algoritmoa:</translation>
     </message>
     <message>
         <source>Seeding Limits</source>
-        <translation type="unfinished" />
+        <translation>Hedapen mugak</translation>
     </message>
     <message>
         <source>KiB</source>
-        <translation type="unfinished" />
+        <translation>KiB</translation>
     </message>
     <message>
         <source>Round-robin</source>
-        <translation type="unfinished" />
+        <translation>Round-robin</translation>
     </message>
     <message>
         <source>Upload slots behavior:</source>
-        <translation type="unfinished" />
+        <translation>Karga tarteen portaera:</translation>
     </message>
     <message>
         <source>MiB</source>
-        <translation type="unfinished" />
+        <translation>MiB</translation>
     </message>
     <message>
         <source>Send buffer low watermark:</source>
-        <translation type="unfinished" />
+        <translation>Bidali buffer baxu urmarka:</translation>
     </message>
     <message>
         <source>Save resume data interval:</source>
-        <translation type="unfinished" />
+        <translation>Gorde berrekintze-datu tartea:</translation>
     </message>
     <message>
         <source>Always announce to all trackers in a tier:</source>
-        <translation type="unfinished" />
+        <translation>Iragarri beti maila bateko jarraitzaile guztietara:</translation>
     </message>
     <message>
         <source>Session timeout:</source>
-        <translation type="unfinished" />
+        <translation>Saioaren denbora-muga:</translation>
     </message>
     <message>
         <source>Resolve peer countries:</source>
-        <translation type="unfinished" />
+        <translation>Ebatzi parekoen herrialdeak:</translation>
     </message>
     <message>
         <source>ban for:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Use piece extent affinity (requires libtorrent &gt;= 1.2.2):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Stop tracker timeout:</source>
-        <translation type="unfinished" />
+        <translation>Kanporatu honegatik:</translation>
     </message>
     <message>
         <source>Ban client after consecutive failures:</source>
-        <translation type="unfinished" />
+        <translation>Kanporatu bezeroa hutsegite jarraien ondoren:</translation>
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS)</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>UPnP lease duration [0: Permanent lease]:</source>
-        <translation type="unfinished" />
+        <translation>Gaitu cookie Secure ikurra (HTTPS behar du)</translation>
     </message>
     <message>
         <source>Header: value pairs, one per line</source>
-        <translation type="unfinished" />
+        <translation>Goiburua: balio pareak, bat lerroko</translation>
     </message>
     <message>
         <source>Add custom HTTP headers</source>
-        <translation type="unfinished" />
+        <translation>Gehitu HTTP goiburu pertsonalizatuak</translation>
     </message>
     <message>
         <source>Filters:</source>
-        <translation type="unfinished" />
+        <translation>Iragazkiak:</translation>
     </message>
     <message>
         <source>Enable fetching RSS feeds</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Hashing threads (requires libtorrent &gt;= 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Coalesce reads &amp; writes (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>Gaitu RSS jarioak lortzea</translation>
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
-        <translation type="unfinished" />
+        <translation>Parekoen errotazio muga ehunekoa:</translation>
     </message>
     <message>
         <source>RSS Torrent Auto Downloader</source>
-        <translation type="unfinished" />
+        <translation>RSS torrent auto-deskargatzailea</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished" />
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Network interface:</source>
-        <translation type="unfinished" />
+        <translation>Sare-interfazea:</translation>
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS irakurlea</translation>
     </message>
     <message>
         <source>Edit auto downloading rules...</source>
-        <translation type="unfinished" />
+        <translation>Editatu auto deskarga arauak...</translation>
     </message>
     <message>
         <source>Download REPACK/PROPER episodes</source>
-        <translation type="unfinished" />
+        <translation>Deskargatu REPACK/PROPER atalak</translation>
     </message>
     <message>
         <source>Feeds refresh interval:</source>
-        <translation type="unfinished" />
+        <translation>Jarioen berritze epea:</translation>
     </message>
     <message>
         <source>Peer turnover disconnect percentage:</source>
-        <translation type="unfinished" />
+        <translation>Parekoen errotazio deskonexio ehunekoa:</translation>
     </message>
     <message>
         <source>Maximum number of articles per feed:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Max concurrent HTTP announces (requires libtorrent &gt;= 1.2.7):</source>
-        <translation type="unfinished" />
+        <translation>Artikulu zenbaki maximoa jario bakoitzeko:</translation>
     </message>
     <message>
         <source> min</source>
-        <translation type="unfinished" />
+        <translation>min</translation>
     </message>
     <message>
         <source>Peer turnover disconnect interval:</source>
-        <translation type="unfinished" />
+        <translation>Parekoen errotazio deskonexio tartea:</translation>
     </message>
     <message>
         <source>Optional IP address to bind to:</source>
@@ -1402,75 +1402,63 @@
     </message>
     <message>
         <source>Enable auto downloading of RSS torrents</source>
-        <translation type="unfinished" />
+        <translation>Gaitu RSS torrenten auto deskarga</translation>
     </message>
     <message>
         <source>RSS Smart Episode Filter</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache expiry interval (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>RSS atal iragazki adimendua</translation>
     </message>
     <message>
         <source>Validate HTTPS tracker certificate:</source>
-        <translation type="unfinished" />
+        <translation>Balioztatu HTTPS jarraitzaile ziurtagiriak:</translation>
     </message>
     <message>
         <source>Peer connection protocol:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Support internationalized domain name (IDN) (requires libtorrent &gt;= 1.2.12):</source>
-        <translation type="unfinished" />
+        <translation>Parekoen konexio protokoloa:</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Torrent edukiaren antolakuntza:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Sortu azpikarpeta</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Jatorrizkoa</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Ez sortu azpikarpeta</translation>
     </message>
     <message>
         <source>Type of service (ToS) for connections to peers</source>
-        <translation type="unfinished" />
+        <translation>Zerbitzu motak (ToS) konexio parekoentzat</translation>
     </message>
     <message>
         <source>Outgoing connections per second:</source>
-        <translation type="unfinished" />
+        <translation>Irteerako konexioak segundoko:</translation>
     </message>
     <message>
         <source>Random</source>
-        <translation type="unfinished" />
+        <translation>Ausazkoa</translation>
     </message>
     <message>
         <source>%K: Torrent ID</source>
-        <translation type="unfinished" />
+        <translation>%K: torrentaren ID</translation>
     </message>
     <message>
         <source>Reannounce to all trackers when IP or port changed:</source>
-        <translation type="unfinished" />
+        <translation>Beriragarri jarraitzaile guztietara IP edo ataka aldatzean:</translation>
     </message>
     <message>
         <source>Trusted proxies list:</source>
-        <translation type="unfinished" />
+        <translation>Proxy fidagarrien zerrenda:</translation>
     </message>
     <message>
         <source>Enable reverse proxy support</source>
-        <translation type="unfinished" />
+        <translation>Gaitu alderantzizko proxy bateragarritasuna</translation>
     </message>
     <message>
         <source>%J: Info hash v2</source>
@@ -1478,6 +1466,394 @@
     </message>
     <message>
         <source>%I: Info hash v1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP address reported to trackers (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Set to 0 to let your system pick an unused port</source>
+        <translation>Ezarri 0ra sistemak erabili gabeko ataka bat hartzeko</translation>
+    </message>
+    <message>
+        <source>Server-side request forgery (SSRF) mitigation:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk queue size:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log performance warnings</source>
+        <translation>Erregistratu errendimendu oharrak</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding requests to a single peer:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max active checking torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Memory mapped files</source>
+        <translation>Memoriara esleitutako fitxategiak</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Berezkoa</translation>
+    </message>
+    <message>
+        <source>POSIX-compliant</source>
+        <translation>POSIX betetzen du</translation>
+    </message>
+    <message>
+        <source>This option is less effective on Linux</source>
+        <translation>Aukera honek eragin gutxiago du Linuxen</translation>
+    </message>
+    <message>
+        <source>It controls the internal state update interval which in turn will affect UI updates</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO read mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disable OS cache</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO write mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use piece extent affinity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max concurrent HTTP announces:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable OS cache</source>
+        <translation>Gaitu SE katxea</translation>
+    </message>
+    <message>
+        <source>Refresh interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>ms</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Excluded file names</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Support internationalized domain name (IDN):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program on torrent finished</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Whitelist for filtering HTTP Host header values.
+In order to defend against DNS rebinding attack,
+you should put in domain names used by WebUI server.
+
+Use ';' to split multiple entries. Can use wildcard '*'.</source>
+        <translation>Zerrenda-zuria HTTP Hostalari idazburu balioak iragazteko.
+DNS berrelkartze erasoen aurka babesteko,
+WebEI zerbitzariak erabiltzen dituen domeinu izenetan jarri behar duzu.
+
+Erabili ';' sarrera ugari banantzeko. '*' ordez-hizkia erabili daiteke.</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent added</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS certificate should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS key should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Fitxategiak egiaztatuta</translation>
+    </message>
+    <message>
+        <source>Enable port forwarding for embedded tracker:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If checked, hostname lookups are done via the proxy.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metadatuak jaso dira</translation>
+    </message>
+    <message>
+        <source>Torrent stop condition:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>None</source>
+        <translation>(Bat ere ez)</translation>
+    </message>
+    <message>
+        <source>Example: 172.17.32.0/24, fdff:ffff:c8::/40</source>
+        <translation>Adibidea: 172.17.32.0/24, fdff:ffff:c8::/40</translation>
+    </message>
+    <message>
+        <source>SQLite database (experimental)</source>
+        <translation>SQLite datu-basea (esperimentala)</translation>
+    </message>
+    <message>
+        <source>Resume data storage type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Fastresume files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Backup the log file after:</source>
+        <translation>Babeskopiatu ohar agiria ondoren:</translation>
+    </message>
+    <message>
+        <source>days</source>
+        <translation>egun</translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation>Ohar agiria</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>Jokabidea</translation>
+    </message>
+    <message>
+        <source>Delete backup logs older than:</source>
+        <translation>Ezabatu zaharragoak diren babeskopia oharrak:</translation>
+    </message>
+    <message>
+        <source>Use proxy for BitTorrent purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>years</source>
+        <translation>urte</translation>
+    </message>
+    <message>
+        <source>Save path:</source>
+        <translation>Gordetze helburua:</translation>
+    </message>
+    <message>
+        <source>months</source>
+        <translation>hilabete</translation>
+    </message>
+    <message>
+        <source>Remember Multi-Rename settings</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for general purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for RSS purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket send buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Max) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket receive buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use Subcategories</source>
+        <translation>Erabili Azpikategoriak</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Gehitu ilararen goiko aldera.</translation>
+    </message>
+    <message>
+        <source>Stop tracker timeout [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Min) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>UPnP lease duration [0: permanent lease]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode depth limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode token limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When total seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(None)</source>
+        <translation>(Bat ere ez)</translation>
+    </message>
+    <message>
+        <source>Python executable path (may require restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Resets to default if empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Perform hostname lookup via proxy</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>DHT bootstrap nodes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When inactive seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Mixed mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>.torrent file size limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(Auto detect if empty)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Keep unselected files in ".unwanted" folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable Mark-of-the-Web (MOTW) for downloaded files (require macOS or Windows):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source> sec</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Hashing threads:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use alternative WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache expiry interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P (Experimental)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The alternative WebUI files location cannot be blank.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Write-through</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI password must be at least 6 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI username must be at least 3 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Same host request delay:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Customize application instance name:</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1541,22 +1917,26 @@
     </message>
     <message>
         <source>Ban peer permanently</source>
-        <translation type="unfinished" />
+        <translation>Kanporatu parekoa betirako</translation>
     </message>
     <message>
         <source>Are you sure you want to permanently ban the selected peers?</source>
-        <translation type="unfinished" />
+        <translation>Ziur zaude hautatutako parekoak betirako kanporatu nahi dituzula?</translation>
     </message>
     <message>
         <source>Copy IP:port</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Add a new peer...</source>
-        <translation type="unfinished" />
+        <translation>Kopiatu IP:ataka</translation>
     </message>
     <message>
         <source>Country/Region</source>
+        <translation>Herrialdea/Eskualdea</translation>
+    </message>
+    <message>
+        <source>Add peers...</source>
+        <translation>Gehitu parekoak...</translation>
+    </message>
+    <message>
+        <source>Peer ID Client</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1579,11 +1959,11 @@
     </message>
     <message>
         <source>Mixed</source>
-        <translation type="unfinished" />
+        <translation>Nahastua</translation>
     </message>
     <message>
         <source>Do not download</source>
-        <translation type="unfinished" />
+        <translation>Ez deskargatu</translation>
     </message>
 </context>
 <context>
@@ -1750,30 +2130,94 @@
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished" />
+        <translation>Lehentasuna</translation>
     </message>
     <message>
         <source>Filter files...</source>
-        <translation type="unfinished" />
+        <translation>Iragazi fitxategiak...</translation>
     </message>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished" />
+        <translation>Berrizendatu...</translation>
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (%2-(e)rako emaritua)</translation>
     </message>
     <message>
         <source>Info Hash v2:</source>
-        <translation type="unfinished" />
+        <translation>Info hash v2:</translation>
     </message>
     <message>
         <source>Info Hash v1:</source>
-        <translation type="unfinished" />
+        <translation>Info hash v1:</translation>
     </message>
     <message>
         <source>N/A</source>
+        <translation>E/G</translation>
+    </message>
+    <message>
+        <source>Progress:</source>
+        <translation>Garapena:</translation>
+    </message>
+    <message>
+        <source>Use regular expressions</source>
+        <translation>Erabili adierazpen arruntak</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Filename + Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enumerate Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Rename failed: file or folder already exists</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Toggle Selection</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replacement Input</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include folders</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Search Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Case sensitive</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all occurrences</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1797,11 +2241,11 @@
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished" />
+        <translation>Bestelakoak...</translation>
     </message>
     <message>
         <source>Type folder here</source>
-        <translation type="unfinished" />
+        <translation>Idatzi karpeta hemen</translation>
     </message>
 </context>
 <context>
@@ -1962,34 +2406,42 @@
     </message>
     <message>
         <source>Stalled Uploading (%1)</source>
-        <translation type="unfinished" />
+        <translation>Karga geldituta (%1)</translation>
     </message>
     <message>
         <source>Stalled Downloading (%1)</source>
-        <translation type="unfinished" />
+        <translation>Deskarga geldituta (%1)</translation>
     </message>
     <message>
         <source>Stalled Downloading (0)</source>
-        <translation type="unfinished" />
+        <translation>Deskarga geldituta (0)</translation>
     </message>
     <message>
         <source>Stalled (0)</source>
-        <translation type="unfinished" />
+        <translation>Geldituta (0)</translation>
     </message>
     <message>
         <source>Stalled Uploading (0)</source>
-        <translation type="unfinished" />
+        <translation>Karga geldituta (0)</translation>
     </message>
     <message>
         <source>Stalled (%1)</source>
-        <translation type="unfinished" />
+        <translation>Geldituta (%1)</translation>
     </message>
     <message>
         <source>Checking (%1)</source>
-        <translation type="unfinished" />
+        <translation>Egiaztatzen (%1)</translation>
     </message>
     <message>
         <source>Checking (0)</source>
+        <translation>Egiaztatzen (0)</translation>
+    </message>
+    <message>
+        <source>Moving (%1)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Moving (0)</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2142,6 +2594,10 @@
     </message>
     <message>
         <source>Availability</source>
+        <translation>Eskuragarritasuna</translation>
+    </message>
+    <message>
+        <source>Reannounce In</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2162,10 +2618,6 @@
     <message>
         <source>Message</source>
         <translation>Mezua</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation>Jeitsita</translation>
     </message>
     <message>
         <source>Tracker URL:</source>
@@ -2204,10 +2656,6 @@
         <translation>Kopiatu aztarnari URL-a</translation>
     </message>
     <message>
-        <source>Add a new tracker...</source>
-        <translation>Gehitu aztarnari berri bat...</translation>
-    </message>
-    <message>
         <source>Edit tracker URL...</source>
         <translation>Editatu aztarnari URL-a...</translation>
     </message>
@@ -2225,7 +2673,7 @@
     </message>
     <message>
         <source>Remaining</source>
-        <translation type="unfinished" />
+        <translation>Geratzen da</translation>
     </message>
     <message>
         <source>Availability</source>
@@ -2233,34 +2681,50 @@
     </message>
     <message>
         <source>Tier</source>
-        <translation type="unfinished" />
+        <translation>Maila</translation>
     </message>
     <message>
         <source>Download Priority</source>
-        <translation type="unfinished" />
+        <translation>Deskarga lehentasuna</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Izena</translation>
     </message>
     <message>
         <source>Progress</source>
+        <translation>Egoera</translation>
+    </message>
+    <message>
+        <source>Total Size</source>
+        <translation>Tamaina guztira</translation>
+    </message>
+    <message>
+        <source>Times Downloaded</source>
+        <translation>Zenbat aldiz deskargatuta:</translation>
+    </message>
+    <message>
+        <source>Add trackers...</source>
         <translation type="unfinished" />
     </message>
     <message>
-        <source>Size</source>
+        <source>Renamed</source>
         <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Jatorrizkoa</translation>
     </message>
 </context>
 <context>
     <name>TrackersAdditionDialog</name>
     <message>
-        <source>Trackers addition dialog</source>
-        <translation>Aztarnari gehitze elkarrizketa</translation>
-    </message>
-    <message>
         <source>List of trackers to add (one per line):</source>
         <translation>Gehitzeko aztarnarien zerrenda (bat lerroko):</translation>
+    </message>
+    <message>
+        <source>Add trackers</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2332,11 +2796,11 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (%2-(e)rako emaritua)</translation>
     </message>
     <message>
         <source>[F] Downloading metadata</source>
-        <translation type="unfinished" />
+        <translation>[F] Metadatuak deskargatzen</translation>
     </message>
 </context>
 <context>
@@ -2351,10 +2815,14 @@
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished" />
+        <translation>Etiketak</translation>
     </message>
     <message>
         <source>Trackers</source>
+        <translation>Jarraitzaileak</translation>
+    </message>
+    <message>
+        <source>Collapse/expand</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2386,11 +2854,6 @@
         <source>Pause</source>
         <comment>Pause the torrent</comment>
         <translation>Pausatu</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <comment>Delete the torrent</comment>
-        <translation>Ezabatu</translation>
     </message>
     <message>
         <source>Limit share ratio...</source>
@@ -2467,10 +2930,6 @@
         <translation>Jeitsi sekuentzialki</translation>
     </message>
     <message>
-        <source>Force Recheck</source>
-        <translation>Behartu Berregiaztapena</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Kategoria Berria</translation>
     </message>
@@ -2500,50 +2959,70 @@
     </message>
     <message>
         <source>Comma-separated tags:</source>
-        <translation type="unfinished" />
+        <translation>Komaz banandutako etiketak:</translation>
     </message>
     <message>
         <source>Add Tags</source>
-        <translation type="unfinished" />
+        <translation>Gehitu etiketak</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished" />
+        <translation>Etiketak</translation>
     </message>
     <message>
         <source>Magnet link</source>
-        <translation type="unfinished" />
+        <translation>Magnet esteka</translation>
     </message>
     <message>
         <source>Remove All</source>
-        <translation type="unfinished" />
+        <translation>Kendu guztiak</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Izena</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished" />
+        <translation>Kopiatu</translation>
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished" />
+        <translation>Ilara</translation>
     </message>
     <message>
         <source>Add...</source>
-        <translation type="unfinished" />
+        <translation>Gehitu...</translation>
     </message>
     <message>
         <source>Info hash v1</source>
-        <translation type="unfinished" />
+        <translation>Info hash v1</translation>
     </message>
     <message>
         <source>Info hash v2</source>
-        <translation type="unfinished" />
+        <translation>Info hash v2</translation>
     </message>
     <message>
         <source>Torrent ID</source>
+        <translation>Torrentaren ID</translation>
+    </message>
+    <message>
+        <source>Export .torrent</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Kendu</translation>
+    </message>
+    <message>
+        <source>Rename Files...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Renaming</source>
+        <translation>Berrizendapena</translation>
+    </message>
+    <message>
+        <source>Comment</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2570,8 +3049,12 @@
         <translation>maila</translation>
     </message>
     <message>
-        <source>minutes</source>
-        <translation>minutu</translation>
+        <source>total minutes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>inactive minutes</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2580,16 +3063,12 @@
 <context>
     <name>confirmDeletionDlg</name>
     <message>
-        <source>Deletion confirmation</source>
-        <translation>Ezabatze baieztapena</translation>
+        <source>Also permanently delete the files</source>
+        <translation type="unfinished" />
     </message>
     <message>
-        <source>Also delete the files on the hard disk</source>
-        <translation>Ezabatu agiriak diska gogorrean ere</translation>
-    </message>
-    <message>
-        <source>Deletion confirmation - qBittorrent</source>
-        <translation>Ezabapen baieztapena - qBittorrent</translation>
+        <source>Remove torrent(s)</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2676,7 +3155,7 @@
     </message>
     <message>
         <source>%1y %2d</source>
-        <translation type="unfinished" />
+        <translation>%1u %2e</translation>
     </message>
 </context>
 <context>
@@ -2744,10 +3223,6 @@
         <translation>Bilatu hemen:</translation>
     </message>
     <message>
-        <source>Results (showing</source>
-        <translation>Emaitzak (erakusten</translation>
-    </message>
-    <message>
         <source>Filter</source>
         <translation>Iragazkia</translation>
     </message>
@@ -2769,7 +3244,7 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished" />
+        <translation>Kontuz</translation>
     </message>
     <message>
         <source>Increase window width to display additional filters</source>
@@ -2777,6 +3252,22 @@
     </message>
     <message>
         <source>to</source>
+        <translation>hona</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Emaitzak</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Click the "Search plugins..." button at the bottom right of the window to install some.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>There aren't any search plugins installed.</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2862,72 +3353,72 @@
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished" />
+        <translation>Bai</translation>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished" />
+        <translation>Ez</translation>
     </message>
 </context>
 <context>
     <name>PeersAdditionDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished" />
+        <translation>Ezeztatu</translation>
     </message>
     <message>
         <source>Add Peers</source>
-        <translation type="unfinished" />
+        <translation>Gehitu parekoak</translation>
     </message>
     <message>
         <source>List of peers to add (one IP per line):</source>
-        <translation type="unfinished" />
+        <translation>Gehitzeko pareko zerrenda (IP bat lerroko):</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished" />
+        <translation>Ados</translation>
     </message>
     <message>
         <source>Format: IPv4:port / [IPv6]:port</source>
-        <translation type="unfinished" />
+        <translation>Formatua: IPv4:ataka / [IPv6]:ataka</translation>
     </message>
 </context>
 <context>
     <name>TagFilterWidget</name>
     <message>
         <source>New Tag</source>
-        <translation type="unfinished" />
+        <translation>Etiketa berria</translation>
     </message>
     <message>
         <source>Add tag...</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Delete torrents</source>
-        <translation type="unfinished" />
+        <translation>Gehitu etiketa...</translation>
     </message>
     <message>
         <source>Tag:</source>
-        <translation type="unfinished" />
+        <translation>Etiketa:</translation>
     </message>
     <message>
         <source>Pause torrents</source>
-        <translation type="unfinished" />
+        <translation>Pausatu torrentak</translation>
     </message>
     <message>
         <source>Resume torrents</source>
-        <translation type="unfinished" />
+        <translation>Berrekin torrentak</translation>
     </message>
     <message>
         <source>Remove unused tags</source>
-        <translation type="unfinished" />
+        <translation>Kendu erabili gabeko etiketak</translation>
     </message>
     <message>
         <source>Invalid tag name</source>
-        <translation type="unfinished" />
+        <translation>Etiketa izen baliogabea</translation>
     </message>
     <message>
         <source>Remove tag</source>
+        <translation>Kendu etiketa</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2935,504 +3426,521 @@
     <name>TagFilterModel</name>
     <message>
         <source>All</source>
-        <translation type="unfinished" />
+        <translation>Guztiak</translation>
     </message>
     <message>
         <source>Untagged</source>
-        <translation type="unfinished" />
+        <translation>Etiketarik gabe</translation>
     </message>
 </context>
 <context>
     <name>AboutDialog</name>
     <message>
         <source>Bug Tracker:</source>
-        <translation type="unfinished" />
+        <translation>Akats aztarnaria:</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished" />
+        <translation>Honi buruz</translation>
     </message>
     <message>
         <source>Forum:</source>
-        <translation type="unfinished" />
+        <translation>Foroa:</translation>
     </message>
     <message>
         <source>E-mail:</source>
-        <translation type="unfinished" />
+        <translation>E-posta:</translation>
     </message>
     <message>
         <source>Current maintainer</source>
-        <translation type="unfinished" />
+        <translation>Uneko mantentzailea</translation>
     </message>
     <message>
         <source>Home Page:</source>
-        <translation type="unfinished" />
+        <translation>Orri nagusia:</translation>
     </message>
     <message>
         <source>Greece</source>
-        <translation type="unfinished" />
+        <translation>Grezia</translation>
     </message>
     <message>
         <source>Special Thanks</source>
-        <translation type="unfinished" />
+        <translation>Esker bereziak</translation>
     </message>
     <message>
         <source>An advanced BitTorrent client programmed in C++, based on Qt toolkit and libtorrent-rasterbar.</source>
-        <translation type="unfinished" />
+        <translation>C++-rekin programatua dagoen BitTorrent bezero aurreratua, Qt toolkit eta libtorrent-rasterbar-en oinarrituta.</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished" />
+        <translation>Izena:</translation>
     </message>
     <message>
         <source>About qBittorrent</source>
-        <translation type="unfinished" />
+        <translation>qBittorrent-i buruz</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished" />
+        <translation>Lizentzia</translation>
     </message>
     <message>
         <source>Translators</source>
-        <translation type="unfinished" />
+        <translation>Itzultzaileak</translation>
     </message>
     <message>
         <source>qBittorrent was built with the following libraries:</source>
-        <translation type="unfinished" />
+        <translation>qBittorrent hurrengo liburutegiekin eraiki da:</translation>
     </message>
     <message>
         <source>Nationality:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished" />
+        <translation>Herritartasuna:</translation>
     </message>
     <message>
         <source>Software Used</source>
-        <translation type="unfinished" />
+        <translation>Erabilitako softwarea</translation>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
+        <translation>DB-IP-ren dohaineko IP Country Lite datu-baserako hartzaileen herrialdea erabakitzeko erabiltzen da. Datu-basea Creative Commons Attribution 4.0 Nazioarteko Baimena itunaren arabera dago baimendua</translation>
+    </message>
+    <message>
+        <source>Authors</source>
+        <translation>Egileak</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Frantzia</translation>
+    </message>
+    <message>
+        <source>qBittorrent Mascot</source>
         <translation type="unfinished" />
+    </message>
+    <message>
+        <source>qBittorrent icon</source>
+        <translation>qBittorrent ikonoa</translation>
     </message>
 </context>
 <context>
     <name>OptionDialog</name>
     <message>
         <source>All addresses</source>
-        <translation type="unfinished" />
+        <translation>Helbide guztiak</translation>
     </message>
     <message>
         <source>All IPv6 addresses</source>
-        <translation type="unfinished" />
+        <translation>IPv6 helbide guztiak</translation>
     </message>
     <message>
         <source>All IPv4 addresses</source>
-        <translation type="unfinished" />
+        <translation>IPv4 helbide guztiak</translation>
     </message>
 </context>
 <context>
     <name>SearchJobWidget</name>
     <message>
         <source>Copy</source>
-        <translation type="unfinished" />
+        <translation>Kopiatu</translation>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished" />
+        <translation>Deskarga</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished" />
+        <translation>Izena</translation>
     </message>
     <message>
         <source>Description page URL</source>
-        <translation type="unfinished" />
+        <translation>Deskribapen orriaren URLa</translation>
     </message>
     <message>
         <source>Open description page</source>
-        <translation type="unfinished" />
+        <translation>Ireki deskribapen orria</translation>
     </message>
     <message>
         <source>Download link</source>
-        <translation type="unfinished" />
+        <translation>Deskarga esteka</translation>
     </message>
 </context>
 <context>
     <name>TorrentContentTreeView</name>
     <message>
         <source>Renaming</source>
-        <translation type="unfinished" />
+        <translation>Berrizendapena</translation>
     </message>
     <message>
         <source>New name:</source>
-        <translation type="unfinished" />
+        <translation>Izen berria:</translation>
     </message>
 </context>
 <context>
     <name>RSSWidget</name>
     <message>
         <source>Date: </source>
-        <translation type="unfinished" />
+        <translation>Data:</translation>
     </message>
     <message>
         <source>Please choose a new name for this RSS feed</source>
-        <translation type="unfinished" />
+        <translation>Mesedez aukeratu izen berria RSS jariorako</translation>
     </message>
     <message>
         <source>Please choose a folder name</source>
-        <translation type="unfinished" />
+        <translation>Mesedez aukeratu karpeta izen bat</translation>
     </message>
     <message>
         <source>New feed name:</source>
-        <translation type="unfinished" />
+        <translation>Jario izen berria:</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished" />
+        <translation>Eguneratu guztia</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished" />
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <source>RSS Downloader...</source>
-        <translation type="unfinished" />
+        <translation>RSS deskargatzailea...</translation>
     </message>
     <message>
         <source>Mark items read</source>
-        <translation type="unfinished" />
+        <translation>Markatu elementuak irakurritzat</translation>
     </message>
     <message>
         <source>Update all feeds</source>
-        <translation type="unfinished" />
+        <translation>Eguneratu jario guztiak</translation>
     </message>
     <message>
         <source>Copy feed URL</source>
-        <translation type="unfinished" />
+        <translation>Kopiatu jarioaren URLa</translation>
     </message>
     <message>
         <source>Torrents: (double-click to download)</source>
-        <translation type="unfinished" />
+        <translation>Torrentak: (klik bikoitza deskargatzeko)</translation>
     </message>
     <message>
         <source>Open news URL</source>
-        <translation type="unfinished" />
+        <translation>Ireki berrien URLa</translation>
     </message>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished" />
+        <translation>Berrizendatu...</translation>
     </message>
     <message>
         <source>Feed URL:</source>
-        <translation type="unfinished" />
+        <translation>Jarioaren URLa:</translation>
     </message>
     <message>
         <source>New folder...</source>
-        <translation type="unfinished" />
+        <translation>Karpeta berria...</translation>
     </message>
     <message>
         <source>New subscription</source>
-        <translation type="unfinished" />
+        <translation>Harpidetza berria</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>Eguneratu</translation>
     </message>
     <message>
         <source>Folder name:</source>
-        <translation type="unfinished" />
+        <translation>Karpetaren izena:</translation>
     </message>
     <message>
         <source>Please type a RSS feed URL</source>
-        <translation type="unfinished" />
+        <translation>Mesedez idatzi RSS jario URL bat</translation>
     </message>
     <message>
         <source>Fetching of RSS feeds is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>RSS jarioak lortzea ezgaituta dago orain! Aplikazioaren ezarpenetan gaitu dezakezu.</translation>
     </message>
     <message>
         <source>Deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Ezabatze berrespena</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the selected RSS feeds?</source>
-        <translation type="unfinished" />
+        <translation>Ziur zaude hautatutako RSS jarioak ezabatu nahi dituzula?</translation>
     </message>
     <message>
         <source>New subscription...</source>
-        <translation type="unfinished" />
+        <translation>Harpidetza berria...</translation>
     </message>
     <message>
         <source>Download torrent</source>
-        <translation type="unfinished" />
+        <translation>Deskargatu torrenta</translation>
     </message>
 </context>
 <context>
     <name>AutomatedRssDownloader</name>
     <message>
         <source>Download Rules</source>
-        <translation type="unfinished" />
+        <translation>Deskarga arauak</translation>
     </message>
     <message>
         <source>Matching RSS Articles</source>
-        <translation type="unfinished" />
+        <translation>Bat datozen RSS artikuluak</translation>
     </message>
     <message>
         <source>* to match zero or more of any characters</source>
-        <translation type="unfinished" />
+        <translation>* zero edo karaktere gehiago bat-etortzeko</translation>
     </message>
     <message>
         <source> will match all articles.</source>
-        <translation type="unfinished" />
+        <translation>bat etorriko da artikulu guztiekin.</translation>
     </message>
     <message>
         <source>Episode filter rules: </source>
-        <translation type="unfinished" />
+        <translation>Atal iragazki arauak:</translation>
     </message>
     <message>
         <source>Auto downloading of RSS torrents is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>RSS bidezko torrenten deskarga ezgaituta dago orain! Aplikazioaren ezarpenetan gaitu dezakezu.</translation>
     </message>
     <message>
         <source>Rule Definition</source>
-        <translation type="unfinished" />
+        <translation>Arauen definizioa</translation>
     </message>
     <message>
         <source>Save to:</source>
-        <translation type="unfinished" />
+        <translation>Gorde hemen:</translation>
     </message>
     <message>
         <source>Use Regular Expressions</source>
-        <translation type="unfinished" />
+        <translation>Erabili adierazpen erregularrak</translation>
     </message>
     <message>
         <source>New rule name</source>
-        <translation type="unfinished" />
+        <translation>Arau izen berria</translation>
     </message>
     <message>
         <source>Filter must end with semicolon</source>
-        <translation type="unfinished" />
+        <translation>Iragazkia puntu eta komaz amaitu behar da</translation>
     </message>
     <message>
         <source>? to match any single character</source>
-        <translation type="unfinished" />
+        <translation>? edozein karaketere bakun bat-etortzeko</translation>
     </message>
     <message>
         <source>Matches articles based on episode filter.</source>
-        <translation type="unfinished" />
+        <translation>Atal iragazkiaren arabera artikuluak bat-etortzen ditu.</translation>
     </message>
     <message>
         <source>Assign Category:</source>
-        <translation type="unfinished" />
+        <translation>Esleitu kategoria:</translation>
     </message>
     <message>
         <source>Regex mode: use Perl-compatible regular expressions</source>
-        <translation type="unfinished" />
+        <translation>Regex modua: erabili Perl bezalako adierazpen erregularrak</translation>
     </message>
     <message>
         <source>| is used as OR operator</source>
-        <translation type="unfinished" />
+        <translation>| OR eragile gisa erabiltzen da</translation>
     </message>
     <message>
         <source>Clear downloaded episodes</source>
-        <translation type="unfinished" />
+        <translation>Garbitu deskargatutako atalak</translation>
     </message>
     <message>
         <source>Whitespaces count as AND operators (all words, any order)</source>
-        <translation type="unfinished" />
+        <translation>Zuriuneak AND eragile bezala hartzen dira kontuan (hitz guztiak, edozein orden)</translation>
     </message>
     <message>
         <source>An expression with an empty %1 clause (e.g. %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 klausula hutsa duen adierazpen bat (adib. %2)</translation>
     </message>
     <message>
         <source>Example: </source>
-        <translation type="unfinished" />
+        <translation>Adibidea:</translation>
     </message>
     <message>
         <source>Add new rule...</source>
-        <translation type="unfinished" />
+        <translation>Gehitu arau berria...</translation>
     </message>
     <message>
         <source>Are you sure you want to clear the list of downloaded episodes for the selected rule?</source>
-        <translation type="unfinished" />
+        <translation>Ziur zaude hautatutako araurako deskargatutako atalen zerrenda garbitu nahi dituzula?</translation>
     </message>
     <message>
         <source>Must Contain:</source>
-        <translation type="unfinished" />
+        <translation>Eduki behar du:</translation>
     </message>
     <message>
         <source>Infinite range: &lt;b&gt;1x25-;&lt;/b&gt; matches episodes 25 and upward of season one, and all episodes of later seasons</source>
-        <translation type="unfinished" />
+        <translation>Eremu mugagabea: &lt;b&gt;1x25-;&lt;/b&gt; lehen denboraldiko 25. atala eta aurreranzkoak, eta ondorengo denboraldietako atal guztiak bat datoz</translation>
     </message>
     <message>
         <source>Save to a Different Directory</source>
-        <translation type="unfinished" />
+        <translation>Gorde beste direktorio batean</translation>
     </message>
     <message>
         <source>Must Not Contain:</source>
-        <translation type="unfinished" />
+        <translation>Ez du eduki behar:</translation>
     </message>
     <message>
         <source>Single number: &lt;b&gt;1x25;&lt;/b&gt; matches episode 25 of season one</source>
-        <translation type="unfinished" />
+        <translation>Zenbaki bakarra: &lt;b&gt;1x25;&lt;/b&gt; lehen denboraldiko 25. atala bat-etortzen du</translation>
     </message>
     <message>
         <source>Three range types for episodes are supported: </source>
-        <translation type="unfinished" />
+        <translation>Hiru tarte mota onartzen dira atalentzat:</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the selected download rules?</source>
-        <translation type="unfinished" />
+        <translation>Ziur zaude hautatutako deskarga arauak kendu nahi dituzula?</translation>
     </message>
     <message>
         <source>Use global settings</source>
-        <translation type="unfinished" />
+        <translation>Erabili ezarpen orokorrak</translation>
     </message>
     <message>
         <source>Normal range: &lt;b&gt;1x25-40;&lt;/b&gt; matches episodes 25 through 40 of season one</source>
-        <translation type="unfinished" />
+        <translation>Eremu arrunta: &lt;b&gt;1x25-40;&lt;/b&gt; lehen denboraldiko 25etik 40ra artean bat-etortzen du</translation>
     </message>
     <message>
         <source>Please type the new rule name</source>
-        <translation type="unfinished" />
+        <translation>Mesedez idatzi arau berriaren izena</translation>
     </message>
     <message>
         <source>Rule renaming</source>
-        <translation type="unfinished" />
+        <translation>Arauen berrizendapena</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished" />
+        <translation>Beti</translation>
     </message>
     <message>
         <source>Episode number is a mandatory positive value</source>
-        <translation type="unfinished" />
+        <translation>Atal zenbakia balio positiboa izan behar da</translation>
     </message>
     <message>
         <source> will match 2, 5, 8 through 15, 30 and onward episodes of season one</source>
-        <translation type="unfinished" />
+        <translation>2, 5, 8tik 15era, 30 eta denboraldiko hurrengo atalak bat-etorriko dira</translation>
     </message>
     <message>
         <source>Rule deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Arau ezabapen berrespena</translation>
     </message>
     <message>
         <source>Last Match: %1 days ago</source>
-        <translation type="unfinished" />
+        <translation>Azken bat-etortzea: duela %1 egun</translation>
     </message>
     <message>
         <source>Episode Filter:</source>
-        <translation type="unfinished" />
+        <translation>Atal iragazkia:</translation>
     </message>
     <message>
         <source>Rss Downloader</source>
-        <translation type="unfinished" />
+        <translation>Rss deskargatzailea</translation>
     </message>
     <message>
         <source>Season number is a mandatory non-zero value</source>
-        <translation type="unfinished" />
+        <translation>Denboraldiaren zenbakia ezin da huts balioa izan</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished" />
+        <translation>Inoiz</translation>
     </message>
     <message>
         <source>Apply Rule to Feeds:</source>
-        <translation type="unfinished" />
+        <translation>Ezarri arauak jarioei</translation>
     </message>
     <message>
         <source> days</source>
-        <translation type="unfinished" />
+        <translation>egun</translation>
     </message>
     <message>
         <source>Use Smart Episode Filter</source>
-        <translation type="unfinished" />
+        <translation>Erabili atalen iragazki adimenduna</translation>
     </message>
     <message>
         <source>If word order is important use * instead of whitespace.</source>
-        <translation type="unfinished" />
+        <translation>Hitzen ordena garrantzitsua bada erabili * zuriunearen ordez.</translation>
     </message>
     <message>
         <source>Add Paused:</source>
-        <translation type="unfinished" />
+        <translation>Gehitu pausatuta:</translation>
     </message>
     <message>
         <source>Please type the name of the new download rule.</source>
-        <translation type="unfinished" />
+        <translation>Mesedez idatzi deskarga-arau berriaren izena.</translation>
     </message>
     <message>
         <source>Wildcard mode: you can use</source>
-        <translation type="unfinished" />
+        <translation>Komodin modua: erabili dezakezu</translation>
     </message>
     <message>
         <source> will exclude all articles.</source>
-        <translation type="unfinished" />
+        <translation>artikulu guztiak baztertuko ditu.</translation>
     </message>
     <message>
         <source>Delete rule</source>
-        <translation type="unfinished" />
+        <translation>Ezabatu araua</translation>
     </message>
     <message>
         <source>Ignore Subsequent Matches for (0 to Disable)</source>
-        <translation type="unfinished" />
+        <translation>Ezikusi hurrengo bat-etortzeak honentzat (0 desgaitzeko)</translation>
     </message>
     <message>
         <source>Rename rule...</source>
-        <translation type="unfinished" />
+        <translation>Berrizendatze araua...</translation>
     </message>
     <message>
         <source>Last Match: Unknown</source>
-        <translation type="unfinished" />
+        <translation>Azken bat-etortzea: ezezaguna</translation>
     </message>
     <message>
         <source>Clear downloaded episodes...</source>
-        <translation type="unfinished" />
+        <translation>Garbitu deskargatutako atalak...</translation>
     </message>
     <message>
         <source>Smart Episode Filter will check the episode number to prevent downloading of duplicates.
 Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also support - as a separator)</source>
-        <translation type="unfinished" />
+        <translation>Atal Adimentsu Iragazkiak atal zenbakia egiaztatuko du bikoiztuak jeistea saihesteko.
+Sostengatutako heuskarriak: S01E01, 1x1, 2017.12.31 eta 31.12.2017 (Data heuskarriek - ere sostengatzen dute banantzaile bezala)</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Torrent edukiaren antolakuntza:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Sortu azpikarpeta</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Jatorrizkoa</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
+        <translation>Ez sortu azpikarpeta</translation>
+    </message>
+    <message>
+        <source>Add Tags:</source>
         <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
     <message>
-        <source>Delete torrents</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Resume torrents</source>
-        <translation type="unfinished" />
+        <translation>Berrekin torrentak</translation>
     </message>
     <message>
         <source>All (%1)</source>
-        <translation type="unfinished" />
+        <translation>Denak (%1)</translation>
     </message>
     <message>
         <source>Trackerless (%1)</source>
-        <translation type="unfinished" />
+        <translation>Jarraitzailerik gabe (%1)</translation>
     </message>
     <message>
         <source>Pause torrents</source>
+        <translation>Pausatu torrentak</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -3440,10 +3948,145 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <name>FeedListWidget</name>
     <message>
         <source>RSS feeds</source>
-        <translation type="unfinished" />
+        <translation>RSS jarioak</translation>
     </message>
     <message>
         <source>Unread</source>
+        <translation>Irakurri gabe</translation>
+    </message>
+</context>
+<context>
+    <name>ExecutionLogWidget</name>
+    <message>
+        <source>General</source>
+        <translation>Orokorra</translation>
+    </message>
+    <message>
+        <source>Blocked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Ezezaguna</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Guztiak</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopiatu</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Hautatu Denak</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log Type</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Garbitu</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Kontuz</translation>
+    </message>
+    <message>
+        <source>Information Messages</source>
+        <translation>Argibide Mezuak</translation>
+    </message>
+    <message>
+        <source>Warning Messages</source>
+        <translation>Kontuz Mezuak</translation>
+    </message>
+    <message>
+        <source>Filter logs</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blocked IPs</source>
+        <translation>Blokeatutako IP-ak</translation>
+    </message>
+    <message>
+        <source>out of</source>
+        <translation>kanpo -&gt;</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Egoera</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Mezua</translation>
+    </message>
+    <message>
+        <source>Log Levels:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Reason</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>item</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP-a</translation>
+    </message>
+    <message>
+        <source>Banned</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Normal Messages</source>
+        <translation>Mezu Arruntak</translation>
+    </message>
+    <message>
+        <source>Critical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Critical Messages</source>
+        <translation>Larrialdi Mezuak</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Arrunta</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Emaitzak</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Choose a log level...</source>
         <translation type="unfinished" />
     </message>
 </context>

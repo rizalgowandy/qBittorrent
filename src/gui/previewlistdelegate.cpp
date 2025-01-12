@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2023  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2006  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -30,13 +31,12 @@
 
 #include <QModelIndex>
 #include <QPainter>
-#include <QStyleOptionViewItem>
 
-#include "base/utils/misc.h"
+#include "base/utils/string.h"
 #include "previewselectdialog.h"
 
 PreviewListDelegate::PreviewListDelegate(QObject *parent)
-    : QItemDelegate(parent)
+    : QStyledItemDelegate(parent)
 {
 }
 
@@ -44,28 +44,21 @@ void PreviewListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     painter->save();
 
-    QStyleOptionViewItem opt = QItemDelegate::setOptions(index, option);
-    drawBackground(painter, opt, index);
-
     switch (index.column())
     {
-    case PreviewSelectDialog::SIZE:
-        QItemDelegate::drawDisplay(painter, opt, option.rect, Utils::Misc::friendlyUnit(index.data().toLongLong()));
-        break;
-
     case PreviewSelectDialog::PROGRESS:
         {
             const qreal progress = (index.data().toReal() * 100);
             const QString text = (progress >= 100)
-                ? QString::fromLatin1("100%")
-                : (Utils::String::fromDouble(progress, 1) + '%');
+                ? u"100%"_s
+                : (Utils::String::fromDouble(progress, 1) + u'%');
 
             m_progressBarPainter.paint(painter, option, text, static_cast<int>(progress));
         }
         break;
 
     default:
-        QItemDelegate::paint(painter, option, index);
+        QStyledItemDelegate::paint(painter, option, index);
         break;
     }
 

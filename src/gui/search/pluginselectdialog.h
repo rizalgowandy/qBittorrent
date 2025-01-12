@@ -57,7 +57,7 @@ public:
     explicit PluginSelectDialog(SearchPluginManager *pluginManager, QWidget *parent = nullptr);
     ~PluginSelectDialog() override;
 
-    QVector<QTreeWidgetItem*> findItemsWithUrl(const QString &url);
+    QList<QTreeWidgetItem*> findItemsWithUrl(const QString &url);
     QTreeWidgetItem *findItemWithID(const QString &id);
 
 protected:
@@ -71,7 +71,7 @@ private slots:
     void on_closeButton_clicked();
     void togglePluginState(QTreeWidgetItem*, int);
     void setRowColor(int row, const QString &color);
-    void displayContextMenu(const QPoint &);
+    void displayContextMenu();
     void enableSelection(bool enable);
     void askForLocalPlugin();
     void askForPluginUrl();
@@ -91,9 +91,9 @@ private:
     void finishAsyncOp();
     void finishPluginUpdate();
 
-    Ui::PluginSelectDialog *m_ui;
+    Ui::PluginSelectDialog *m_ui = nullptr;
     SettingValue<QSize> m_storeDialogSize;
-    SearchPluginManager *m_pluginManager;
+    SearchPluginManager *m_pluginManager = nullptr;
     QStringList m_updatedPlugins;
     int m_asyncOps = 0;
     int m_pendingUpdates = 0;

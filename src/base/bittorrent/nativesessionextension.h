@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2020  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2020-2022  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -29,16 +29,28 @@
 #pragma once
 
 #include <libtorrent/extensions.hpp>
+#include <libtorrent/fwd.hpp>
+#include <libtorrent/session_handle.hpp>
+
+#include <QReadWriteLock>
+
+#include "extensiondata.h"
 
 class NativeSessionExtension final : public lt::plugin
 {
-#ifdef QBT_USES_LIBTORRENT2
-    using ClientData = lt::client_data_t;
-#else
-    using ClientData = void *;
-#endif
+public:
+    bool isSessionListening() const;
 
+private:
+    void added(const lt::session_handle &nativeSession) override;
     lt::feature_flags_t implemented_features() override;
-    std::shared_ptr<lt::torrent_plugin> new_torrent(const lt::torrent_handle &torrentHandle, ClientData) override;
+    std::shared_ptr<lt::torrent_plugin> new_torrent(const lt::torrent_handle &torrentHandle, LTClientData clientData) override;
     void on_alert(const lt::alert *alert) override;
+
+    void handleSessionStatsAlert(const lt::session_stats_alert *alert);
+
+    lt::session_handle m_nativeSession;
+
+    mutable QReadWriteLock m_lock;
+    bool m_isSessionListening = false;
 };

@@ -28,7 +28,7 @@
 
 #include "autoexpandabledialog.h"
 
-#include "base/utils/fs.h"
+#include "base/path.h"
 #include "ui_autoexpandabledialog.h"
 #include "utils.h"
 
@@ -37,6 +37,9 @@ AutoExpandableDialog::AutoExpandableDialog(QWidget *parent)
     , m_ui(new Ui::AutoExpandableDialog)
 {
     m_ui->setupUi(this);
+
+    connect(m_ui->buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(m_ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 AutoExpandableDialog::~AutoExpandableDialog()
@@ -58,9 +61,9 @@ QString AutoExpandableDialog::getText(QWidget *parent, const QString &title, con
     d.m_ui->textEdit->selectAll();
     if (excludeExtension)
     {
-        const QString extension = Utils::Fs::fileExtension(text);
+        const QString extension = Path(text).extension();
         if (!extension.isEmpty())
-            d.m_ui->textEdit->setSelection(0, (text.length() - extension.length() - 1));
+            d.m_ui->textEdit->setSelection(0, (text.length() - extension.length()));
     }
 
     bool res = d.exec();
@@ -101,6 +104,6 @@ void AutoExpandableDialog::showEvent(QShowEvent *e)
     if (wd > width())
     {
         QSize size = {width() - m_ui->verticalLayout->sizeHint().width() + wd, height()};
-        Utils::Gui::resize(this, size);
+        resize(size);
     }
 }

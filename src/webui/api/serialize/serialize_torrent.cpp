@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2018  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2018-2023  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -29,13 +29,15 @@
 #include "serialize_torrent.h"
 
 #include <QDateTime>
-#include <QVector>
+#include <QList>
 
 #include "base/bittorrent/infohash.h"
 #include "base/bittorrent/torrent.h"
-#include "base/bittorrent/trackerentry.h"
+#include "base/bittorrent/trackerentrystatus.h"
+#include "base/path.h"
 #include "base/tagset.h"
-#include "base/utils/fs.h"
+#include "base/utils/datetime.h"
+#include "base/utils/string.h"
 
 namespace
 {
@@ -44,43 +46,43 @@ namespace
         switch (state)
         {
         case BitTorrent::TorrentState::Error:
-            return QLatin1String("error");
+            return u"error"_s;
         case BitTorrent::TorrentState::MissingFiles:
-            return QLatin1String("missingFiles");
+            return u"missingFiles"_s;
         case BitTorrent::TorrentState::Uploading:
-            return QLatin1String("uploading");
-        case BitTorrent::TorrentState::PausedUploading:
-            return QLatin1String("pausedUP");
+            return u"uploading"_s;
+        case BitTorrent::TorrentState::StoppedUploading:
+            return u"stoppedUP"_s;
         case BitTorrent::TorrentState::QueuedUploading:
-            return QLatin1String("queuedUP");
+            return u"queuedUP"_s;
         case BitTorrent::TorrentState::StalledUploading:
-            return QLatin1String("stalledUP");
+            return u"stalledUP"_s;
         case BitTorrent::TorrentState::CheckingUploading:
-            return QLatin1String("checkingUP");
+            return u"checkingUP"_s;
         case BitTorrent::TorrentState::ForcedUploading:
-            return QLatin1String("forcedUP");
+            return u"forcedUP"_s;
         case BitTorrent::TorrentState::Downloading:
-            return QLatin1String("downloading");
+            return u"downloading"_s;
         case BitTorrent::TorrentState::DownloadingMetadata:
-            return QLatin1String("metaDL");
+            return u"metaDL"_s;
         case BitTorrent::TorrentState::ForcedDownloadingMetadata:
-            return QLatin1String("forcedMetaDL");
-        case BitTorrent::TorrentState::PausedDownloading:
-            return QLatin1String("pausedDL");
+            return u"forcedMetaDL"_s;
+        case BitTorrent::TorrentState::StoppedDownloading:
+            return u"stoppedDL"_s;
         case BitTorrent::TorrentState::QueuedDownloading:
-            return QLatin1String("queuedDL");
+            return u"queuedDL"_s;
         case BitTorrent::TorrentState::StalledDownloading:
-            return QLatin1String("stalledDL");
+            return u"stalledDL"_s;
         case BitTorrent::TorrentState::CheckingDownloading:
-            return QLatin1String("checkingDL");
+            return u"checkingDL"_s;
         case BitTorrent::TorrentState::ForcedDownloading:
-            return QLatin1String("forcedDL");
+            return u"forcedDL"_s;
         case BitTorrent::TorrentState::CheckingResumeData:
-            return QLatin1String("checkingResumeData");
+            return u"checkingResumeData"_s;
         case BitTorrent::TorrentState::Moving:
-            return QLatin1String("moving");
+            return u"moving"_s;
         default:
-            return QLatin1String("unknown");
+            return u"unknown"_s;
         }
     }
 }
@@ -95,6 +97,14 @@ QVariantMap serialize(const BitTorrent::Torrent &torrent)
     const auto adjustRatio = [](const qreal ratio) -> qreal
     {
         return (ratio > BitTorrent::Torrent::MAX_RATIO) ? -1 : ratio;
+    };
+
+    const auto getLastActivityTime = [&torrent]() -> qlonglong
+    {
+        const qlonglong timeSinceActivity = torrent.timeSinceActivity();
+        return (timeSinceActivity < 0)
+            ? Utils::DateTime::toSecsSinceEpoch(torrent.addedTime())
+            : (QDateTime::currentSecsSinceEpoch() - timeSinceActivity);
     };
 
     return {
@@ -119,13 +129,15 @@ QVariantMap serialize(const BitTorrent::Torrent &torrent)
         {KEY_TORRENT_FIRST_LAST_PIECE_PRIO, torrent.hasFirstLastPiecePriority()},
 
         {KEY_TORRENT_CATEGORY, torrent.category()},
-        {KEY_TORRENT_TAGS, torrent.tags().join(QLatin1String(", "))},
+        {KEY_TORRENT_TAGS, Utils::String::joinIntoString(torrent.tags(), u", "_s)},
         {KEY_TORRENT_SUPER_SEEDING, torrent.superSeeding()},
         {KEY_TORRENT_FORCE_START, torrent.isForced()},
-        {KEY_TORRENT_SAVE_PATH, Utils::Fs::toNativePath(torrent.savePath())},
-        {KEY_TORRENT_CONTENT_PATH, Utils::Fs::toNativePath(torrent.contentPath())},
-        {KEY_TORRENT_ADDED_ON, torrent.addedTime().toSecsSinceEpoch()},
-        {KEY_TORRENT_COMPLETION_ON, torrent.completedTime().toSecsSinceEpoch()},
+        {KEY_TORRENT_SAVE_PATH, torrent.savePath().toString()},
+        {KEY_TORRENT_DOWNLOAD_PATH, torrent.downloadPath().toString()},
+        {KEY_TORRENT_CONTENT_PATH, torrent.contentPath().toString()},
+        {KEY_TORRENT_ROOT_PATH, torrent.rootPath().toString()},
+        {KEY_TORRENT_ADDED_ON, Utils::DateTime::toSecsSinceEpoch(torrent.addedTime())},
+        {KEY_TORRENT_COMPLETION_ON, Utils::DateTime::toSecsSinceEpoch(torrent.completedTime())},
         {KEY_TORRENT_TRACKER, torrent.currentTracker()},
         {KEY_TORRENT_TRACKERS_COUNT, torrent.trackers().size()},
         {KEY_TORRENT_DL_LIMIT, torrent.downloadLimit()},
@@ -138,16 +150,22 @@ QVariantMap serialize(const BitTorrent::Torrent &torrent)
         {KEY_TORRENT_AMOUNT_COMPLETED, torrent.completedSize()},
         {KEY_TORRENT_MAX_RATIO, torrent.maxRatio()},
         {KEY_TORRENT_MAX_SEEDING_TIME, torrent.maxSeedingTime()},
+        {KEY_TORRENT_MAX_INACTIVE_SEEDING_TIME, torrent.maxInactiveSeedingTime()},
         {KEY_TORRENT_RATIO, adjustRatio(torrent.realRatio())},
         {KEY_TORRENT_RATIO_LIMIT, torrent.ratioLimit()},
+        {KEY_TORRENT_POPULARITY, torrent.popularity()},
         {KEY_TORRENT_SEEDING_TIME_LIMIT, torrent.seedingTimeLimit()},
-        {KEY_TORRENT_LAST_SEEN_COMPLETE_TIME, torrent.lastSeenComplete().toSecsSinceEpoch()},
+        {KEY_TORRENT_INACTIVE_SEEDING_TIME_LIMIT, torrent.inactiveSeedingTimeLimit()},
+        {KEY_TORRENT_LAST_SEEN_COMPLETE_TIME, Utils::DateTime::toSecsSinceEpoch(torrent.lastSeenComplete())},
         {KEY_TORRENT_AUTO_TORRENT_MANAGEMENT, torrent.isAutoTMMEnabled()},
         {KEY_TORRENT_TIME_ACTIVE, torrent.activeTime()},
-        {KEY_TORRENT_SEEDING_TIME, torrent.seedingTime()},
-        {KEY_TORRENT_LAST_ACTIVITY_TIME, (QDateTime::currentDateTime().toSecsSinceEpoch() - torrent.timeSinceActivity())},
+        {KEY_TORRENT_SEEDING_TIME, torrent.finishedTime()},
+        {KEY_TORRENT_LAST_ACTIVITY_TIME, getLastActivityTime()},
         {KEY_TORRENT_AVAILABILITY, torrent.distributedCopies()},
-
-        {KEY_TORRENT_TOTAL_SIZE, torrent.totalSize()}
+        {KEY_TORRENT_REANNOUNCE, torrent.nextAnnounce()},
+        {KEY_TORRENT_COMMENT, torrent.comment()},
+        {KEY_TORRENT_PRIVATE, (torrent.hasMetadata() ? torrent.isPrivate() : QVariant())},
+        {KEY_TORRENT_TOTAL_SIZE, torrent.totalSize()},
+        {KEY_TORRENT_HAS_METADATA, torrent.hasMetadata()}
     };
 }

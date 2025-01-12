@@ -31,38 +31,42 @@
 #include "bittorrent/infohash.h"
 #include "bittorrent/torrent.h"
 
-const QString TorrentFilter::AnyCategory;
-const TorrentIDSet TorrentFilter::AnyID {{}};
-const QString TorrentFilter::AnyTag;
+const std::optional<QString> TorrentFilter::AnyCategory;
+const std::optional<TorrentIDSet> TorrentFilter::AnyID;
+const std::optional<Tag> TorrentFilter::AnyTag;
 
 const TorrentFilter TorrentFilter::DownloadingTorrent(TorrentFilter::Downloading);
 const TorrentFilter TorrentFilter::SeedingTorrent(TorrentFilter::Seeding);
 const TorrentFilter TorrentFilter::CompletedTorrent(TorrentFilter::Completed);
-const TorrentFilter TorrentFilter::PausedTorrent(TorrentFilter::Paused);
-const TorrentFilter TorrentFilter::ResumedTorrent(TorrentFilter::Resumed);
+const TorrentFilter TorrentFilter::StoppedTorrent(TorrentFilter::Stopped);
+const TorrentFilter TorrentFilter::RunningTorrent(TorrentFilter::Running);
 const TorrentFilter TorrentFilter::ActiveTorrent(TorrentFilter::Active);
 const TorrentFilter TorrentFilter::InactiveTorrent(TorrentFilter::Inactive);
 const TorrentFilter TorrentFilter::StalledTorrent(TorrentFilter::Stalled);
 const TorrentFilter TorrentFilter::StalledUploadingTorrent(TorrentFilter::StalledUploading);
 const TorrentFilter TorrentFilter::StalledDownloadingTorrent(TorrentFilter::StalledDownloading);
 const TorrentFilter TorrentFilter::CheckingTorrent(TorrentFilter::Checking);
+const TorrentFilter TorrentFilter::MovingTorrent(TorrentFilter::Moving);
 const TorrentFilter TorrentFilter::ErroredTorrent(TorrentFilter::Errored);
 
 using BitTorrent::Torrent;
 
-TorrentFilter::TorrentFilter(const Type type, const TorrentIDSet &idSet, const QString &category, const QString &tag)
-    : m_type(type)
-    , m_category(category)
-    , m_tag(tag)
-    , m_idSet(idSet)
+TorrentFilter::TorrentFilter(const Type type, const std::optional<TorrentIDSet> &idSet
+        , const std::optional<QString> &category, const std::optional<Tag> &tag, const std::optional<bool> isPrivate)
+    : m_type {type}
+    , m_category {category}
+    , m_tag {tag}
+    , m_idSet {idSet}
+    , m_private {isPrivate}
 {
 }
 
-TorrentFilter::TorrentFilter(const QString &filter, const TorrentIDSet &idSet, const QString &category, const QString &tag)
-    : m_type(All)
-    , m_category(category)
-    , m_tag(tag)
-    , m_idSet(idSet)
+TorrentFilter::TorrentFilter(const QString &filter, const std::optional<TorrentIDSet> &idSet
+        , const std::optional<QString> &category, const std::optional<Tag> &tag, const std::optional<bool> isPrivate)
+    : m_category {category}
+    , m_tag {tag}
+    , m_idSet {idSet}
+    , m_private {isPrivate}
 {
     setTypeByName(filter);
 }
@@ -82,35 +86,37 @@ bool TorrentFilter::setTypeByName(const QString &filter)
 {
     Type type = All;
 
-    if (filter == "downloading")
+    if (filter == u"downloading")
         type = Downloading;
-    else if (filter == "seeding")
+    else if (filter == u"seeding")
         type = Seeding;
-    else if (filter == "completed")
+    else if (filter == u"completed")
         type = Completed;
-    else if (filter == "paused")
-        type = Paused;
-    else if (filter == "resumed")
-        type = Resumed;
-    else if (filter == "active")
+    else if (filter == u"stopped")
+        type = Stopped;
+    else if (filter == u"running")
+        type = Running;
+    else if (filter == u"active")
         type = Active;
-    else if (filter == "inactive")
+    else if (filter == u"inactive")
         type = Inactive;
-    else if (filter == "stalled")
+    else if (filter == u"stalled")
         type = Stalled;
-    else if (filter == "stalled_uploading")
+    else if (filter == u"stalled_uploading")
         type = StalledUploading;
-    else if (filter == "stalled_downloading")
+    else if (filter == u"stalled_downloading")
         type = StalledDownloading;
-    else if (filter == "checking")
+    else if (filter == u"checking")
         type = Checking;
-    else if (filter == "errored")
+    else if (filter == u"moving")
+        type = Moving;
+    else if (filter == u"errored")
         type = Errored;
 
     return setType(type);
 }
 
-bool TorrentFilter::setTorrentIDSet(const TorrentIDSet &idSet)
+bool TorrentFilter::setTorrentIDSet(const std::optional<TorrentIDSet> &idSet)
 {
     if (m_idSet != idSet)
     {
@@ -121,13 +127,10 @@ bool TorrentFilter::setTorrentIDSet(const TorrentIDSet &idSet)
     return false;
 }
 
-bool TorrentFilter::setCategory(const QString &category)
+bool TorrentFilter::setCategory(const std::optional<QString> &category)
 {
-    // QString::operator==() doesn't distinguish between empty and null strings.
-    if ((m_category != category)
-            || (m_category.isNull() && !category.isNull())
-            || (!m_category.isNull() && category.isNull()))
-            {
+    if (m_category != category)
+    {
         m_category = category;
         return true;
     }
@@ -135,14 +138,22 @@ bool TorrentFilter::setCategory(const QString &category)
     return false;
 }
 
-bool TorrentFilter::setTag(const QString &tag)
+bool TorrentFilter::setTag(const std::optional<Tag> &tag)
 {
-    // QString::operator==() doesn't distinguish between empty and null strings.
-    if ((m_tag != tag)
-        || (m_tag.isNull() && !tag.isNull())
-        || (!m_tag.isNull() && tag.isNull()))
-        {
+    if (m_tag != tag)
+    {
         m_tag = tag;
+        return true;
+    }
+
+    return false;
+}
+
+bool TorrentFilter::setPrivate(const std::optional<bool> isPrivate)
+{
+    if (m_private != isPrivate)
+    {
+        m_private = isPrivate;
         return true;
     }
 
@@ -153,11 +164,13 @@ bool TorrentFilter::match(const Torrent *const torrent) const
 {
     if (!torrent) return false;
 
-    return (matchState(torrent) && matchHash(torrent) && matchCategory(torrent) && matchTag(torrent));
+    return (matchState(torrent) && matchHash(torrent) && matchCategory(torrent) && matchTag(torrent) && matchPrivate(torrent));
 }
 
 bool TorrentFilter::matchState(const BitTorrent::Torrent *const torrent) const
 {
+    const BitTorrent::TorrentState state = torrent->state();
+
     switch (m_type)
     {
     case All:
@@ -168,51 +181,69 @@ bool TorrentFilter::matchState(const BitTorrent::Torrent *const torrent) const
         return torrent->isUploading();
     case Completed:
         return torrent->isCompleted();
-    case Paused:
-        return torrent->isPaused();
-    case Resumed:
-        return torrent->isResumed();
+    case Stopped:
+        return torrent->isStopped();
+    case Running:
+        return torrent->isRunning();
     case Active:
         return torrent->isActive();
     case Inactive:
         return torrent->isInactive();
     case Stalled:
-        return (torrent->state() ==  BitTorrent::TorrentState::StalledUploading)
-                || (torrent->state() ==  BitTorrent::TorrentState::StalledDownloading);
+        return (state == BitTorrent::TorrentState::StalledUploading)
+                || (state == BitTorrent::TorrentState::StalledDownloading);
     case StalledUploading:
-        return torrent->state() ==  BitTorrent::TorrentState::StalledUploading;
+        return state == BitTorrent::TorrentState::StalledUploading;
     case StalledDownloading:
-        return torrent->state() ==  BitTorrent::TorrentState::StalledDownloading;
+        return state == BitTorrent::TorrentState::StalledDownloading;
     case Checking:
-        return (torrent->state() == BitTorrent::TorrentState::CheckingUploading)
-                || (torrent->state() == BitTorrent::TorrentState::CheckingDownloading)
-                || (torrent->state() == BitTorrent::TorrentState::CheckingResumeData);
+        return (state == BitTorrent::TorrentState::CheckingUploading)
+                || (state == BitTorrent::TorrentState::CheckingDownloading)
+                || (state == BitTorrent::TorrentState::CheckingResumeData);
+    case Moving:
+        return torrent->isMoving();
     case Errored:
         return torrent->isErrored();
-    default: // All
-        return true;
+    default:
+        Q_UNREACHABLE();
+        break;
     }
+
+    return false;
 }
 
 bool TorrentFilter::matchHash(const BitTorrent::Torrent *const torrent) const
 {
-    if (m_idSet == AnyID) return true;
+    if (!m_idSet)
+        return true;
 
-    return m_idSet.contains(torrent->id());
+    return m_idSet->contains(torrent->id());
 }
 
 bool TorrentFilter::matchCategory(const BitTorrent::Torrent *const torrent) const
 {
-    if (m_category.isNull()) return true;
+    if (!m_category)
+        return true;
 
-    return (torrent->belongsToCategory(m_category));
+    return (torrent->belongsToCategory(*m_category));
 }
 
 bool TorrentFilter::matchTag(const BitTorrent::Torrent *const torrent) const
 {
-    // Empty tag is a special value to indicate we're filtering for untagged torrents.
-    if (m_tag.isNull()) return true;
-    if (m_tag.isEmpty()) return torrent->tags().isEmpty();
+    if (!m_tag)
+        return true;
 
-    return (torrent->hasTag(m_tag));
+    // Empty tag is a special value to indicate we're filtering for untagged torrents.
+    if (m_tag->isEmpty())
+        return torrent->tags().isEmpty();
+
+    return torrent->hasTag(*m_tag);
+}
+
+bool TorrentFilter::matchPrivate(const BitTorrent::Torrent *const torrent) const
+{
+    if (!m_private)
+        return true;
+
+    return m_private == torrent->isPrivate();
 }

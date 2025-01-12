@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2016  Mike Tzou
+ * Copyright (C) 2016-2023  Mike Tzou (Chocobo1)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -29,22 +29,26 @@
 #pragma once
 
 #include <type_traits>
-#include <QtGlobal>
+
+#include <QtProcessorDetection>
+
+#include <QString>
 
 #if (QT_POINTER_SIZE == 8)
 #define QBT_APP_64BIT
 #endif
-
-inline const char C_TORRENT_FILE_EXTENSION[] = ".torrent";
-inline const int MAX_TORRENT_SIZE = 100 * 1024 * 1024; // 100 MiB
 
 template <typename T>
 constexpr typename std::add_const_t<T> &asConst(T &t) noexcept { return t; }
 
 // Forward rvalue as const
 template <typename T>
-constexpr typename std::add_const_t<T> asConst(T &&t) noexcept { return std::move(t); }
+constexpr typename std::add_const_t<T> asConst(T &&t) noexcept { return std::forward<T>(t); }
 
 // Prevent const rvalue arguments
 template <typename T>
 void asConst(const T &&) = delete;
+
+using namespace Qt::Literals::StringLiterals;
+
+inline const QString TORRENT_FILE_EXTENSION = u".torrent"_s;

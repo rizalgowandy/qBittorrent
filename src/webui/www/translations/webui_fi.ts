@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="fi" version="2.1">
+<TS version="2.1" language="fi">
 <context>
     <name>AboutDlg</name>
     <message>
@@ -16,7 +16,7 @@
     </message>
     <message>
         <source>Start torrent</source>
-        <translation>Käynnistä torrentti</translation>
+        <translation>Käynnistä torrent</translation>
     </message>
     <message>
         <source>Skip hash check</source>
@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Content layout:</source>
-        <translation type="unfinished" />
+        <translation>Sisällön ulkoasu:</translation>
     </message>
     <message>
         <source>Original</source>
@@ -41,6 +41,34 @@
     <message>
         <source>Don't create subfolder</source>
         <translation>Älä luo alikansiota</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation>Manuaalinen</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Automaattinen</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metatiedot vastaanotettu</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Tiedostot tarkastettu</translation>
+    </message>
+    <message>
+        <source>Stop condition:</source>
+        <translation>Pysäytysehto:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ei mitään</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Lisää jonon alkuun</translation>
     </message>
 </context>
 <context>
@@ -74,11 +102,7 @@
     </message>
     <message>
         <source>Pause torrents</source>
-        <translation>Keskeytä torrentit</translation>
-    </message>
-    <message>
-        <source>Delete torrents</source>
-        <translation>Poista torrentit</translation>
+        <translation>Pysäytä torrentit</translation>
     </message>
     <message>
         <source>New Category</source>
@@ -87,6 +111,14 @@
     <message>
         <source>Edit category...</source>
         <translation>Muokkaa kategoriaa...</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Poista torrentit</translation>
+    </message>
+    <message>
+        <source>Add subcategory...</source>
+        <translation>Lisää alakategoria...</translation>
     </message>
 </context>
 <context>
@@ -144,52 +176,40 @@
         <translation>Asetuksia ei voitu tallentaa, qBittorrenttiin ei todennäköisesti saada yhteyttä.</translation>
     </message>
     <message>
-        <source>IRC: #qbittorrent on Freenode</source>
-        <translation>IRC: #qbittorrent Freenode-verkossa</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
     </message>
     <message>
         <source>Share ratio limit must be between 0 and 9998.</source>
-        <translation>Jakosuhteen raja pitää olla 0 ja 9998 välillä.</translation>
+        <translation>Jakosuhderajoituksen on oltava väliltä 0–9998.</translation>
     </message>
     <message>
         <source>Seeding time limit must be between 0 and 525600 minutes.</source>
         <translation>Jakoajan aikarajan pitää olla 0 ja 525600 minuutin väliltä.</translation>
     </message>
     <message>
-        <source>The port used for incoming connections must be between 1 and 65535.</source>
-        <translation type="vanished">Sisääntuleville yhteyksille tarkoitetun portin numero pitää olla väliltä 1-65535.</translation>
-    </message>
-    <message>
         <source>The port used for the Web UI must be between 1 and 65535.</source>
-        <translation>Web-käyttöliittymälle tarkoitetun portin numero pitää olla väliltä 1-65535.</translation>
+        <translation type="vanished">Web-käyttöliittymälle tarkoitetun portin numero pitää olla väliltä 1-65535.</translation>
     </message>
     <message>
         <source>Unable to log in, qBittorrent is probably unreachable.</source>
-        <translation>Kirjautuminen epäonnistui, qBittorrent ei luultavasti ole tavoitettavissa.</translation>
+        <translation type="vanished">Kirjautuminen epäonnistui, qBittorrent ei luultavasti ole tavoitettavissa.</translation>
     </message>
     <message>
         <source>Invalid Username or Password.</source>
-        <translation>Virheellinen käyttäjätunnus tai salasana.</translation>
+        <translation type="vanished">Virheellinen käyttäjätunnus tai salasana.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Käyttäjänimi</translation>
+        <translation type="vanished">Käyttäjänimi</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Salasana</translation>
+        <translation type="vanished">Salasana</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>Kirjaudu</translation>
-    </message>
-    <message>
-        <source>Original authors</source>
-        <translation>Alkuperäiset tekijät</translation>
+        <translation type="vanished">Kirjaudu</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -281,11 +301,7 @@
     </message>
     <message>
         <source>Upload local torrent</source>
-        <translation>Lähetä paikallinen torrentti</translation>
-    </message>
-    <message>
-        <source>Are you sure you want to delete the selected torrents from the transfer list?</source>
-        <translation>Haluatko varmasti poistaa valitut torrentit?</translation>
+        <translation>Lähetä paikallinen torrent</translation>
     </message>
     <message>
         <source>Save</source>
@@ -333,11 +349,11 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
-        <translation>qBittorrent on sammutettu</translation>
+        <translation type="vanished">qBittorrent on sammutettu</translation>
     </message>
     <message>
         <source>Open documentation</source>
-        <translation>Avaa dokumentaatio</translation>
+        <translation>Avaa ohje</translation>
     </message>
     <message>
         <source>Register to handle magnet links...</source>
@@ -345,10 +361,6 @@
     </message>
     <message>
         <source>Unable to add peers. Please ensure you are adhering to the IP:port format.</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
         <translation type="unfinished" />
     </message>
     <message>
@@ -369,6 +381,26 @@
     </message>
     <message>
         <source>The port used for incoming connections must be between 0 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original author</source>
+        <translation>Alkuperäinen kehittäjä</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the selected torrents from the transfer list?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The port used for the WebUI must be between 1 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>%1 has been shutdown</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the WebUI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -432,11 +464,7 @@
     </message>
     <message>
         <source>Pause</source>
-        <translation>Keskeytä</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation>Poista</translation>
+        <translation>Pysäytä</translation>
     </message>
     <message>
         <source>Pause All</source>
@@ -477,7 +505,7 @@
     <message>
         <source>[D: %1, U: %2] qBittorrent %3</source>
         <comment>D = Download; U = Upload; %3 is qBittorrent version</comment>
-        <translation>[Lataus: %1, Lähetys: %2] qBittorrent %3</translation>
+        <translation type="vanished">[Lataus: %1, Lähetys: %2] qBittorrent %3</translation>
     </message>
     <message>
         <source>Alternative speed limits</source>
@@ -505,23 +533,23 @@
     </message>
     <message>
         <source>Move Up Queue</source>
-        <translation type="unfinished" />
+        <translation>Siirrä ylös jonossa</translation>
     </message>
     <message>
         <source>Bottom of Queue</source>
-        <translation type="unfinished" />
+        <translation>Jonon viimeiseksi</translation>
     </message>
     <message>
         <source>Move to the bottom of the queue</source>
-        <translation type="unfinished" />
+        <translation>Siirrä jonon viimeiseksi</translation>
     </message>
     <message>
         <source>Top of Queue</source>
-        <translation type="unfinished" />
+        <translation>Jonon kärkeen</translation>
     </message>
     <message>
         <source>Move Down Queue</source>
-        <translation type="unfinished" />
+        <translation>Siirrä alas jonossa</translation>
     </message>
     <message>
         <source>Move down in the queue</source>
@@ -529,7 +557,7 @@
     </message>
     <message>
         <source>Move to the top of the queue</source>
-        <translation>Siirrä jonon kärkeen</translation>
+        <translation>Siirrä jonon ensimmäiseksi</translation>
     </message>
     <message>
         <source>Your browser does not support this feature</source>
@@ -556,10 +584,6 @@
         <translation type="unfinished" />
     </message>
     <message>
-        <source>Connection status</source>
-        <translation>Yhteyden tila</translation>
-    </message>
-    <message>
         <source>Alternative speed limits: On</source>
         <translation>Vaihtoehtoiset nopeusrajoitukset: päällä</translation>
     </message>
@@ -569,14 +593,46 @@
     </message>
     <message>
         <source>Connection status: Disconnected</source>
-        <translation type="unfinished" />
+        <translation>Yhteyden tila: yhteys katkaistu</translation>
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS-lukija</translation>
     </message>
     <message>
         <source>RSS</source>
+        <translation>RSS</translation>
+    </message>
+    <message>
+        <source>Filters Sidebar</source>
+        <translation>Suodattimien sivupalkki</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Poista</translation>
+    </message>
+    <message>
+        <source>Would you like to resume all torrents?</source>
+        <translation>Haluatko jatkaa kaikkia torrenteja?</translation>
+    </message>
+    <message>
+        <source>Would you like to pause all torrents?</source>
+        <translation>Haluatko keskeyttää kaikki torrentit?</translation>
+    </message>
+    <message>
+        <source>Execution Log</source>
+        <translation>Suoritusloki</translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>[D: %1, U: %2]</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -604,7 +660,7 @@
     </message>
     <message>
         <source>Web UI</source>
-        <translation>Web-käyttöliittymä</translation>
+        <translation type="vanished">Web-käyttöliittymä</translation>
     </message>
     <message>
         <source>Language</source>
@@ -617,10 +673,6 @@
     <message>
         <source>Email notification upon download completion</source>
         <translation>Sähköposti-ilmoitus latauksen valmistuttua</translation>
-    </message>
-    <message>
-        <source>Run external program on torrent completion</source>
-        <translation>Suorita erillinen ohjelma torrentien valmistuessa</translation>
     </message>
     <message>
         <source>IP Filtering</source>
@@ -656,11 +708,11 @@
     </message>
     <message>
         <source>Bypass authentication for clients on localhost</source>
-        <translation type="unfinished" />
+        <translation>Ohita tunnistautuminen localhostista saapuvien asiakkaiden kohdalla</translation>
     </message>
     <message>
         <source>Bypass authentication for clients in whitelisted IP subnets</source>
-        <translation type="unfinished" />
+        <translation>Ohita tunnistautuminen valkolistattujen IP-aliverkkojen asiakkaiden kohdalla</translation>
     </message>
     <message>
         <source>Update my dynamic domain name</source>
@@ -727,10 +779,6 @@
         <translation>Käytä UPnP-/NAT-PMP-portinohjausta reitittimeltä</translation>
     </message>
     <message>
-        <source>Use different port on each startup</source>
-        <translation type="vanished">Käytä eri porttia joka käynnistyksen yhteydessä</translation>
-    </message>
-    <message>
         <source>Connections Limits</source>
         <translation>Yhteyksien rajat</translation>
     </message>
@@ -759,10 +807,6 @@
         <translation>Tyyppi:</translation>
     </message>
     <message>
-        <source>(None)</source>
-        <translation>(Ei mikään)</translation>
-    </message>
-    <message>
         <source>SOCKS4</source>
         <translation>SOCKS4</translation>
     </message>
@@ -787,10 +831,6 @@
         <translation>Käytä välityspalvelinta vertaisyhteyksille</translation>
     </message>
     <message>
-        <source>Use proxy only for torrents</source>
-        <translation>Käytä välityspalvelinta vain torrenteille</translation>
-    </message>
-    <message>
         <source>Filter path (.dat, .p2p, .p2b):</source>
         <translation>Suodatustiedoston sijainti (.dat, .p2p, p2b):</translation>
     </message>
@@ -800,7 +840,7 @@
     </message>
     <message>
         <source>Apply to trackers</source>
-        <translation type="unfinished" />
+        <translation>Käytä seurantapalvelimille</translation>
     </message>
     <message>
         <source>Global Rate Limits</source>
@@ -850,7 +890,7 @@
     </message>
     <message>
         <source>Apply rate limit to transport overhead</source>
-        <translation type="unfinished" />
+        <translation>Käytä nopeusrajoitusta siirron rasiteliikenteelle</translation>
     </message>
     <message>
         <source>Apply rate limit to µTP protocol</source>
@@ -910,7 +950,7 @@
     </message>
     <message>
         <source>Use UPnP / NAT-PMP to forward the port from my router</source>
-        <translation type="unfinished" />
+        <translation>Käytä UPnP:tä / NAT-PMP:tä porttiohjaukseen reitittimeltä</translation>
     </message>
     <message>
         <source>Certificate:</source>
@@ -942,11 +982,11 @@
     </message>
     <message>
         <source>%F: Content path (same as root path for multifile torrent)</source>
-        <translation type="unfinished" />
+        <translation>%F: Sisällön sijainti (vastaa monitiedostoisen torrentin juurikansiota)</translation>
     </message>
     <message>
         <source>%R: Root path (first torrent subdirectory path)</source>
-        <translation>%R: Juuripolku (ensimmäinen torrent-alihakemiston polku)</translation>
+        <translation>%R: Juurisijainti (torrentin ensimmäisen alihakemiston polku)</translation>
     </message>
     <message>
         <source>%D: Save path</source>
@@ -970,11 +1010,11 @@
     </message>
     <message>
         <source>The Web UI username must be at least 3 characters long.</source>
-        <translation>Web-käyttöliittymän käyttäjätunnuksen pitää olla vähintään 3 merkkiä pitkä.</translation>
+        <translation type="vanished">Web-käyttöliittymän käyttäjätunnuksen pitää olla vähintään 3 merkkiä pitkä.</translation>
     </message>
     <message>
         <source>The Web UI password must be at least 6 characters long.</source>
-        <translation>Web-käyttöliittymän salasanan pitää olla vähintään 6 merkkiä pitkä.</translation>
+        <translation type="vanished">Web-käyttöliittymän salasanan pitää olla vähintään 6 merkkiä pitkä.</translation>
     </message>
     <message>
         <source>minutes</source>
@@ -994,15 +1034,15 @@
     </message>
     <message>
         <source>Delete .torrent files afterwards</source>
-        <translation type="unfinished" />
+        <translation>Poista .torrent-tiedostot lisäämisen jälkeen</translation>
     </message>
     <message>
         <source>Download rate threshold:</source>
-        <translation type="unfinished" />
+        <translation>Latausnopeuden raja:</translation>
     </message>
     <message>
         <source>Upload rate threshold:</source>
-        <translation type="unfinished" />
+        <translation>Lähetysnopeuden raja:</translation>
     </message>
     <message>
         <source>Change current password</source>
@@ -1014,7 +1054,7 @@
     </message>
     <message>
         <source>Use alternative Web UI</source>
-        <translation type="unfinished" />
+        <translation type="vanished">Käytä vaihtoehtoista web-käyttöliittymän teemaa</translation>
     </message>
     <message>
         <source>Default Save Path:</source>
@@ -1022,7 +1062,7 @@
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation type="unfinished" />
+        <translation type="vanished">Vaihtoehtoisen ulkoasun tiedostosijainti ei voi olla tyhjä.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
@@ -1030,19 +1070,19 @@
     </message>
     <message>
         <source>Switch torrent to Manual Mode</source>
-        <translation type="unfinished" />
+        <translation>Vaihda torrent manuaaliseen tilaan</translation>
     </message>
     <message>
         <source>When Torrent Category changed:</source>
-        <translation type="unfinished" />
+        <translation>Kun torrentin kategoria muutetaan:</translation>
     </message>
     <message>
         <source>Relocate affected torrents</source>
-        <translation type="unfinished" />
+        <translation>Uudelleensijoita vaikuttuneet torrentit</translation>
     </message>
     <message>
         <source>Apply rate limit to peers on LAN</source>
-        <translation type="unfinished" />
+        <translation>Käytä nopeusrajoitusta paikallisverkossa (LAN) oleviin vertaisiin</translation>
     </message>
     <message>
         <source>0 means unlimited</source>
@@ -1050,15 +1090,15 @@
     </message>
     <message>
         <source>Relocate torrent</source>
-        <translation type="unfinished" />
+        <translation>Uudelleensijoita torrentti</translation>
     </message>
     <message>
         <source>When Default Save Path changed:</source>
-        <translation type="unfinished" />
+        <translation>Tallennuksen oletussijainnin muuttuessa:</translation>
     </message>
     <message>
         <source>Enable Host header validation</source>
-        <translation type="unfinished" />
+        <translation>Käytä Host-otsakkeen validointia</translation>
     </message>
     <message>
         <source>Security</source>
@@ -1066,7 +1106,7 @@
     </message>
     <message>
         <source>When Category Save Path changed:</source>
-        <translation type="unfinished" />
+        <translation>Kategorian tallennussijainnin muuttuessa:</translation>
     </message>
     <message>
         <source>seconds</source>
@@ -1074,7 +1114,7 @@
     </message>
     <message>
         <source>Switch affected torrents to Manual Mode</source>
-        <translation type="unfinished" />
+        <translation>Vaihda vaikuttuneet torrentit manuaaliseen tilaan</translation>
     </message>
     <message>
         <source>Files location:</source>
@@ -1090,15 +1130,15 @@
     </message>
     <message>
         <source>Default Torrent Management Mode:</source>
-        <translation type="unfinished" />
+        <translation>Torrentien oletusarvoinen hallintatila:</translation>
     </message>
     <message>
         <source>When adding a torrent</source>
-        <translation type="unfinished" />
+        <translation>Kun lisätään torrent-tiedostoa</translation>
     </message>
     <message>
         <source>Info: The password is saved unencrypted</source>
-        <translation type="unfinished" />
+        <translation>Tärkeää: Salasana tallennetaan salaamattomana</translation>
     </message>
     <message>
         <source>μTP-TCP mixed mode algorithm:</source>
@@ -1106,11 +1146,11 @@
     </message>
     <message>
         <source>Upload rate based</source>
-        <translation type="unfinished" />
+        <translation>Lähetysnopeuteen perustuva</translation>
     </message>
     <message>
         <source>%G: Tags (separated by comma)</source>
-        <translation type="unfinished" />
+        <translation>%G: Tunnisteet (pilkuin eroteltuna)</translation>
     </message>
     <message>
         <source>Socket backlog size:</source>
@@ -1118,7 +1158,7 @@
     </message>
     <message>
         <source>Enable super seeding for torrent</source>
-        <translation type="unfinished" />
+        <translation>Käytä torrentille super seeding -tilaa</translation>
     </message>
     <message>
         <source>Prefer TCP</source>
@@ -1126,23 +1166,15 @@
     </message>
     <message>
         <source>Outstanding memory when checking torrents:</source>
-        <translation type="unfinished" />
+        <translation>Muistin varaus tarkistettaessa torrent-tiedostoja:</translation>
     </message>
     <message>
         <source>Anti-leech</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Enable OS cache:</source>
-        <translation type="unfinished" />
+        <translation>Pelkän latauksen vastainen</translation>
     </message>
     <message>
         <source>When ratio reaches</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>When seeding time reaches</source>
-        <translation type="unfinished" />
+        <translation>Jakosuhteen muuttuessa</translation>
     </message>
     <message>
         <source>Allow multiple connections from the same IP address:</source>
@@ -1154,7 +1186,7 @@
     </message>
     <message>
         <source>Any interface</source>
-        <translation type="unfinished" />
+        <translation>Mikä tahansa liitäntä</translation>
     </message>
     <message>
         <source>Always announce to all tiers:</source>
@@ -1166,11 +1198,11 @@
     </message>
     <message>
         <source>Fastest upload</source>
-        <translation type="unfinished" />
+        <translation>Nopein lähetys</translation>
     </message>
     <message>
         <source>Pause torrent</source>
-        <translation>Keskeytä torrent</translation>
+        <translation>Pysäytä torrent</translation>
     </message>
     <message>
         <source>Remove torrent and its files</source>
@@ -1187,14 +1219,6 @@
     <message>
         <source>libtorrent Section</source>
         <translation>libtorrentin asetukset</translation>
-    </message>
-    <message>
-        <source>Outgoing ports (Min) [0: Disabled]:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>IP Address to report to trackers (requires restart):</source>
-        <translation>Seurantapalvelimille raportoitava IP-osoite (vaatii uudelleenkäynnistyksen):</translation>
     </message>
     <message>
         <source>Recheck torrents on completion:</source>
@@ -1217,10 +1241,6 @@
         <translation>Poista torrent</translation>
     </message>
     <message>
-        <source>Outgoing ports (Max) [0: Disabled]:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Asynchronous I/O threads:</source>
         <translation>Asynkroniset I/O-säikeet:</translation>
     </message>
@@ -1234,15 +1254,15 @@
     </message>
     <message>
         <source>Peer proportional (throttles TCP)</source>
-        <translation type="unfinished" />
+        <translation>Vertaissuhteutus (TCP-kiihdytys)</translation>
     </message>
     <message>
         <source>Fixed slots</source>
-        <translation type="unfinished" />
+        <translation>Kiinteät paikat</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished" />
+        <translation>Lisäasetukset</translation>
     </message>
     <message>
         <source>min</source>
@@ -1254,7 +1274,7 @@
     </message>
     <message>
         <source>Seeding Limits</source>
-        <translation type="unfinished" />
+        <translation>Jakamisen rajoitukset</translation>
     </message>
     <message>
         <source>KiB</source>
@@ -1262,7 +1282,7 @@
     </message>
     <message>
         <source>Round-robin</source>
-        <translation type="unfinished" />
+        <translation>Kiertovuorottelu</translation>
     </message>
     <message>
         <source>Upload slots behavior:</source>
@@ -1294,27 +1314,15 @@
     </message>
     <message>
         <source>ban for:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Use piece extent affinity (requires libtorrent &gt;= 1.2.2):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Stop tracker timeout:</source>
-        <translation type="unfinished" />
+        <translation>eston kesto:</translation>
     </message>
     <message>
         <source>Ban client after consecutive failures:</source>
-        <translation type="unfinished" />
+        <translation>Estä asiakas, kun perättäisiä epäonnistumisia:</translation>
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS)</source>
         <translation>Käytä evästeen Secure-lippua (vaatii HTTPS:n)</translation>
-    </message>
-    <message>
-        <source>UPnP lease duration [0: Permanent lease]:</source>
-        <translation type="unfinished" />
     </message>
     <message>
         <source>Header: value pairs, one per line</source>
@@ -1326,19 +1334,11 @@
     </message>
     <message>
         <source>Filters:</source>
-        <translation type="unfinished" />
+        <translation>Suodattimet:</translation>
     </message>
     <message>
         <source>Enable fetching RSS feeds</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Hashing threads (requires libtorrent &gt;= 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Coalesce reads &amp; writes (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>Ota käyttöön RSS-syötteiden haku</translation>
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
@@ -1346,31 +1346,31 @@
     </message>
     <message>
         <source>RSS Torrent Auto Downloader</source>
-        <translation type="unfinished" />
+        <translation>RSS-torrenttien automaattinen lataaja</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished" />
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Network interface:</source>
-        <translation type="unfinished" />
+        <translation>Verkkosovitin:</translation>
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS-lukija</translation>
     </message>
     <message>
         <source>Edit auto downloading rules...</source>
-        <translation type="unfinished" />
+        <translation>Muokkaa automaattisten latausten sääntöjä...</translation>
     </message>
     <message>
         <source>Download REPACK/PROPER episodes</source>
-        <translation type="unfinished" />
+        <translation>Lataa REPACK/PROPER-jaksot</translation>
     </message>
     <message>
         <source>Feeds refresh interval:</source>
-        <translation type="unfinished" />
+        <translation>RSS-syötteen päivitystiheys:</translation>
     </message>
     <message>
         <source>Peer turnover disconnect percentage:</source>
@@ -1378,15 +1378,11 @@
     </message>
     <message>
         <source>Maximum number of articles per feed:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Max concurrent HTTP announces (requires libtorrent &gt;= 1.2.7):</source>
-        <translation type="unfinished" />
+        <translation>Artikkeleiden enimmäismäärä syötettä kohden:</translation>
     </message>
     <message>
         <source> min</source>
-        <translation type="unfinished" />
+        <translation>min</translation>
     </message>
     <message>
         <source>Peer turnover disconnect interval:</source>
@@ -1402,19 +1398,11 @@
     </message>
     <message>
         <source>Enable auto downloading of RSS torrents</source>
-        <translation type="unfinished" />
+        <translation>Ota käyttöön RSS-torrenttien automaattinen lataus</translation>
     </message>
     <message>
         <source>RSS Smart Episode Filter</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache expiry interval (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>Älykäs RSS-jaksosuodatin</translation>
     </message>
     <message>
         <source>Validate HTTPS tracker certificate:</source>
@@ -1422,31 +1410,27 @@
     </message>
     <message>
         <source>Peer connection protocol:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Support internationalized domain name (IDN) (requires libtorrent &gt;= 1.2.12):</source>
-        <translation type="unfinished" />
+        <translation>Vertaisyhteyksien protokolla:</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Torrentin sisällön asettelu:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Luo alikansio</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Alkuperäinen</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Älä luo alikansiota</translation>
     </message>
     <message>
         <source>Type of service (ToS) for connections to peers</source>
-        <translation type="unfinished" />
+        <translation>Palvelun malli (Type of Service / ToS) yhteyksille vertaiskäyttäjiä ajatellen</translation>
     </message>
     <message>
         <source>Outgoing connections per second:</source>
@@ -1454,7 +1438,7 @@
     </message>
     <message>
         <source>Random</source>
-        <translation type="unfinished" />
+        <translation>Satunnainen</translation>
     </message>
     <message>
         <source>%K: Torrent ID</source>
@@ -1470,7 +1454,7 @@
     </message>
     <message>
         <source>Enable reverse proxy support</source>
-        <translation type="unfinished" />
+        <translation>Käytä käänteisen välityspalvelimen tukea</translation>
     </message>
     <message>
         <source>%J: Info hash v2</source>
@@ -1478,6 +1462,390 @@
     </message>
     <message>
         <source>%I: Info hash v1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP address reported to trackers (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Set to 0 to let your system pick an unused port</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Server-side request forgery (SSRF) mitigation:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk queue size:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log performance warnings</source>
+        <translation>Lokita suorituskykyvaroitukset</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding requests to a single peer:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max active checking torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Memory mapped files</source>
+        <translation>Muistikartoitettu tiedosto</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Oletus</translation>
+    </message>
+    <message>
+        <source>POSIX-compliant</source>
+        <translation>POSIX-määritysten mukainen</translation>
+    </message>
+    <message>
+        <source>This option is less effective on Linux</source>
+        <translation>Valinnalla on vähemmän vaikutusta Linux-käyttöjärjestelmässä</translation>
+    </message>
+    <message>
+        <source>It controls the internal state update interval which in turn will affect UI updates</source>
+        <translation>Määrittää sisäisen tilapäivitystiheyden, joka puolestaan vaikuttaa käyttöliittymän päivittymiseen.</translation>
+    </message>
+    <message>
+        <source>Disk IO read mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disable OS cache</source>
+        <translation>Älä käytä käyttöjärjestelmän välimuistia</translation>
+    </message>
+    <message>
+        <source>Disk IO write mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use piece extent affinity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max concurrent HTTP announces:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable OS cache</source>
+        <translation>Ota käyttöön käyttöjärjestelmän välimuisti</translation>
+    </message>
+    <message>
+        <source>Refresh interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>ms</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Excluded file names</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Support internationalized domain name (IDN):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program on torrent finished</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Whitelist for filtering HTTP Host header values.
+In order to defend against DNS rebinding attack,
+you should put in domain names used by WebUI server.
+
+Use ';' to split multiple entries. Can use wildcard '*'.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program on torrent added</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS certificate should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS key should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program</source>
+        <translation>Suorita ulkoinen ohjelma</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Tiedostot tarkastettu</translation>
+    </message>
+    <message>
+        <source>Enable port forwarding for embedded tracker:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If checked, hostname lookups are done via the proxy.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metatiedot vastaanotettu</translation>
+    </message>
+    <message>
+        <source>Torrent stop condition:</source>
+        <translation>Torrentin pysäytysehto:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ei mitään</translation>
+    </message>
+    <message>
+        <source>Example: 172.17.32.0/24, fdff:ffff:c8::/40</source>
+        <translation>Esimerkki: 172.17.32.0/24, fdff:ffff:c8::/40</translation>
+    </message>
+    <message>
+        <source>SQLite database (experimental)</source>
+        <translation>SQLite-tietokanta (kokeellinen)</translation>
+    </message>
+    <message>
+        <source>Resume data storage type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Fastresume files</source>
+        <translation>Pikajatka tiedostoja</translation>
+    </message>
+    <message>
+        <source>Backup the log file after:</source>
+        <translation>Ota lokista varmuuskopio, kun sen koko ylittää:</translation>
+    </message>
+    <message>
+        <source>days</source>
+        <translation>päivää</translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation>Lokitiedosto</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>Toiminta</translation>
+    </message>
+    <message>
+        <source>Delete backup logs older than:</source>
+        <translation>Poista varmuuskopiot, jotka ovat vanhempia kuin:</translation>
+    </message>
+    <message>
+        <source>Use proxy for BitTorrent purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>years</source>
+        <translation>vuotta</translation>
+    </message>
+    <message>
+        <source>Save path:</source>
+        <translation>Tallennussijainti:</translation>
+    </message>
+    <message>
+        <source>months</source>
+        <translation>kuukautta</translation>
+    </message>
+    <message>
+        <source>Remember Multi-Rename settings</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for general purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for RSS purposes</source>
+        <translation>Käytä välityspalvelinta RSS-tarkoituksiin</translation>
+    </message>
+    <message>
+        <source>Socket send buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Max) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket receive buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use Subcategories</source>
+        <translation>Käytä alikategorioita</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Lisää jonon kärkeen</translation>
+    </message>
+    <message>
+        <source>Stop tracker timeout [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Min) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>UPnP lease duration [0: permanent lease]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode depth limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode token limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When total seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(None)</source>
+        <translation>(Ei mikään)</translation>
+    </message>
+    <message>
+        <source>Python executable path (may require restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Resets to default if empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Perform hostname lookup via proxy</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>DHT bootstrap nodes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When inactive seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Mixed mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>.torrent file size limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(Auto detect if empty)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Keep unselected files in ".unwanted" folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable Mark-of-the-Web (MOTW) for downloaded files (require macOS or Windows):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source> sec</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Hashing threads:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use alternative WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache expiry interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P (Experimental)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The alternative WebUI files location cannot be blank.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Write-through</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI password must be at least 6 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI username must be at least 3 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Same host request delay:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Customize application instance name:</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1552,12 +1920,16 @@
         <translation>Kopioi IP:portti</translation>
     </message>
     <message>
-        <source>Add a new peer...</source>
-        <translation>Lisää uusi vertainen...</translation>
-    </message>
-    <message>
         <source>Country/Region</source>
         <translation>Maa/alue</translation>
+    </message>
+    <message>
+        <source>Add peers...</source>
+        <translation>Lisää vertaisia...</translation>
+    </message>
+    <message>
+        <source>Peer ID Client</source>
+        <translation>Vertaisen asiakassovelluksen tunniste</translation>
     </message>
 </context>
 <context>
@@ -1579,7 +1951,7 @@
     </message>
     <message>
         <source>Mixed</source>
-        <translation type="unfinished" />
+        <translation>Sekalainen</translation>
     </message>
     <message>
         <source>Do not download</source>
@@ -1750,11 +2122,11 @@
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished" />
+        <translation>Tärkeysaste</translation>
     </message>
     <message>
         <source>Filter files...</source>
-        <translation type="unfinished" />
+        <translation>Suodata tiedostoja...</translation>
     </message>
     <message>
         <source>Rename...</source>
@@ -1762,7 +2134,7 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (jaettu %2)</translation>
     </message>
     <message>
         <source>Info Hash v2:</source>
@@ -1774,6 +2146,70 @@
     </message>
     <message>
         <source>N/A</source>
+        <translation>Ei saatavilla</translation>
+    </message>
+    <message>
+        <source>Progress:</source>
+        <translation>Edistyminen:</translation>
+    </message>
+    <message>
+        <source>Use regular expressions</source>
+        <translation>Käytä säännöllisiä lausekkeita</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Filename + Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enumerate Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Rename failed: file or folder already exists</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Toggle Selection</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replacement Input</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include folders</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Search Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Case sensitive</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all occurrences</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1785,7 +2221,7 @@
     </message>
     <message>
         <source>Override Save Location</source>
-        <translation type="unfinished" />
+        <translation>Ylitä tallennussijainti</translation>
     </message>
     <message>
         <source>Monitored folder</source>
@@ -1797,11 +2233,11 @@
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished" />
+        <translation>Muu...</translation>
     </message>
     <message>
         <source>Type folder here</source>
-        <translation type="unfinished" />
+        <translation>Kirjoita kansio tähän</translation>
     </message>
 </context>
 <context>
@@ -1839,23 +2275,23 @@
     </message>
     <message>
         <source>All-time share ratio:</source>
-        <translation type="unfinished" />
+        <translation>Jakosuhde yhteensä:</translation>
     </message>
     <message>
         <source>All-time download:</source>
-        <translation type="unfinished" />
+        <translation>Yhteensä ladattu:</translation>
     </message>
     <message>
         <source>Session waste:</source>
-        <translation type="unfinished" />
+        <translation>Hukattu tässä istunnossa:</translation>
     </message>
     <message>
         <source>All-time upload:</source>
-        <translation type="unfinished" />
+        <translation>Lähetetty kaikkiaan:</translation>
     </message>
     <message>
         <source>Total buffer size:</source>
-        <translation type="unfinished" />
+        <translation>Puskurien koko yhteensä:</translation>
     </message>
     <message>
         <source>Performance statistics</source>
@@ -1910,7 +2346,7 @@
     </message>
     <message>
         <source>Paused (0)</source>
-        <translation>Keskeytetty (0)</translation>
+        <translation>Pysäytetty (0)</translation>
     </message>
     <message>
         <source>Active (0)</source>
@@ -1942,7 +2378,7 @@
     </message>
     <message>
         <source>Paused (%1)</source>
-        <translation>Keskeytetty (%1)</translation>
+        <translation>Pysäytetty (%1)</translation>
     </message>
     <message>
         <source>Resumed (%1)</source>
@@ -1986,11 +2422,19 @@
     </message>
     <message>
         <source>Checking (%1)</source>
-        <translation type="unfinished" />
+        <translation>Tarkistetaan (%1)</translation>
     </message>
     <message>
         <source>Checking (0)</source>
-        <translation type="unfinished" />
+        <translation>Tarkistetaan (0)</translation>
+    </message>
+    <message>
+        <source>Moving (%1)</source>
+        <translation>Siirretään (%1)</translation>
+    </message>
+    <message>
+        <source>Moving (0)</source>
+        <translation>Siirretään (0)</translation>
     </message>
 </context>
 <context>
@@ -2144,6 +2588,10 @@
         <source>Availability</source>
         <translation>Saatavuus</translation>
     </message>
+    <message>
+        <source>Reannounce In</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TrackerListWidget</name>
@@ -2164,12 +2612,8 @@
         <translation>Viesti</translation>
     </message>
     <message>
-        <source>Downloaded</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Tracker URL:</source>
-        <translation type="unfinished" />
+        <translation>Seurantapalvelimen osoite:</translation>
     </message>
     <message>
         <source>Updating...</source>
@@ -2185,15 +2629,15 @@
     </message>
     <message>
         <source>Not contacted yet</source>
-        <translation type="unfinished" />
+        <translation>Ei yhteyttä vielä</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished" />
+        <translation>Ei saatavilla</translation>
     </message>
     <message>
         <source>Seeds</source>
-        <translation type="unfinished" />
+        <translation>Jakajia</translation>
     </message>
     <message>
         <source>Not working</source>
@@ -2204,20 +2648,16 @@
         <translation>Kopioi seurantapalvelimen osoite</translation>
     </message>
     <message>
-        <source>Add a new tracker...</source>
-        <translation>Lisää uusi seurantapalvelin...</translation>
-    </message>
-    <message>
         <source>Edit tracker URL...</source>
         <translation>Muokkaa seurantapalvelimen osoitetta...</translation>
     </message>
     <message>
         <source>Tracker editing</source>
-        <translation type="unfinished" />
+        <translation>Seurantapalvelimen muokkaus</translation>
     </message>
     <message>
         <source>Leeches</source>
-        <translation type="unfinished" />
+        <translation>Lataajat</translation>
     </message>
     <message>
         <source>Remove tracker</source>
@@ -2229,11 +2669,11 @@
     </message>
     <message>
         <source>Availability</source>
-        <translation type="unfinished" />
+        <translation>Saatavuus</translation>
     </message>
     <message>
         <source>Tier</source>
-        <translation type="unfinished" />
+        <translation>Taso</translation>
     </message>
     <message>
         <source>Download Priority</source>
@@ -2248,19 +2688,35 @@
         <translation>Edistyminen</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Koko</translation>
+        <source>Total Size</source>
+        <translation>Koko yhteensä</translation>
+    </message>
+    <message>
+        <source>Times Downloaded</source>
+        <translation>Latauskerrat</translation>
+    </message>
+    <message>
+        <source>Add trackers...</source>
+        <translation>Lisää seurantapalvelimia...</translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Alkuperäinen</translation>
     </message>
 </context>
 <context>
     <name>TrackersAdditionDialog</name>
     <message>
-        <source>Trackers addition dialog</source>
-        <translation>Seurantapalvelimien lisäys</translation>
-    </message>
-    <message>
         <source>List of trackers to add (one per line):</source>
         <translation>Lisättävien seurantapalvelimien lista (yksi per rivi):</translation>
+    </message>
+    <message>
+        <source>Add trackers</source>
+        <translation>Lisää seurantapalvelimia</translation>
     </message>
 </context>
 <context>
@@ -2272,7 +2728,7 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation>Keskeytetty</translation>
+        <translation>Pysäytetty</translation>
     </message>
     <message>
         <source>Completed</source>
@@ -2284,7 +2740,7 @@
     </message>
     <message>
         <source>[F] Seeding</source>
-        <translation type="unfinished" />
+        <translation>[P] Jaetaan</translation>
     </message>
     <message>
         <source>Seeding</source>
@@ -2300,7 +2756,7 @@
     </message>
     <message>
         <source>[F] Downloading</source>
-        <translation type="unfinished" />
+        <translation>[P] Ladataan</translation>
     </message>
     <message>
         <source>Downloading metadata</source>
@@ -2308,7 +2764,7 @@
     </message>
     <message>
         <source>Checking</source>
-        <translation>Tarkastetaan</translation>
+        <translation>Tarkistetaan</translation>
     </message>
     <message>
         <source>Missing Files</source>
@@ -2316,7 +2772,7 @@
     </message>
     <message>
         <source>Queued for checking</source>
-        <translation type="unfinished" />
+        <translation>Tarkistusjonossa</translation>
     </message>
     <message>
         <source>Downloading</source>
@@ -2324,7 +2780,7 @@
     </message>
     <message>
         <source>Checking resume data</source>
-        <translation type="unfinished" />
+        <translation>Tarkistetaan jatkotietoja</translation>
     </message>
     <message>
         <source>Stalled</source>
@@ -2332,11 +2788,11 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (jaettu %2)</translation>
     </message>
     <message>
         <source>[F] Downloading metadata</source>
-        <translation type="unfinished" />
+        <translation>[P] Ladataan metatioetoja</translation>
     </message>
 </context>
 <context>
@@ -2355,6 +2811,10 @@
     </message>
     <message>
         <source>Trackers</source>
+        <translation>Seurantapalvelimet</translation>
+    </message>
+    <message>
+        <source>Collapse/expand</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2385,16 +2845,11 @@
     <message>
         <source>Pause</source>
         <comment>Pause the torrent</comment>
-        <translation>Keskeytä</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <comment>Delete the torrent</comment>
-        <translation>Poista</translation>
+        <translation>Pysäytä</translation>
     </message>
     <message>
         <source>Limit share ratio...</source>
-        <translation>Rajoita jakosuhde...</translation>
+        <translation>Rajoita jakosuhdetta...</translation>
     </message>
     <message>
         <source>Limit upload rate...</source>
@@ -2467,10 +2922,6 @@
         <translation>Lataa järjestyksessä</translation>
     </message>
     <message>
-        <source>Force Recheck</source>
-        <translation>Pakota uudelleentarkistus</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Uusi kategoria</translation>
     </message>
@@ -2496,11 +2947,11 @@
     </message>
     <message>
         <source>Save path</source>
-        <translation type="unfinished" />
+        <translation>Tallennussijainti</translation>
     </message>
     <message>
         <source>Comma-separated tags:</source>
-        <translation type="unfinished" />
+        <translation>Pilkulla erotetut tunnisteet:</translation>
     </message>
     <message>
         <source>Add Tags</source>
@@ -2528,7 +2979,7 @@
     </message>
     <message>
         <source>Queue</source>
-        <translation type="unfinished" />
+        <translation>Jono</translation>
     </message>
     <message>
         <source>Add...</source>
@@ -2546,12 +2997,32 @@
         <source>Torrent ID</source>
         <translation type="unfinished" />
     </message>
+    <message>
+        <source>Export .torrent</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Poista</translation>
+    </message>
+    <message>
+        <source>Rename Files...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Renaming</source>
+        <translation>Nimetään uudelleen</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>UpDownRatioDialog</name>
     <message>
         <source>Torrent Upload/Download Ratio Limiting</source>
-        <translation type="unfinished" />
+        <translation>Torrentin lähetys/lataus suhteen rajoitus</translation>
     </message>
     <message>
         <source>Use global share limit</source>
@@ -2559,19 +3030,23 @@
     </message>
     <message>
         <source>Set no share limit</source>
-        <translation type="unfinished" />
+        <translation>Älä aseta jakorajoitusta</translation>
     </message>
     <message>
         <source>Set share limit to</source>
-        <translation type="unfinished" />
+        <translation>Aseta jakorajoitukseksi</translation>
     </message>
     <message>
         <source>ratio</source>
         <translation>Jakosuhde</translation>
     </message>
     <message>
-        <source>minutes</source>
-        <translation>minuuttia</translation>
+        <source>total minutes</source>
+        <translation>yhteensä minuutteja</translation>
+    </message>
+    <message>
+        <source>inactive minutes</source>
+        <translation>ei käynnissä minuutteja</translation>
     </message>
 </context>
 <context>
@@ -2580,16 +3055,12 @@
 <context>
     <name>confirmDeletionDlg</name>
     <message>
-        <source>Deletion confirmation</source>
-        <translation>Poistamisen vahvistus</translation>
+        <source>Also permanently delete the files</source>
+        <translation>Poista myös tiedostot pysyvästi</translation>
     </message>
     <message>
-        <source>Also delete the files on the hard disk</source>
-        <translation>Poista tiedostot myös kiintolevyltä</translation>
-    </message>
-    <message>
-        <source>Deletion confirmation - qBittorrent</source>
-        <translation type="unfinished" />
+        <source>Remove torrent(s)</source>
+        <translation>Poista torrenteja</translation>
     </message>
 </context>
 <context>
@@ -2604,7 +3075,7 @@
     </message>
     <message>
         <source>Add Torrent Links</source>
-        <translation type="unfinished" />
+        <translation>Lisää torrent-linkkejä</translation>
     </message>
 </context>
 <context>
@@ -2676,14 +3147,14 @@
     </message>
     <message>
         <source>%1y %2d</source>
-        <translation type="unfinished" />
+        <translation>%1y %2d</translation>
     </message>
 </context>
 <context>
     <name>TorrentsController</name>
     <message>
         <source>Save path is empty</source>
-        <translation>Tallennuspolku on tyhjä</translation>
+        <translation>Tallennussijainti on tyhjä</translation>
     </message>
 </context>
 <context>
@@ -2694,7 +3165,7 @@
     </message>
     <message>
         <source>Plugin path:</source>
-        <translation>Liitännäisen polku:</translation>
+        <translation>Liitännäisen sijainti:</translation>
     </message>
     <message>
         <source>URL or local directory</source>
@@ -2713,7 +3184,7 @@
     <name>SearchEngineWidget</name>
     <message>
         <source>Seeds:</source>
-        <translation type="unfinished" />
+        <translation>Jakajia:</translation>
     </message>
     <message>
         <source>All plugins</source>
@@ -2741,23 +3212,19 @@
     </message>
     <message>
         <source>Search in:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Results (showing</source>
-        <translation>Tulokset (näytetään</translation>
+        <translation>Etsitään:</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished" />
+        <translation>Suodatin</translation>
     </message>
     <message>
         <source>Torrent names only</source>
-        <translation type="unfinished" />
+        <translation>Vain torrentin nimestä</translation>
     </message>
     <message>
         <source>Only enabled</source>
-        <translation type="unfinished" />
+        <translation>Vain käytössä olevat</translation>
     </message>
     <message>
         <source>out of</source>
@@ -2765,11 +3232,11 @@
     </message>
     <message>
         <source>Everywhere</source>
-        <translation type="unfinished" />
+        <translation>Kaikkialta</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished" />
+        <translation>Varoitus</translation>
     </message>
     <message>
         <source>Increase window width to display additional filters</source>
@@ -2777,6 +3244,22 @@
     </message>
     <message>
         <source>to</source>
+        <translation>–</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Tulokset</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Click the "Search plugins..." button at the bottom right of the window to install some.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>There aren't any search plugins installed.</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2792,7 +3275,7 @@
     </message>
     <message>
         <source>You can get new search engine plugins here:</source>
-        <translation type="unfinished" />
+        <translation>Saat uusia hakukoneliitännäisiä täältä:</translation>
     </message>
     <message>
         <source>Close</source>
@@ -2808,7 +3291,7 @@
     </message>
     <message>
         <source>Warning: Be sure to comply with your country's copyright laws when downloading torrents from any of these search engines.</source>
-        <translation type="unfinished" />
+        <translation>Varoitus: Muista noudattaa maasi tekijänoikeuslakeja, kun lataat torrentteja mistä tahansa näistä hakukoneista.</translation>
     </message>
     <message>
         <source>Check for updates</source>
@@ -2831,7 +3314,7 @@
     </message>
     <message>
         <source>Leechers</source>
-        <translation type="unfinished" />
+        <translation>Lataajia</translation>
     </message>
     <message>
         <source>Search engine</source>
@@ -2839,7 +3322,7 @@
     </message>
     <message>
         <source>Seeders</source>
-        <translation type="unfinished" />
+        <translation>Jakoja</translation>
     </message>
 </context>
 <context>
@@ -2850,11 +3333,11 @@
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished" />
+        <translation>Url</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished" />
+        <translation>Käytössä</translation>
     </message>
     <message>
         <source>Version</source>
@@ -2881,7 +3364,7 @@
     </message>
     <message>
         <source>List of peers to add (one IP per line):</source>
-        <translation type="unfinished" />
+        <translation>Lista lisättävistä vertaisista (yksi IP riviä kohden):</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -2903,16 +3386,12 @@
         <translation>Lisää tunniste...</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Poista torrentit</translation>
-    </message>
-    <message>
         <source>Tag:</source>
         <translation>Tunniste:</translation>
     </message>
     <message>
         <source>Pause torrents</source>
-        <translation>Keskeytä torrentit</translation>
+        <translation>Pysäytä torrentit</translation>
     </message>
     <message>
         <source>Resume torrents</source>
@@ -2929,6 +3408,10 @@
     <message>
         <source>Remove tag</source>
         <translation>Poista tunniste</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Poista torrentit</translation>
     </message>
 </context>
 <context>
@@ -2978,7 +3461,7 @@
     </message>
     <message>
         <source>An advanced BitTorrent client programmed in C++, based on Qt toolkit and libtorrent-rasterbar.</source>
-        <translation type="unfinished" />
+        <translation>Monipuolinen BitTorrent-asiakasohjelmisto, ohjelmoitu C++:lla. Pohjautuu Qt:hen ja libtorrent-rasterbariin.</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -3005,16 +3488,28 @@
         <translation>Kansallisuus:</translation>
     </message>
     <message>
-        <source>Author</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Software Used</source>
         <translation>Käytetyt ohjelmistot</translation>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
-        <translation type="unfinished" />
+        <translation>Vapaata ja ilmaista "IP to Country Lite" DB-IP:n ylläpitämää tietokantaa käytetään erottelemaan ja näyttämään vertaiskäyttäjien maat. Tämän tietokannan käyttölupa toimii Creative Commons Attributions 4.0 License:n alaisuudessa</translation>
+    </message>
+    <message>
+        <source>Authors</source>
+        <translation>Tekijät</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Ranska</translation>
+    </message>
+    <message>
+        <source>qBittorrent Mascot</source>
+        <translation>qBittorrent-maskotti</translation>
+    </message>
+    <message>
+        <source>qBittorrent icon</source>
+        <translation>qBittorrent-kuvake</translation>
     </message>
 </context>
 <context>
@@ -3056,14 +3551,14 @@
     </message>
     <message>
         <source>Download link</source>
-        <translation type="unfinished" />
+        <translation>Lataa linkki</translation>
     </message>
 </context>
 <context>
     <name>TorrentContentTreeView</name>
     <message>
         <source>Renaming</source>
-        <translation type="unfinished" />
+        <translation>Nimetään uudelleen</translation>
     </message>
     <message>
         <source>New name:</source>
@@ -3074,376 +3569,516 @@
     <name>RSSWidget</name>
     <message>
         <source>Date: </source>
-        <translation type="unfinished" />
+        <translation>Päiväys:</translation>
     </message>
     <message>
         <source>Please choose a new name for this RSS feed</source>
-        <translation type="unfinished" />
+        <translation>Valitse uusi nimi tälle RSS-syötteelle</translation>
     </message>
     <message>
         <source>Please choose a folder name</source>
-        <translation type="unfinished" />
+        <translation>Valitse kansion nimi</translation>
     </message>
     <message>
         <source>New feed name:</source>
-        <translation type="unfinished" />
+        <translation>Uusi syötteen nimi:</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished" />
+        <translation>Päivitä kaikki</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished" />
+        <translation>Poista</translation>
     </message>
     <message>
         <source>RSS Downloader...</source>
-        <translation type="unfinished" />
+        <translation>RSS-lataaja...</translation>
     </message>
     <message>
         <source>Mark items read</source>
-        <translation type="unfinished" />
+        <translation>Merkitse kohteet luetuiksi</translation>
     </message>
     <message>
         <source>Update all feeds</source>
-        <translation type="unfinished" />
+        <translation>Päivitä kaikki syötteet</translation>
     </message>
     <message>
         <source>Copy feed URL</source>
-        <translation type="unfinished" />
+        <translation>Kopioi syötteen osoite</translation>
     </message>
     <message>
         <source>Torrents: (double-click to download)</source>
-        <translation type="unfinished" />
+        <translation>Torrentit: (kaksoisnapsauta ladataksesi)</translation>
     </message>
     <message>
         <source>Open news URL</source>
-        <translation type="unfinished" />
+        <translation>Avaa uutisten osoite</translation>
     </message>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished" />
+        <translation>Nimeä uudelleen...</translation>
     </message>
     <message>
         <source>Feed URL:</source>
-        <translation type="unfinished" />
+        <translation>Syötteen osoite:</translation>
     </message>
     <message>
         <source>New folder...</source>
-        <translation type="unfinished" />
+        <translation>Uusi kansio...</translation>
     </message>
     <message>
         <source>New subscription</source>
-        <translation type="unfinished" />
+        <translation>Uusi tilaus</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>Päivitä</translation>
     </message>
     <message>
         <source>Folder name:</source>
-        <translation type="unfinished" />
+        <translation>Kansion nimi:</translation>
     </message>
     <message>
         <source>Please type a RSS feed URL</source>
-        <translation type="unfinished" />
+        <translation>Anna RSS-syötteen verkko-osoite.</translation>
     </message>
     <message>
         <source>Fetching of RSS feeds is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>RSS-syötteiden haku on nyt poistettu käytöstä! Voit ottaa sen käyttöön sovellusasetuksista.</translation>
     </message>
     <message>
         <source>Deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Poistamisen vahvistus</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the selected RSS feeds?</source>
-        <translation type="unfinished" />
+        <translation>Haluatko varmasti poistaa valitut RSS-syötteet?</translation>
     </message>
     <message>
         <source>New subscription...</source>
-        <translation type="unfinished" />
+        <translation>Uusi tilaus...</translation>
     </message>
     <message>
         <source>Download torrent</source>
-        <translation type="unfinished" />
+        <translation>Lataa torrentti</translation>
     </message>
 </context>
 <context>
     <name>AutomatedRssDownloader</name>
     <message>
         <source>Download Rules</source>
-        <translation type="unfinished" />
+        <translation>Lataussäännöt</translation>
     </message>
     <message>
         <source>Matching RSS Articles</source>
-        <translation type="unfinished" />
+        <translation>Vastaavat RSS-artikkelit</translation>
     </message>
     <message>
         <source>* to match zero or more of any characters</source>
-        <translation type="unfinished" />
+        <translation>* vastaamaan nolla tai enemmän mitä tahansa merkkiä</translation>
     </message>
     <message>
         <source> will match all articles.</source>
-        <translation type="unfinished" />
+        <translation>tulee täsmäämään kaikkien nimikkeiden kanssa.</translation>
     </message>
     <message>
         <source>Episode filter rules: </source>
-        <translation type="unfinished" />
+        <translation>Jaksosuodattimen säännöt:</translation>
     </message>
     <message>
         <source>Auto downloading of RSS torrents is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>RSS-torrenttien automaattinen lataus on nyt poistettu käytöstä! Voit ottaa sen käyttöön sovellusasetuksista.</translation>
     </message>
     <message>
         <source>Rule Definition</source>
-        <translation type="unfinished" />
+        <translation>Säännön määrittäminen</translation>
     </message>
     <message>
         <source>Save to:</source>
-        <translation type="unfinished" />
+        <translation>Tallenna kohteeseen:</translation>
     </message>
     <message>
         <source>Use Regular Expressions</source>
-        <translation type="unfinished" />
+        <translation>Käytä säännöllisiä lausekkeita</translation>
     </message>
     <message>
         <source>New rule name</source>
-        <translation type="unfinished" />
+        <translation>Uuden säännön nimi</translation>
     </message>
     <message>
         <source>Filter must end with semicolon</source>
-        <translation type="unfinished" />
+        <translation>Suodattimen on päätyttävä puolipisteeseen</translation>
     </message>
     <message>
         <source>? to match any single character</source>
-        <translation type="unfinished" />
+        <translation>? vastaamaan mitä tahansa yksittäistä merkkiä</translation>
     </message>
     <message>
         <source>Matches articles based on episode filter.</source>
-        <translation type="unfinished" />
+        <translation>Täsmää nimikkeisiin jotka perustuvat jaksosuodattimeen.</translation>
     </message>
     <message>
         <source>Assign Category:</source>
-        <translation type="unfinished" />
+        <translation>Määritä kategoria:</translation>
     </message>
     <message>
         <source>Regex mode: use Perl-compatible regular expressions</source>
-        <translation type="unfinished" />
+        <translation>Regex-tila: käytä Perl-yhteensopivia säännöllisiä lausekkeita</translation>
     </message>
     <message>
         <source>| is used as OR operator</source>
-        <translation type="unfinished" />
+        <translation>| käytetään OR-operaattorina</translation>
     </message>
     <message>
         <source>Clear downloaded episodes</source>
-        <translation type="unfinished" />
+        <translation>Tyhjennä ladatut jaksot</translation>
     </message>
     <message>
         <source>Whitespaces count as AND operators (all words, any order)</source>
-        <translation type="unfinished" />
+        <translation>Tyhjät välit lasketaan JA toimintoina (kaikki sanat, mikä tahansa järjestys)</translation>
     </message>
     <message>
         <source>An expression with an empty %1 clause (e.g. %2)</source>
-        <translation type="unfinished" />
+        <translation>Pyyntö tyhjällä %1 lausekkeella (esim. %2)</translation>
     </message>
     <message>
         <source>Example: </source>
-        <translation type="unfinished" />
+        <translation>Esimerkki:</translation>
     </message>
     <message>
         <source>Add new rule...</source>
-        <translation type="unfinished" />
+        <translation>Lisää uusi sääntö...</translation>
     </message>
     <message>
         <source>Are you sure you want to clear the list of downloaded episodes for the selected rule?</source>
-        <translation type="unfinished" />
+        <translation>Oletko varma että haluat tyhjentää ladattujen jaksojen luettelon valitulle säännölle?</translation>
     </message>
     <message>
         <source>Must Contain:</source>
-        <translation type="unfinished" />
+        <translation>Täytyy sisältää:</translation>
     </message>
     <message>
         <source>Infinite range: &lt;b&gt;1x25-;&lt;/b&gt; matches episodes 25 and upward of season one, and all episodes of later seasons</source>
-        <translation type="unfinished" />
+        <translation>Rajoittamaton alue: &lt;b&gt;1x25-;&lt;/b&gt; poimii jaksot 25 ja siitä ylöspäin kaudesta yksi, myös kaikki jaksot myöhemmistä kausista</translation>
     </message>
     <message>
         <source>Save to a Different Directory</source>
-        <translation type="unfinished" />
+        <translation>Tallenna toiseen hakemistoon</translation>
     </message>
     <message>
         <source>Must Not Contain:</source>
-        <translation type="unfinished" />
+        <translation>Ei saa sisältää:</translation>
     </message>
     <message>
         <source>Single number: &lt;b&gt;1x25;&lt;/b&gt; matches episode 25 of season one</source>
-        <translation type="unfinished" />
+        <translation>Yksi numero: &lt;b&gt;1x25;&lt;/b&gt; vastaa ensimmäisen kauden jaksoa 25</translation>
     </message>
     <message>
         <source>Three range types for episodes are supported: </source>
-        <translation type="unfinished" />
+        <translation>Jaksoille tuetaan kolmea aluetyyppiä:</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the selected download rules?</source>
-        <translation type="unfinished" />
+        <translation>Haluatko varmasti poistaa valitut lataussäännöt?</translation>
     </message>
     <message>
         <source>Use global settings</source>
-        <translation type="unfinished" />
+        <translation>Käytä yleisiä asetuksia</translation>
     </message>
     <message>
         <source>Normal range: &lt;b&gt;1x25-40;&lt;/b&gt; matches episodes 25 through 40 of season one</source>
-        <translation type="unfinished" />
+        <translation>Normaali jakauma: &lt;b&gt;1x25-40;&lt;/b&gt; vastaa ensimmäisen kauden jaksoja 25-40</translation>
     </message>
     <message>
         <source>Please type the new rule name</source>
-        <translation type="unfinished" />
+        <translation>Anna uuden säännön nimi</translation>
     </message>
     <message>
         <source>Rule renaming</source>
-        <translation type="unfinished" />
+        <translation>Säännön nimeäminen uudelleen</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished" />
+        <translation>Aina</translation>
     </message>
     <message>
         <source>Episode number is a mandatory positive value</source>
-        <translation type="unfinished" />
+        <translation>Jakson numero on oltava positiivinen arvo</translation>
     </message>
     <message>
         <source> will match 2, 5, 8 through 15, 30 and onward episodes of season one</source>
-        <translation type="unfinished" />
+        <translation>poimii 2, 5, 8 ja läpi 15, 30 sekä jaksot siitä eteenpäin kaudesta yksi </translation>
     </message>
     <message>
         <source>Rule deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Säännön poistamisen vahvistus</translation>
     </message>
     <message>
         <source>Last Match: %1 days ago</source>
-        <translation type="unfinished" />
+        <translation>Viimeisin täsmäys: %1 päivää sitten</translation>
     </message>
     <message>
         <source>Episode Filter:</source>
-        <translation type="unfinished" />
+        <translation>Jaksosuodatin:</translation>
     </message>
     <message>
         <source>Rss Downloader</source>
-        <translation type="unfinished" />
+        <translation>RSS-lataaja</translation>
     </message>
     <message>
         <source>Season number is a mandatory non-zero value</source>
-        <translation type="unfinished" />
+        <translation>Tuotantokauden numero on oltava enemmän kuin nolla</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished" />
+        <translation>Ei koskaan</translation>
     </message>
     <message>
         <source>Apply Rule to Feeds:</source>
-        <translation type="unfinished" />
+        <translation>Käytä sääntöä syötteisiin:</translation>
     </message>
     <message>
         <source> days</source>
-        <translation type="unfinished" />
+        <translation> päivää</translation>
     </message>
     <message>
         <source>Use Smart Episode Filter</source>
-        <translation type="unfinished" />
+        <translation>Käytä älykästä jaksosuodatinta</translation>
     </message>
     <message>
         <source>If word order is important use * instead of whitespace.</source>
-        <translation type="unfinished" />
+        <translation>Jos sanajärjestys on tärkeä, käytä * välilyönnin sijaan.</translation>
     </message>
     <message>
         <source>Add Paused:</source>
-        <translation type="unfinished" />
+        <translation>Lisää pysäytettynä:</translation>
     </message>
     <message>
         <source>Please type the name of the new download rule.</source>
-        <translation type="unfinished" />
+        <translation>Anna uuden lataussäännön nimi.</translation>
     </message>
     <message>
         <source>Wildcard mode: you can use</source>
-        <translation type="unfinished" />
+        <translation>Jokerimerkkitila: voit käyttää</translation>
     </message>
     <message>
         <source> will exclude all articles.</source>
-        <translation type="unfinished" />
+        <translation>Sulkee pois kaikki artikkelit.</translation>
     </message>
     <message>
         <source>Delete rule</source>
-        <translation type="unfinished" />
+        <translation>Poista sääntö</translation>
     </message>
     <message>
         <source>Ignore Subsequent Matches for (0 to Disable)</source>
-        <translation type="unfinished" />
+        <translation>Sivuuta myöhemmät täsmäykset tälle (0 kytkee pois)</translation>
     </message>
     <message>
         <source>Rename rule...</source>
-        <translation type="unfinished" />
+        <translation>Nimeä sääntö uudelleen...</translation>
     </message>
     <message>
         <source>Last Match: Unknown</source>
-        <translation type="unfinished" />
+        <translation>Viimeisin täsmäys: ei tiedossa</translation>
     </message>
     <message>
         <source>Clear downloaded episodes...</source>
-        <translation type="unfinished" />
+        <translation>Tyhjennä ladatut jaksot...</translation>
     </message>
     <message>
         <source>Smart Episode Filter will check the episode number to prevent downloading of duplicates.
 Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also support - as a separator)</source>
-        <translation type="unfinished" />
+        <translation>Älykäs jaksosuodatin tarkistaa jaksonumeron estääkseen kaksoiskappaleiden latauksen.
+Nämä muodot ovat tuetut: S01E01, 1x1, 2017.12.31 ja 31.12.2017 (päiväysmuodot tukevat myös väliviivaa ( - ) erottajana)</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Torrentin sisällön asettelu:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Luo alikansio</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Alkuperäinen</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
+        <translation>Älä luo alikansiota</translation>
+    </message>
+    <message>
+        <source>Add Tags:</source>
         <translation type="unfinished" />
     </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
     <message>
-        <source>Delete torrents</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Resume torrents</source>
-        <translation type="unfinished" />
+        <translation>Jatka torrentteja</translation>
     </message>
     <message>
         <source>All (%1)</source>
-        <translation type="unfinished" />
+        <translation>Kaikki (%1)</translation>
     </message>
     <message>
         <source>Trackerless (%1)</source>
-        <translation type="unfinished" />
+        <translation>Ei seurantapalvelinta (%1)</translation>
     </message>
     <message>
         <source>Pause torrents</source>
-        <translation type="unfinished" />
+        <translation>Pysäytä torrentit</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Poista torrentit</translation>
     </message>
 </context>
 <context>
     <name>FeedListWidget</name>
     <message>
         <source>RSS feeds</source>
-        <translation type="unfinished" />
+        <translation>RSS-syötteet</translation>
     </message>
     <message>
         <source>Unread</source>
+        <translation>Lukematon</translation>
+    </message>
+</context>
+<context>
+    <name>ExecutionLogWidget</name>
+    <message>
+        <source>General</source>
+        <translation>Yleiset</translation>
+    </message>
+    <message>
+        <source>Blocked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Tuntematon</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Kaikki</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopioi</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Valitse kaikki</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log Type</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Tyhjennä</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Varoitus</translation>
+    </message>
+    <message>
+        <source>Information Messages</source>
+        <translation>Tiedotusviestit</translation>
+    </message>
+    <message>
+        <source>Warning Messages</source>
+        <translation>Varoitusviestit</translation>
+    </message>
+    <message>
+        <source>Filter logs</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blocked IPs</source>
+        <translation>Estetyt IP-osoitteet</translation>
+    </message>
+    <message>
+        <source>out of</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Tila</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Viesti</translation>
+    </message>
+    <message>
+        <source>Log Levels:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Reason</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>item</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Banned</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Normal Messages</source>
+        <translation>Normaalit viestit</translation>
+    </message>
+    <message>
+        <source>Critical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Critical Messages</source>
+        <translation>Kriittiset viestit</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normaali</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Tulokset</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Choose a log level...</source>
         <translation type="unfinished" />
     </message>
 </context>

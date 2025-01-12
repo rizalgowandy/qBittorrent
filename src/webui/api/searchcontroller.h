@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2024  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2018  Thomas Piccirello <thomas.piccirello@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -28,7 +29,11 @@
 
 #pragma once
 
+#include <memory>
+
 #include <QtContainerFwd>
+#include <QHash>
+#include <QSet>
 
 #include "base/search/searchpluginmanager.h"
 #include "apicontroller.h"
@@ -36,7 +41,6 @@
 class QJsonArray;
 class QJsonObject;
 
-struct ISession;
 struct SearchResult;
 
 class SearchController : public APIController
@@ -53,6 +57,7 @@ private slots:
     void statusAction();
     void resultsAction();
     void deleteAction();
+    void downloadTorrentAction();
     void pluginsAction();
     void installPluginAction();
     void uninstallPluginAction();
@@ -64,9 +69,10 @@ private:
 
     void checkForUpdatesFinished(const QHash<QString, PluginVersion> &updateInfo);
     void checkForUpdatesFailed(const QString &reason);
-    void searchFinished(ISession *session, int id);
-    void searchFailed(ISession *session, int id);
     int generateSearchId() const;
     QJsonObject getResults(const QList<SearchResult> &searchResults, bool isSearchActive, int totalResults) const;
     QJsonArray getPluginsInfo(const QStringList &plugins) const;
+
+    QSet<int> m_activeSearches;
+    QHash<int, std::shared_ptr<SearchHandler>> m_searchHandlers;
 };

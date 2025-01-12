@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2024  Jonathan Ketchker
  * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  * Copyright (C) 2010  Arnaud Demaiziere <arnaud@qbittorrent.org>
@@ -31,6 +32,8 @@
 #pragma once
 
 #include <QList>
+
+#include "base/global.h"
 #include "rss_item.h"
 
 namespace RSS
@@ -44,7 +47,7 @@ namespace RSS
 
         friend class Session;
 
-        explicit Folder(const QString &path = "");
+        explicit Folder(const QString &path = {});
         ~Folder() override;
 
     public:
@@ -52,6 +55,7 @@ namespace RSS
         int unreadCount() const override;
         void markAsRead() override;
         void refresh() override;
+        void updateFetchDelay() override;
 
         QList<Item *> items() const;
 

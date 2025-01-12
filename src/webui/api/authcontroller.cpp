@@ -30,23 +30,40 @@
 
 #include <QString>
 
+#include "base/global.h"
 #include "base/logger.h"
 #include "base/preferences.h"
 #include "base/utils/password.h"
 #include "apierror.h"
 #include "isessionmanager.h"
 
+AuthController::AuthController(ISessionManager *sessionManager, IApplication *app, QObject *parent)
+    : APIController(app, parent)
+    , m_sessionManager {sessionManager}
+{
+}
+
+void AuthController::setUsername(const QString &username)
+{
+    m_username = username;
+}
+
+void AuthController::setPasswordHash(const QByteArray &passwordHash)
+{
+    m_passwordHash = passwordHash;
+}
+
 void AuthController::loginAction()
 {
-    if (sessionManager()->session())
+    if (m_sessionManager->session())
     {
-        setResult(QLatin1String("Ok."));
+        setResult(u"Ok."_s);
         return;
     }
 
-    const QString clientAddr {sessionManager()->clientId()};
-    const QString usernameFromWeb {params()["username"]};
-    const QString passwordFromWeb {params()["password"]};
+    const QString clientAddr = m_sessionManager->clientId();
+    const QString usernameFromWeb = params()[u"username"_s];
+    const QString passwordFromWeb = params()[u"password"_s];
 
     if (isBanned())
     {
@@ -54,29 +71,25 @@ void AuthController::loginAction()
                 .arg(clientAddr, usernameFromWeb)
             , Log::WARNING);
         throw APIError(APIErrorType::AccessDenied
-                       , tr("Your IP address has been banned after too many failed authentication attempts."));
+            , tr("Your IP address has been banned after too many failed authentication attempts."));
     }
 
-    const Preferences *pref = Preferences::instance();
-
-    const QString username {pref->getWebUiUsername()};
-    const QByteArray secret {pref->getWebUIPassword()};
-    const bool usernameEqual = Utils::Password::slowEquals(usernameFromWeb.toUtf8(), username.toUtf8());
-    const bool passwordEqual = Utils::Password::PBKDF2::verify(secret, passwordFromWeb);
+    const bool usernameEqual = Utils::Password::slowEquals(usernameFromWeb.toUtf8(), m_username.toUtf8());
+    const bool passwordEqual = Utils::Password::PBKDF2::verify(m_passwordHash, passwordFromWeb);
 
     if (usernameEqual && passwordEqual)
     {
         m_clientFailedLogins.remove(clientAddr);
 
-        sessionManager()->sessionStart();
-        setResult(QLatin1String("Ok."));
+        m_sessionManager->sessionStart();
+        setResult(u"Ok."_s);
         LogMsg(tr("WebAPI login success. IP: %1").arg(clientAddr));
     }
     else
     {
         if (Preferences::instance()->getWebUIMaxAuthFailCount() > 0)
             increaseFailedAttempts();
-        setResult(QLatin1String("Fails."));
+        setResult(u"Fails."_s);
         LogMsg(tr("WebAPI login failure. Reason: invalid credentials, attempt count: %1, IP: %2, username: %3")
                 .arg(QString::number(failedAttemptsCount()), clientAddr, usernameFromWeb)
             , Log::WARNING);
@@ -85,12 +98,12 @@ void AuthController::loginAction()
 
 void AuthController::logoutAction() const
 {
-    sessionManager()->sessionEnd();
+    m_sessionManager->sessionEnd();
 }
 
 bool AuthController::isBanned() const
 {
-    const auto failedLoginIter = m_clientFailedLogins.find(sessionManager()->clientId());
+    const auto failedLoginIter = m_clientFailedLogins.find(m_sessionManager->clientId());
     if (failedLoginIter == m_clientFailedLogins.end())
         return false;
 
@@ -106,14 +119,14 @@ bool AuthController::isBanned() const
 
 int AuthController::failedAttemptsCount() const
 {
-    return m_clientFailedLogins.value(sessionManager()->clientId()).failedAttemptsCount;
+    return m_clientFailedLogins.value(m_sessionManager->clientId()).failedAttemptsCount;
 }
 
 void AuthController::increaseFailedAttempts()
 {
     Q_ASSERT(Preferences::instance()->getWebUIMaxAuthFailCount() > 0);
 
-    FailedLogin &failedLogin = m_clientFailedLogins[sessionManager()->clientId()];
+    FailedLogin &failedLogin = m_clientFailedLogins[m_sessionManager->clientId()];
     ++failedLogin.failedAttemptsCount;
 
     if (failedLogin.failedAttemptsCount >= Preferences::instance()->getWebUIMaxAuthFailCount())

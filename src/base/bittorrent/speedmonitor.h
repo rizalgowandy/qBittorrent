@@ -33,43 +33,39 @@
 #include <boost/circular_buffer.hpp>
 #endif
 
-#include <QtGlobal>
+#include <QtTypes>
 
 template<typename T>
 struct Sample
 {
-    Sample()
-        : download()
-        , upload()
+    constexpr Sample() = default;
+
+    constexpr Sample(const T dl, const T ul)
+        : download {dl}
+        , upload {ul}
     {
     }
 
-    Sample(T dl, T ul)
-        : download(dl)
-        , upload(ul)
-    {
-    }
-
-    Sample<T> &operator+=(const Sample<T> &other)
+    constexpr Sample<T> &operator+=(const Sample<T> &other)
     {
         download += other.download;
-        upload   += other.upload;
+        upload += other.upload;
         return *this;
     }
 
-    Sample<T> &operator-=(const Sample<T> &other)
+    constexpr Sample<T> &operator-=(const Sample<T> &other)
     {
         download -= other.download;
-        upload   -= other.upload;
+        upload -= other.upload;
         return *this;
     }
 
-    T download;
-    T upload;
+    T download {};
+    T upload {};
 };
 
-typedef Sample<qlonglong> SpeedSample;
-typedef Sample<qreal> SpeedSampleAvg;
+using SpeedSample = Sample<qlonglong>;
+using SpeedSampleAvg = Sample<qreal>;
 
 class SpeedMonitor
 {

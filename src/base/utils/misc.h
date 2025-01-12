@@ -28,19 +28,14 @@
 
 #pragma once
 
-#include <QtGlobal>
+#include <QtTypes>
 
-#ifdef Q_OS_WIN
-#include <memory>
-#include <Windows.h>
-#endif
+#include "base/pathfwd.h"
 
-#include <QString>
-
-enum class ShutdownDialogAction;
+class QString;
+class QStringView;
 
 /*  Miscellaneous functions that can be useful */
-
 namespace Utils::Misc
 {
     // use binary prefix standards from IEC 60027-2
@@ -59,9 +54,13 @@ namespace Utils::Misc
         // YobiByte,   // 1024^8
     };
 
-    QString parseHtmlLinks(const QString &rawText);
+    enum class TimeResolution
+    {
+        Seconds,
+        Minutes
+    };
 
-    void shutdownComputer(const ShutdownDialogAction &action);
+    QString parseHtmlLinks(const QString &rawText);
 
     QString osName();
     QString boostVersionString();
@@ -73,34 +72,17 @@ namespace Utils::Misc
 
     // return the best user friendly storage unit (B, KiB, MiB, GiB, TiB)
     // value must be given in bytes
-    QString friendlyUnit(qint64 bytes, bool isSpeed = false);
+    QString friendlyUnit(qint64 bytes, bool isSpeed = false, int precision = -1);
+    QString friendlyUnitCompact(qint64 bytes);
     int friendlyUnitPrecision(SizeUnit unit);
     qint64 sizeInBytes(qreal size, SizeUnit unit);
 
-    bool isPreviewable(const QString &filename);
+    bool isPreviewable(const Path &filePath);
+    bool isTorrentLink(const QString &str);
 
     // Take a number of seconds and return a user-friendly
     // time duration like "1d 2h 10m".
-    QString userFriendlyDuration(qlonglong seconds, qlonglong maxCap = -1);
-    QString getUserIDString();
+    QString userFriendlyDuration(qlonglong seconds, qlonglong maxCap = -1, TimeResolution resolution = TimeResolution::Minutes);
 
-#ifdef Q_OS_WIN
-    QString windowsSystemPath();
-
-    template <typename T>
-    T loadWinAPI(const QString &source, const char *funcName)
-    {
-        QString path = windowsSystemPath();
-        if (!path.endsWith('\\'))
-            path += '\\';
-
-        path += source;
-
-        auto pathWchar = std::make_unique<wchar_t[]>(path.length() + 1);
-        path.toWCharArray(pathWchar.get());
-
-        return reinterpret_cast<T>(
-            ::GetProcAddress(::LoadLibraryW(pathWchar.get()), funcName));
-    }
-#endif // Q_OS_WIN
+    QString languageToLocalizedString(QStringView localeStr);
 }
