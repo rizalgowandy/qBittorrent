@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2017-2023  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -34,7 +34,9 @@
 #include <QSharedDataPointer>
 #include <QVariant>
 
-#include "base/bittorrent/torrentcontentlayout.h"
+#include "base/global.h"
+#include "base/bittorrent/addtorrentparams.h"
+#include "base/pathfwd.h"
 
 class QDateTime;
 class QJsonObject;
@@ -47,15 +49,20 @@ namespace RSS
     class AutoDownloadRule
     {
     public:
-        explicit AutoDownloadRule(const QString &name = "");
+        explicit AutoDownloadRule(const QString &name = {});
         AutoDownloadRule(const AutoDownloadRule &other);
         ~AutoDownloadRule();
+
+        AutoDownloadRule &operator=(const AutoDownloadRule &other);
 
         QString name() const;
         void setName(const QString &name);
 
         bool isEnabled() const;
         void setEnabled(bool enable);
+
+        int priority() const;
+        void setPriority(int value);
 
         QString mustContain() const;
         void setMustContain(const QString &tokens);
@@ -77,24 +84,16 @@ namespace RSS
         QStringList previouslyMatchedEpisodes() const;
         void setPreviouslyMatchedEpisodes(const QStringList &previouslyMatchedEpisodes);
 
-        QString savePath() const;
-        void setSavePath(const QString &savePath);
-        std::optional<bool> addPaused() const;
-        void setAddPaused(std::optional<bool> addPaused);
-        std::optional<BitTorrent::TorrentContentLayout> torrentContentLayout() const;
-        void setTorrentContentLayout(std::optional<BitTorrent::TorrentContentLayout> contentLayout);
-        QString assignedCategory() const;
-        void setCategory(const QString &category);
+        BitTorrent::AddTorrentParams addTorrentParams() const;
+        void setAddTorrentParams(BitTorrent::AddTorrentParams addTorrentParams);
 
         bool matches(const QVariantHash &articleData) const;
         bool accepts(const QVariantHash &articleData);
 
-        AutoDownloadRule &operator=(const AutoDownloadRule &other);
-        bool operator==(const AutoDownloadRule &other) const;
-        bool operator!=(const AutoDownloadRule &other) const;
+        friend bool operator==(const AutoDownloadRule &left, const AutoDownloadRule &right);
 
         QJsonObject toJsonObject() const;
-        static AutoDownloadRule fromJsonObject(const QJsonObject &jsonObj, const QString &name = "");
+        static AutoDownloadRule fromJsonObject(const QJsonObject &jsonObj, const QString &name = {});
 
         QVariantHash toLegacyDict() const;
         static AutoDownloadRule fromLegacyDict(const QVariantHash &dict);

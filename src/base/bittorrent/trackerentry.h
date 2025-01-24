@@ -1,6 +1,7 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2015, 2021  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2024  Mike Tzou (Chocobo1)
+ * Copyright (C) 2015-2023  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,48 +29,21 @@
 
 #pragma once
 
-#include <QtGlobal>
+#include <QtContainerFwd>
 #include <QString>
-#include <QVector>
+
+class QStringView;
 
 namespace BitTorrent
 {
     struct TrackerEntry
     {
-        enum Status
-        {
-            NotContacted = 1,
-            Working = 2,
-            Updating = 3,
-            NotWorking = 4
-        };
-
-        struct EndpointStats
-        {
-            int protocolVersion = 1;
-
-            Status status = NotContacted;
-            int numPeers = -1;
-            int numSeeds = -1;
-            int numLeeches = -1;
-            int numDownloaded = -1;
-            QString message {};
-        };
-
         QString url {};
         int tier = 0;
-
-        QVector<EndpointStats> endpoints {};
-
-        // Deprecated fields
-        Status status = NotContacted;
-        int numPeers = -1;
-        int numSeeds = -1;
-        int numLeeches = -1;
-        int numDownloaded = -1;
-        QString message {};
     };
 
+    QList<TrackerEntry> parseTrackerEntries(QStringView str);
+
     bool operator==(const TrackerEntry &left, const TrackerEntry &right);
-    uint qHash(const TrackerEntry &key, uint seed);
+    std::size_t qHash(const TrackerEntry &key, std::size_t seed = 0);
 }

@@ -31,14 +31,10 @@
 
 #include <cmath>
 
+#include <QList>
 #include <QLocale>
-#include <QVector>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 #include <QRegularExpression>
-#else
-#include <QRegExp>
-#endif
+#include <QStringList>
 
 // to send numbers instead of strings with suffixes
 QString Utils::String::fromDouble(const double n, const int precision)
@@ -53,27 +49,62 @@ QString Utils::String::fromDouble(const double n, const int precision)
     return QLocale::system().toString(std::floor(n * prec) / prec, 'f', precision);
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+QString Utils::String::fromLatin1(const std::string_view string)
+{
+    return QString::fromLatin1(string.data(), string.size());
+}
+
+QString Utils::String::fromLocal8Bit(const std::string_view string)
+{
+    return QString::fromLocal8Bit(string.data(), string.size());
+}
+
 QString Utils::String::wildcardToRegexPattern(const QString &pattern)
 {
     return QRegularExpression::wildcardToRegularExpression(pattern, QRegularExpression::UnanchoredWildcardConversion);
 }
-#else
-// This is marked as internal in QRegExp.cpp, but is exported. The alternative would be to
-// copy the code from QRegExp::wc2rx().
-QString qt_regexp_toCanonical(const QString &pattern, QRegExp::PatternSyntax patternSyntax);
 
-QString Utils::String::wildcardToRegexPattern(const QString &pattern)
+QStringList Utils::String::splitCommand(const QString &command)
 {
-    return qt_regexp_toCanonical(pattern, QRegExp::Wildcard);
+    QStringList ret;
+    ret.reserve(32);
+
+    bool inQuotes = false;
+    QString tmp;
+    for (const QChar c : command)
+    {
+        if (c == u' ')
+        {
+            if (!inQuotes)
+            {
+                if (!tmp.isEmpty())
+                {
+                    ret.append(tmp);
+                    tmp.clear();
+                }
+
+                continue;
+            }
+        }
+        else if (c == u'"')
+        {
+            inQuotes = !inQuotes;
+        }
+
+        tmp.append(c);
+    }
+
+    if (!tmp.isEmpty())
+        ret.append(tmp);
+
+    return ret;
 }
-#endif
 
 std::optional<bool> Utils::String::parseBool(const QString &string)
 {
-    if (string.compare("true", Qt::CaseInsensitive) == 0)
+    if (string.compare(u"true", Qt::CaseInsensitive) == 0)
         return true;
-    if (string.compare("false", Qt::CaseInsensitive) == 0)
+    if (string.compare(u"false", Qt::CaseInsensitive) == 0)
         return false;
 
     return std::nullopt;
@@ -97,15 +128,4 @@ std::optional<double> Utils::String::parseDouble(const QString &string)
         return result;
 
     return std::nullopt;
-}
-
-QString Utils::String::join(const QList<QStringView> &strings, const QStringView separator)
-{
-    if (strings.empty())
-        return {};
-
-    QString ret = strings[0].toString();
-    for (int i = 1; i < strings.count(); ++i)
-        ret += (separator + strings[i]);
-    return ret;
 }

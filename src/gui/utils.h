@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2024  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2017  Mike Tzou
  *
  * This program is free software; you can redistribute it and/or
@@ -28,36 +29,31 @@
 
 #pragma once
 
-#include <QSize>
+#include "base/pathfwd.h"
 
-class QIcon;
 class QPixmap;
 class QPoint;
+class QSize;
+class QString;
 class QWidget;
 
-namespace Utils
+class Tag;
+
+namespace Utils::Gui
 {
-    namespace Gui
-    {
-        void resize(QWidget *widget, const QSize &newSize = {});
-        qreal screenScalingFactor(const QWidget *widget);
+    bool isDarkTheme();
 
-        template <typename T>
-        T scaledSize(const QWidget *widget, const T &size)
-        {
-            return (size * screenScalingFactor(widget));
-        }
+    QPixmap scaledPixmap(const Path &path, int height = 0);
 
-        QPixmap scaledPixmap(const QIcon &icon, const QWidget *widget, int height);
-        QPixmap scaledPixmap(const QString &path, const QWidget *widget, int height = 0);
-        QPixmap scaledPixmapSvg(const QString &path, const QWidget *widget, int baseHeight);
-        QSize smallIconSize(const QWidget *widget = nullptr);
-        QSize mediumIconSize(const QWidget *widget = nullptr);
-        QSize largeIconSize(const QWidget *widget = nullptr);
+    QSize smallIconSize(const QWidget *widget = nullptr);
+    QSize mediumIconSize(const QWidget *widget = nullptr);
+    QSize largeIconSize(const QWidget *widget = nullptr);
 
-        QPoint screenCenter(const QWidget *w);
+    QPoint screenCenter(const QWidget *w);
 
-        void openPath(const QString &absolutePath);
-        void openFolderSelect(const QString &absolutePath);
-    }
+    void openPath(const Path &path);
+    void openFolderSelect(const Path &path);
+
+    QString tagToWidgetText(const Tag &tag);
+    Tag widgetTextToTag(const QString &text);
 }

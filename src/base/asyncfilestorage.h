@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2017-2024  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,37 +28,44 @@
 
 #pragma once
 
-#include <QDir>
+#include <memory>
+
 #include <QFile>
+#include <QHash>
 #include <QObject>
+#include <QReadWriteLock>
 
 #include "base/exceptions.h"
+#include "base/path.h"
 
-class AsyncFileStorageError : public RuntimeError
+class AsyncFileStorageError final : public RuntimeError
 {
 public:
     using RuntimeError::RuntimeError;
 };
 
-class AsyncFileStorage : public QObject
+class AsyncFileStorage final : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY_MOVE(AsyncFileStorage)
 
 public:
-    explicit AsyncFileStorage(const QString &storageFolderPath, QObject *parent = nullptr);
+    explicit AsyncFileStorage(const Path &storageFolderPath, QObject *parent = nullptr);
     ~AsyncFileStorage() override;
 
-    void store(const QString &fileName, const QByteArray &data);
+    void store(const Path &filePath, const QByteArray &data);
 
-    QDir storageDir() const;
+    Path storageDir() const;
 
 signals:
-    void failed(const QString &fileName, const QString &errorString);
+    void failed(const Path &filePath, const QString &errorString);
 
 private:
-    Q_INVOKABLE void store_impl(const QString &fileName, const QByteArray &data);
+    Q_INVOKABLE void store_impl(const Path &fileName, const QByteArray &data);
 
-    QDir m_storageDir;
-    QFile m_lockFile;
+    Path m_storageDir;
+    std::shared_ptr<QFile> m_lockFile;
+
+    static QHash<Path, std::weak_ptr<QFile>> m_reservedPaths;
+    static QReadWriteLock m_reservedPathsLock;
 };

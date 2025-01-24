@@ -38,7 +38,7 @@ namespace BitTorrent
     struct SessionStatus;
 }
 
-class StatusBar : public QStatusBar
+class StatusBar final : public QStatusBar
 {
     Q_OBJECT
     Q_DISABLE_COPY_MOVE(StatusBar)
@@ -58,15 +58,19 @@ private slots:
     void refresh();
     void updateAltSpeedsBtn(bool alternative);
     void capSpeed();
+    void optionsSaved();
 
 private:
     void updateConnectionStatus();
     void updateDHTNodesNumber();
+    void updateExternalAddressesLabel();
+    void updateExternalAddressesVisibility();
     void updateSpeedLabels();
 
-    QPushButton *m_dlSpeedLbl;
-    QPushButton *m_upSpeedLbl;
-    QLabel *m_DHTLbl;
-    QPushButton *m_connecStatusLblIcon;
-    QPushButton *m_altSpeedsBtn;
+    QPushButton *m_dlSpeedLbl = nullptr;
+    QPushButton *m_upSpeedLbl = nullptr;
+    QLabel *m_lastExternalIPsLbl = nullptr;
+    QLabel *m_DHTLbl = nullptr;
+    QPushButton *m_connecStatusLblIcon = nullptr;
+    QPushButton *m_altSpeedsBtn = nullptr;
 };

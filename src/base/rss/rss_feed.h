@@ -1,6 +1,7 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2015, 2017  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2024  Jonathan Ketchker
+ * Copyright (C) 2015-2022  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  * Copyright (C) 2010  Arnaud Demaiziere <arnaud@qbittorrent.org>
  *
@@ -30,11 +31,14 @@
 
 #pragma once
 
+#include <QtContainerFwd>
 #include <QBasicTimer>
 #include <QHash>
 #include <QList>
 #include <QUuid>
+#include <QVariantHash>
 
+#include "base/path.h"
 #include "rss_item.h"
 
 class AsyncFileStorage;
@@ -52,6 +56,7 @@ namespace RSS
 
     namespace Private
     {
+        class FeedSerializer;
         class Parser;
         struct ParsingResult;
     }
@@ -71,6 +76,7 @@ namespace RSS
         int unreadCount() const override;
         void markAsRead() override;
         void refresh() override;
+        void updateFetchDelay() override;
 
         QUuid uid() const;
         QString url() const;
@@ -79,7 +85,7 @@ namespace RSS
         bool hasError() const;
         bool isLoading() const;
         Article *articleByGUID(const QString &guid) const;
-        QString iconPath() const;
+        Path iconPath() const;
 
         QJsonValue toJsonValue(bool withData = false) const override;
 
@@ -87,6 +93,7 @@ namespace RSS
         void iconLoaded(Feed *feed = nullptr);
         void titleChanged(Feed *feed = nullptr);
         void stateChanged(Feed *feed = nullptr);
+        void urlChanged(const QString &oldURL);
 
     private slots:
         void handleSessionProcessingEnabledChanged(bool enabled);
@@ -95,35 +102,38 @@ namespace RSS
         void handleDownloadFinished(const Net::DownloadResult &result);
         void handleParsingFinished(const Private::ParsingResult &result);
         void handleArticleRead(Article *article);
+        void handleArticleLoadFinished(QList<QVariantHash> articles);
 
     private:
         void timerEvent(QTimerEvent *event) override;
         void cleanup() override;
         void load();
-        void loadArticles(const QByteArray &data);
-        void loadArticlesLegacy();
         void store();
         void storeDeferred();
-        bool addArticle(Article *article);
+        bool addArticle(const QVariantHash &articleData);
         void removeOldestArticle();
         void increaseUnreadCount();
         void decreaseUnreadCount();
         void downloadIcon();
         int updateArticles(const QList<QVariantHash> &loadedArticles);
+        void setURL(const QString &url);
 
-        Session *m_session;
-        Private::Parser *m_parser;
+        Session *m_session = nullptr;
+        Private::Parser *m_parser = nullptr;
+        Private::FeedSerializer *m_serializer = nullptr;
         const QUuid m_uid;
-        const QString m_url;
+        QString m_url;
         QString m_title;
         QString m_lastBuildDate;
         bool m_hasError = false;
         bool m_isLoading = false;
+        bool m_isInitialized = false;
+        bool m_pendingRefresh = false;
         QHash<QString, Article *> m_articles;
         QList<Article *> m_articlesByDate;
         int m_unreadCount = 0;
-        QString m_iconPath;
-        QString m_dataFileName;
+        Path m_iconPath;
+        Path m_dataFileName;
         QBasicTimer m_savingTimer;
         bool m_dirty = false;
         Net::DownloadHandler *m_downloadHandler = nullptr;

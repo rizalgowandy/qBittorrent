@@ -28,30 +28,32 @@
 
 #include "powermanagement.h"
 
-#include <QtGlobal>
+#include <QtSystemDetection>
 
 #ifdef Q_OS_MACOS
 #include <IOKit/pwr_mgt/IOPMLib.h>
+#include <QScopeGuard>
 #endif
 
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
 
-#if (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
+#ifdef QBT_USES_DBUS
 #include "powermanagement_x11.h"
 #endif
 
 PowerManagement::PowerManagement(QObject *parent)
     : QObject(parent)
-{
-#if (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
-    m_inhibitor = new PowerManagementInhibitor(this);
+#ifdef QBT_USES_DBUS
+    , m_inhibitor {new PowerManagementInhibitor(this)}
 #endif
+{
 }
 
 PowerManagement::~PowerManagement()
 {
+    setIdle();
 }
 
 void PowerManagement::setActivityState(const bool busy)
@@ -64,16 +66,19 @@ void PowerManagement::setActivityState(const bool busy)
 
 void PowerManagement::setBusy()
 {
-    if (m_busy) return;
+    if (m_busy)
+        return;
     m_busy = true;
 
 #ifdef Q_OS_WIN
-    SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
-#elif (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
+    ::SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
+#elif defined(QBT_USES_DBUS)
     m_inhibitor->requestBusy();
 #elif defined(Q_OS_MACOS)
-    IOReturn success = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoIdleSleep, kIOPMAssertionLevelOn
-        , tr("qBittorrent is active").toCFString(), &m_assertionID);
+    const CFStringRef assertName = tr("qBittorrent is active").toCFString();
+    [[maybe_unused]] const auto assertNameGuard = qScopeGuard([&assertName] { ::CFRelease(assertName); });
+    const IOReturn success = ::IOPMAssertionCreateWithName(kIOPMAssertionTypeNoIdleSleep, kIOPMAssertionLevelOn
+        , assertName, &m_assertionID);
     if (success != kIOReturnSuccess)
         m_busy = false;
 #endif
@@ -81,14 +86,15 @@ void PowerManagement::setBusy()
 
 void PowerManagement::setIdle()
 {
-    if (!m_busy) return;
+    if (!m_busy)
+        return;
     m_busy = false;
 
 #ifdef Q_OS_WIN
-    SetThreadExecutionState(ES_CONTINUOUS);
-#elif (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
+    ::SetThreadExecutionState(ES_CONTINUOUS);
+#elif defined(QBT_USES_DBUS)
     m_inhibitor->requestIdle();
 #elif defined(Q_OS_MACOS)
-    IOPMAssertionRelease(m_assertionID);
+    ::IOPMAssertionRelease(m_assertionID);
 #endif
 }

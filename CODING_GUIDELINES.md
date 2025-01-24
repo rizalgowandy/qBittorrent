@@ -1,6 +1,7 @@
 # Coding Guidelines
 
-All new code **must** follow the following coding guidelines. \
+All new code **must** follow the following coding guidelines.
+
 If you make changes in a file that still uses another coding style, make sure that you follow these guidelines for your changes. \
 For programming languages other than C++ (e.g. JavaScript) used in this repository and submodules, unless otherwise specified, coding guidelines listed here applies as much as possible.
 
@@ -275,7 +276,7 @@ struct StructName {};
 
 enum EnumName {};
 
-typedef QList<ClassName> SomeList;
+using SomeList = QList<ClassName>;
 
 namespace NamespaceName
 {
@@ -317,7 +318,7 @@ The headers should be ordered alphabetically within each group. \
 If there are conditionals for the same header group, then put them at the bottom of the respective group. \
 If there are conditionals that contain headers from several different header groups, then put them above the "qBittorrent's own headers" group.
 
-One exception is the header containing the library version (for example, QtGlobal), this particular header isn't constrained by the aforementioned order.
+One exception is the header containing the library version (for example, QtVersionChecks), this particular header isn't constrained by the aforementioned order.
 
 Example:
 
@@ -330,7 +331,7 @@ Example:
 // exceptions, headers containing version number
 #include <boost/version.hpp>
 #include <libtorrent/version.hpp>
-#include <QtGlobal>
+#include <QtVersionChecks>
 
 // C++ Standard Library headers
 #include <cstdio>
@@ -341,7 +342,7 @@ Example:
 
 // System headers
 #ifdef Q_OS_WIN
-#include <Windows.h>
+#include <windows.h>
 #endif
 
 // Boost library headers
@@ -456,8 +457,8 @@ class ExampleWidget : public QWidget
 * Prefer pre-increment, pre-decrement operators
 
   ```c++
-  ++i, --j;  // Yes
-  i++, j--;  // No
+  ++i, --j;  // yes
+  i++, j--;  // no
   ```
 
 * private/public/protected must not be indented

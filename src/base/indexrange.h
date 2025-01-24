@@ -28,7 +28,7 @@
 
 #pragma once
 
-#include <QtGlobal>
+#include <QtAssert>
 
 // Interval is defined via [first;last]
 template <typename Index>
@@ -101,14 +101,10 @@ public:
             return iter;
         }
 
-        constexpr bool operator==(const Iterator &other) const
+        // comparing iterators from different containers is undefined behavior in C++ standard library
+        friend constexpr bool operator==(const Iterator &left, const Iterator &right)
         {
-            return (*(*this) == *other);
-        }
-
-        constexpr bool operator!=(const Iterator &other) const
-        {
-            return !(*this == other);
+            return (*left == *right);
         }
 
     private:

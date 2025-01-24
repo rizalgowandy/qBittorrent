@@ -1,6 +1,7 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2016 Eugene Shalygin
+ * Copyright (C) 2024  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2016  Eugene Shalygin
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -29,14 +30,15 @@
 #pragma once
 
 #include <QComboBox>
-#include <QFileIconProvider>
 #include <QLineEdit>
 #include <QtContainerFwd>
 #include <QValidator>
 
+#include "base/pathfwd.h"
+
 class QAction;
-class QCompleter;
 class QContextMenuEvent;
+class QFileIconProvider;
 class QFileSystemModel;
 class QKeyEvent;
 
@@ -45,27 +47,9 @@ namespace Private
     class FileSystemPathValidator final : public QValidator
     {
         Q_OBJECT
+        Q_DISABLE_COPY_MOVE(FileSystemPathValidator)
 
     public:
-        FileSystemPathValidator(QObject *parent = nullptr);
-
-        bool strictMode() const;
-        void setStrictMode(bool v);
-
-        bool existingOnly() const;
-        void setExistingOnly(bool v);
-
-        bool directoriesOnly() const;
-        void setDirectoriesOnly(bool v);
-
-        bool checkReadPermission() const;
-        void setCheckReadPermission(bool v);
-
-        bool checkWritePermission() const;
-        void setCheckWritePermission(bool v);
-
-        QValidator::State validate(QString &input, int &pos) const override;
-
         enum class TestResult
         {
             OK,
@@ -76,39 +60,59 @@ namespace Private
             CantWrite
         };
 
+        FileSystemPathValidator(QObject *parent = nullptr);
+
+        bool strictMode() const;
+        void setStrictMode(bool value);
+
+        bool existingOnly() const;
+        void setExistingOnly(bool value);
+
+        bool filesOnly() const;
+        void setFilesOnly(bool value);
+
+        bool directoriesOnly() const;
+        void setDirectoriesOnly(bool value);
+
+        bool checkReadPermission() const;
+        void setCheckReadPermission(bool value);
+
+        bool checkWritePermission() const;
+        void setCheckWritePermission(bool value);
+
         TestResult lastTestResult() const;
         QValidator::State lastValidationState() const;
-        QString lastTestedPath() const;
+
+        QValidator::State validate(QString &input, int &pos) const override;
 
     private:
-        QValidator::State validate(const QList<QStringView> &pathComponents, bool strict,
-                                   int firstComponentToTest, int lastComponentToTest) const;
+        TestResult testPath(const Path &path) const;
 
-        TestResult testPath(QStringView path, bool pathIsComplete) const;
+        bool m_strictMode = false;
+        bool m_existingOnly = false;
+        bool m_filesOnly = false;
+        bool m_directoriesOnly = false;
+        bool m_checkReadPermission = false;
+        bool m_checkWritePermission = false;
 
-        bool m_strictMode;
-        bool m_existingOnly;
-        bool m_directoriesOnly;
-        bool m_checkReadPermission;
-        bool m_checkWritePermission;
-
-        mutable TestResult m_lastTestResult;
-        mutable QValidator::State m_lastValidationState;
-        mutable QString m_lastTestedPath;
+        mutable TestResult m_lastTestResult = TestResult::DoesNotExist;
+        mutable QValidator::State m_lastValidationState = QValidator::Invalid;
     };
 
-    class FileEditorWithCompletion
+    class IFileEditorWithCompletion
     {
     public:
-        virtual ~FileEditorWithCompletion() = default;
+        virtual ~IFileEditorWithCompletion() = default;
         virtual void completeDirectoriesOnly(bool completeDirsOnly) = 0;
         virtual void setFilenameFilters(const QStringList &filters) = 0;
         virtual void setBrowseAction(QAction *action) = 0;
         virtual void setValidator(QValidator *validator) = 0;
+        virtual Path placeholder() const = 0;
+        virtual void setPlaceholder(const Path &val) = 0;
         virtual QWidget *widget() = 0;
     };
 
-    class FileLineEdit final : public QLineEdit, public FileEditorWithCompletion
+    class FileLineEdit final : public QLineEdit, public IFileEditorWithCompletion
     {
         Q_OBJECT
         Q_DISABLE_COPY_MOVE(FileLineEdit)
@@ -121,6 +125,8 @@ namespace Private
         void setFilenameFilters(const QStringList &filters) override;
         void setBrowseAction(QAction *action) override;
         void setValidator(QValidator *validator) override;
+        Path placeholder() const override;
+        void setPlaceholder(const Path &val) override;
         QWidget *widget() override;
 
     protected:
@@ -128,19 +134,23 @@ namespace Private
         void contextMenuEvent(QContextMenuEvent *event) override;
 
     private:
-        static QString warningText(FileSystemPathValidator::TestResult r);
         void showCompletionPopup();
+        void validateText();
 
-        QFileSystemModel *m_completerModel;
-        QCompleter *m_completer;
-        QAction *m_browseAction;
-        QFileIconProvider m_iconProvider;
-        QAction *m_warningAction;
+        static QString warningText(FileSystemPathValidator::TestResult result);
+
+        QFileSystemModel *m_completerModel = nullptr;
+        QAction *m_browseAction = nullptr;
+        QAction *m_warningAction = nullptr;
+        QFileIconProvider *m_iconProvider = nullptr;
+        bool m_completeDirectoriesOnly = false;
+        QStringList m_filenameFilters;
     };
 
-    class FileComboEdit final : public QComboBox, public FileEditorWithCompletion
+    class FileComboEdit final : public QComboBox, public IFileEditorWithCompletion
     {
         Q_OBJECT
+        Q_DISABLE_COPY_MOVE(FileComboEdit)
 
     public:
         FileComboEdit(QWidget *parent = nullptr);
@@ -149,6 +159,8 @@ namespace Private
         void setFilenameFilters(const QStringList &filters) override;
         void setBrowseAction(QAction *action) override;
         void setValidator(QValidator *validator) override;
+        Path placeholder() const override;
+        void setPlaceholder(const Path &val) override;
         QWidget *widget() override;
 
     protected:

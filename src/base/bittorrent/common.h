@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2020  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2020-2023  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -30,4 +30,7 @@
 
 #include <QString>
 
-inline const QString QB_EXT {QStringLiteral(".!qB")};
+#include "base/global.h"
+
+inline const QString QB_EXT = u".!qB"_s;
+inline const QString UNWANTED_FOLDER_NAME = u".unwanted"_s;

@@ -43,12 +43,13 @@ namespace Net
     class DNSUpdater : public QObject
     {
         Q_OBJECT
+        Q_DISABLE_COPY_MOVE(DNSUpdater)
 
     public:
         explicit DNSUpdater(QObject *parent = nullptr);
         ~DNSUpdater();
 
-        static QUrl getRegistrationUrl(int service);
+        static QUrl getRegistrationUrl(DNS::Service service);
 
     public slots:
         void updateCredentials();
@@ -67,17 +68,15 @@ namespace Net
             FATAL
         };
 
-        static const int IP_CHECK_INTERVAL_MS = 1800000; // 30 min
-
         QString getUpdateUrl() const;
         void processIPUpdateReply(const QString &reply);
 
         QHostAddress m_lastIP;
         QDateTime m_lastIPCheckTime;
         QTimer m_ipCheckTimer;
-        int m_state;
+        int m_state = OK;
         // Service creds
-        DNS::Service m_service;
+        DNS::Service m_service = DNS::Service::None;
         QString m_domain;
         QString m_username;
         QString m_password;

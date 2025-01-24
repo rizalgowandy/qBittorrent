@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="bg" version="2.1">
+<TS version="2.1" language="bg">
 <context>
     <name>AboutDlg</name>
     <message>
@@ -42,6 +42,34 @@
         <source>Don't create subfolder</source>
         <translation>Не създавай подпапка</translation>
     </message>
+    <message>
+        <source>Manual</source>
+        <translation>Ръчно</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Автоматично</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Метаданни получени</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Файлове проверени</translation>
+    </message>
+    <message>
+        <source>Stop condition:</source>
+        <translation>Условие за спиране:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Няма</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>CategoryFilterModel</name>
@@ -77,16 +105,20 @@
         <translation>Пауза на торентите</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Изтриване на торентите</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Нова категория</translation>
     </message>
     <message>
         <source>Edit category...</source>
         <translation>Редактиране на категория...</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Премахни торенти</translation>
+    </message>
+    <message>
+        <source>Add subcategory...</source>
+        <translation>Добавяне подкатегория...</translation>
     </message>
 </context>
 <context>
@@ -144,10 +176,6 @@
         <translation>Не мога да съхраня предпочитанията за програмата, qBittorrent е вероятно недостъпен.</translation>
     </message>
     <message>
-        <source>IRC: #qbittorrent on Freenode</source>
-        <translation>IRC: #qbittorrent на Freenode</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Неизвестен</translation>
     </message>
@@ -160,36 +188,28 @@
         <translation>Ограничението за време на споделяне трябва да бъде между 0 и 525600 минути.</translation>
     </message>
     <message>
-        <source>The port used for incoming connections must be between 1 and 65535.</source>
-        <translation type="vanished">Портът, който се използва за входящи връзки трябва да бъде между 1 и 65535.</translation>
-    </message>
-    <message>
         <source>The port used for the Web UI must be between 1 and 65535.</source>
-        <translation>Портът, който се използва за Web UI трябва да бъде между 1 и 65535.</translation>
+        <translation type="vanished">Портът, който се използва за Web UI трябва да бъде между 1 и 65535.</translation>
     </message>
     <message>
         <source>Unable to log in, qBittorrent is probably unreachable.</source>
-        <translation>Невъзможност за логване, qBittorrent вероятно е недостъпен.</translation>
+        <translation type="vanished">Невъзможност за логване, qBittorrent вероятно е недостъпен.</translation>
     </message>
     <message>
         <source>Invalid Username or Password.</source>
-        <translation>Невалидно потребителско име или парола.</translation>
+        <translation type="vanished">Невалидно потребителско име или парола.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Потребителско име</translation>
+        <translation type="vanished">Потребителско име</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Парола</translation>
+        <translation type="vanished">Парола</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>Вход</translation>
-    </message>
-    <message>
-        <source>Original authors</source>
-        <translation>Оригинален автори</translation>
+        <translation type="vanished">Вход</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -284,10 +304,6 @@
         <translation>Качване на локален торент</translation>
     </message>
     <message>
-        <source>Are you sure you want to delete the selected torrents from the transfer list?</source>
-        <translation>Сигурни ли сте, че искате да изтриете избраните торенти от списъка за трансфер?</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Съхрани</translation>
     </message>
@@ -334,7 +350,7 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
-        <translation>qBittorrent бе изключен.</translation>
+        <translation type="vanished">qBittorrent бе изключен.</translation>
     </message>
     <message>
         <source>Open documentation</source>
@@ -350,7 +366,7 @@
     </message>
     <message>
         <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
-        <translation>JavaScript се изисква! Трябва да разрешите JavaScript за УебПИ да работи правилно</translation>
+        <translation type="vanished">JavaScript се изисква! Трябва да разрешите JavaScript за УебПИ да работи правилно</translation>
     </message>
     <message>
         <source>Name cannot be empty</source>
@@ -370,6 +386,26 @@
     </message>
     <message>
         <source>The port used for incoming connections must be between 0 and 65535.</source>
+        <translation>Портът използван за входящи връзки трябва да бъде между 0 и 65535.</translation>
+    </message>
+    <message>
+        <source>Original author</source>
+        <translation>Оригинален автор</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the selected torrents from the transfer list?</source>
+        <translation>Сигурни ли сте, че искате да изтриете избраните торенти от списъка за трансфер?</translation>
+    </message>
+    <message>
+        <source>The port used for the WebUI must be between 1 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>%1 has been shutdown</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the WebUI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -436,10 +472,6 @@
         <translation>Пауза</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Изтрий</translation>
-    </message>
-    <message>
         <source>Pause All</source>
         <translation>Пауза Всички</translation>
     </message>
@@ -478,7 +510,7 @@
     <message>
         <source>[D: %1, U: %2] qBittorrent %3</source>
         <comment>D = Download; U = Upload; %3 is qBittorrent version</comment>
-        <translation>[С: %1, К: %2] qBittorrent %3</translation>
+        <translation type="vanished">[С: %1, К: %2] qBittorrent %3</translation>
     </message>
     <message>
         <source>Alternative speed limits</source>
@@ -557,10 +589,6 @@
         <translation>Икона на скорост на сваляне</translation>
     </message>
     <message>
-        <source>Connection status</source>
-        <translation>Състояние на връзката</translation>
-    </message>
-    <message>
         <source>Alternative speed limits: On</source>
         <translation>Алтернативни Лимити за Скорост: Включено</translation>
     </message>
@@ -579,6 +607,38 @@
     <message>
         <source>RSS</source>
         <translation>RSS</translation>
+    </message>
+    <message>
+        <source>Filters Sidebar</source>
+        <translation>Странична лента на филтри</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Прекрати</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Премахни</translation>
+    </message>
+    <message>
+        <source>Would you like to resume all torrents?</source>
+        <translation>Бихте ли искали да продължите всички торенти?</translation>
+    </message>
+    <message>
+        <source>Would you like to pause all torrents?</source>
+        <translation>Бихте ли искали да поставите на пауза всички торенти?</translation>
+    </message>
+    <message>
+        <source>Execution Log</source>
+        <translation>Изпълнение на Запис</translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>[D: %1, U: %2]</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -605,7 +665,7 @@
     </message>
     <message>
         <source>Web UI</source>
-        <translation>Уеб ПИ</translation>
+        <translation type="vanished">Уеб ПИ</translation>
     </message>
     <message>
         <source>Language</source>
@@ -618,10 +678,6 @@
     <message>
         <source>Email notification upon download completion</source>
         <translation>Уведомяване с имейл при завършване на свалянето</translation>
-    </message>
-    <message>
-        <source>Run external program on torrent completion</source>
-        <translation>Изпълняване на външна програма при завършване на торент</translation>
     </message>
     <message>
         <source>IP Filtering</source>
@@ -728,10 +784,6 @@
         <translation>Използване на UPnP / NAT-PMP порт за препращане от моя рутер</translation>
     </message>
     <message>
-        <source>Use different port on each startup</source>
-        <translation type="vanished">Използване на различен порт при всяко стартиране</translation>
-    </message>
-    <message>
         <source>Connections Limits</source>
         <translation>Ограничения на Връзките</translation>
     </message>
@@ -760,10 +812,6 @@
         <translation>Тип:</translation>
     </message>
     <message>
-        <source>(None)</source>
-        <translation>(Без)</translation>
-    </message>
-    <message>
         <source>SOCKS4</source>
         <translation>SOCKS4</translation>
     </message>
@@ -786,10 +834,6 @@
     <message>
         <source>Use proxy for peer connections</source>
         <translation>Използвайте прокси за свързване между участниците</translation>
-    </message>
-    <message>
-        <source>Use proxy only for torrents</source>
-        <translation>Използване на прокси само за торентите</translation>
     </message>
     <message>
         <source>Filter path (.dat, .p2p, .p2b):</source>
@@ -971,11 +1015,11 @@
     </message>
     <message>
         <source>The Web UI username must be at least 3 characters long.</source>
-        <translation>Потребителското име на Web UI трябва да е поне от 3 символа.</translation>
+        <translation type="vanished">Потребителското име на Web UI трябва да е поне от 3 символа.</translation>
     </message>
     <message>
         <source>The Web UI password must be at least 6 characters long.</source>
-        <translation>Паролата на Web UI трябва да е поне от 6 символа.</translation>
+        <translation type="vanished">Паролата на Web UI трябва да е поне от 6 символа.</translation>
     </message>
     <message>
         <source>minutes</source>
@@ -1015,7 +1059,7 @@
     </message>
     <message>
         <source>Use alternative Web UI</source>
-        <translation>Ползвай алтернативен Уеб ПИ</translation>
+        <translation type="vanished">Ползвай алтернативен Уеб ПИ</translation>
     </message>
     <message>
         <source>Default Save Path:</source>
@@ -1023,7 +1067,7 @@
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation>Алтернативното местоположение за Уеб ПИ файлове не може да бъде празно.</translation>
+        <translation type="vanished">Алтернативното местоположение за Уеб ПИ файлове не може да бъде празно.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
@@ -1134,16 +1178,8 @@
         <translation>Анти-лийч</translation>
     </message>
     <message>
-        <source>Enable OS cache:</source>
-        <translation>Включи кеширане от ОС:</translation>
-    </message>
-    <message>
         <source>When ratio reaches</source>
         <translation>Когато съотношението достигне</translation>
-    </message>
-    <message>
-        <source>When seeding time reaches</source>
-        <translation>Когато времето за засяване достигне</translation>
     </message>
     <message>
         <source>Allow multiple connections from the same IP address:</source>
@@ -1190,14 +1226,6 @@
         <translation>libtorrent Раздел</translation>
     </message>
     <message>
-        <source>Outgoing ports (Min) [0: Disabled]:</source>
-        <translation>Изходен порт (Мин) [0: Изключен]:</translation>
-    </message>
-    <message>
-        <source>IP Address to report to trackers (requires restart):</source>
-        <translation>IP адрес за информиране на тракери (изисква рестарт):</translation>
-    </message>
-    <message>
         <source>Recheck torrents on completion:</source>
         <translation>Провери торентите при завършване:</translation>
     </message>
@@ -1216,10 +1244,6 @@
     <message>
         <source>Remove torrent</source>
         <translation>Премахни торент</translation>
-    </message>
-    <message>
-        <source>Outgoing ports (Max) [0: Disabled]:</source>
-        <translation>Изходен порт (Макс) [0: Изключен]:</translation>
     </message>
     <message>
         <source>Asynchronous I/O threads:</source>
@@ -1298,24 +1322,12 @@
         <translation>банни за:</translation>
     </message>
     <message>
-        <source>Use piece extent affinity (requires libtorrent &gt;= 1.2.2):</source>
-        <translation>Използвай афинитет на степен на парче (изисква libtorrent &gt;= 1.2.2):</translation>
-    </message>
-    <message>
-        <source>Stop tracker timeout:</source>
-        <translation>Спиране изтичащото време на тракера:</translation>
-    </message>
-    <message>
         <source>Ban client after consecutive failures:</source>
         <translation>Банни клиент след последователни провали:</translation>
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS)</source>
         <translation>Разреши флаг за сигурност на бисквитка (изисква HTTPS)</translation>
-    </message>
-    <message>
-        <source>UPnP lease duration [0: Permanent lease]:</source>
-        <translation>Продължителност на наема на UPnP [0: Постоянен наем]:</translation>
     </message>
     <message>
         <source>Header: value pairs, one per line</source>
@@ -1332,14 +1344,6 @@
     <message>
         <source>Enable fetching RSS feeds</source>
         <translation>Включване получаването от RSS канали</translation>
-    </message>
-    <message>
-        <source>Hashing threads (requires libtorrent &gt;= 2.0):</source>
-        <translation>Хеширащи нишки (изисква libtorrent &gt;= 2.0):</translation>
-    </message>
-    <message>
-        <source>Coalesce reads &amp; writes (requires libtorrent &lt; 2.0):</source>
-        <translation>Обединяване на записванията и прочитанията (изисква libtorrent &lt; 2.0):</translation>
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
@@ -1382,10 +1386,6 @@
         <translation>Максимален брой на статии за канал:</translation>
     </message>
     <message>
-        <source>Max concurrent HTTP announces (requires libtorrent &gt;= 1.2.7):</source>
-        <translation>Макс. едновременни HTTP анонси (изисква libtorrent &gt;= 1.2.7):</translation>
-    </message>
-    <message>
         <source> min</source>
         <translation>мин</translation>
     </message>
@@ -1410,24 +1410,12 @@
         <translation>RSS Разумен Филтър на Епизоди</translation>
     </message>
     <message>
-        <source>Disk cache (requires libtorrent &lt; 2.0):</source>
-        <translation>Дисков кеш (изисква  libtorrent &lt; 2.0):</translation>
-    </message>
-    <message>
-        <source>Disk cache expiry interval (requires libtorrent &lt; 2.0):</source>
-        <translation>Продължителност на дисковия кеш (изисква libtorrent &lt; 2.0):</translation>
-    </message>
-    <message>
         <source>Validate HTTPS tracker certificate:</source>
         <translation>Проверявай сертификати на HTTPS тракер:</translation>
     </message>
     <message>
         <source>Peer connection protocol:</source>
         <translation>Протокол за връзка с пиъра:</translation>
-    </message>
-    <message>
-        <source>Support internationalized domain name (IDN) (requires libtorrent &gt;= 1.2.12):</source>
-        <translation>Поддържа интернационализирано домейн име (IDN) (изисква libtorrent &gt;= 1.2.12):</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
@@ -1480,6 +1468,390 @@
     <message>
         <source>%I: Info hash v1</source>
         <translation>%I: Инфо хеш в1</translation>
+    </message>
+    <message>
+        <source>IP address reported to trackers (requires restart):</source>
+        <translation>ИП адрес докладван до тракери (изисква рестарт):</translation>
+    </message>
+    <message>
+        <source>Set to 0 to let your system pick an unused port</source>
+        <translation>Задайте на 0, за да позволите на вашата система да избере неизползван порт</translation>
+    </message>
+    <message>
+        <source>Server-side request forgery (SSRF) mitigation:</source>
+        <translation>Подправяне на заявка от страна на сървъра (SSRF) смекчаване</translation>
+    </message>
+    <message>
+        <source>Disk queue size:</source>
+        <translation>Размер на опашката на диска:</translation>
+    </message>
+    <message>
+        <source>Log performance warnings</source>
+        <translation>Вписвай предупреждения за производителност</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding requests to a single peer:</source>
+        <translation>Максимален брой неизпълнени заявки към един участник:</translation>
+    </message>
+    <message>
+        <source>Max active checking torrents:</source>
+        <translation>Макс. активни проверки на торент:</translation>
+    </message>
+    <message>
+        <source>Memory mapped files</source>
+        <translation>Отбелязани в паметта файлове</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>По подразбиране</translation>
+    </message>
+    <message>
+        <source>POSIX-compliant</source>
+        <translation>POSIX-съобразен</translation>
+    </message>
+    <message>
+        <source>This option is less effective on Linux</source>
+        <translation>Тази опция е по-малко ефективна на Линукс</translation>
+    </message>
+    <message>
+        <source>It controls the internal state update interval which in turn will affect UI updates</source>
+        <translation>Контролира интервала на обновяване на вътрешното състояние, което от своя страна засяга опреснявания на ПИ</translation>
+    </message>
+    <message>
+        <source>Disk IO read mode:</source>
+        <translation>Режим на четене на ВИ на диск:</translation>
+    </message>
+    <message>
+        <source>Disable OS cache</source>
+        <translation>Забрани кеш на ОС</translation>
+    </message>
+    <message>
+        <source>Disk IO write mode:</source>
+        <translation>Режим на писане на ВИ на диск:</translation>
+    </message>
+    <message>
+        <source>Use piece extent affinity:</source>
+        <translation>Използвай афинитет на размер на парче:</translation>
+    </message>
+    <message>
+        <source>Max concurrent HTTP announces:</source>
+        <translation>Макс. едновременни HTTP анонси:</translation>
+    </message>
+    <message>
+        <source>Enable OS cache</source>
+        <translation>Включи кеш на ОС</translation>
+    </message>
+    <message>
+        <source>Refresh interval:</source>
+        <translation>Интервал на опресняване:</translation>
+    </message>
+    <message>
+        <source>ms</source>
+        <translation>мс</translation>
+    </message>
+    <message>
+        <source>Excluded file names</source>
+        <translation>Изключи файлови имена</translation>
+    </message>
+    <message>
+        <source>Support internationalized domain name (IDN):</source>
+        <translation>Поддържа интернационализирано домейн име (IDN):</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent finished</source>
+        <translation>Изпълни външна програма на приключен торент</translation>
+    </message>
+    <message>
+        <source>Whitelist for filtering HTTP Host header values.
+In order to defend against DNS rebinding attack,
+you should put in domain names used by WebUI server.
+
+Use ';' to split multiple entries. Can use wildcard '*'.</source>
+        <translation>Списък с разрешени за филтриране стойности на HTTP хост хедъри. За защита срещу атака "ДНС повторно свързване" въведете тук домейните използвани от Уеб ПИ сървъра. Използвайте ';' за разделител. Може да се използва и заместител '*'.</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent added</source>
+        <translation>Изпълни външна програма на добавен торент</translation>
+    </message>
+    <message>
+        <source>HTTPS certificate should not be empty</source>
+        <translation>HTTPS сертификат не бива да бъде празен</translation>
+    </message>
+    <message>
+        <source>Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries.</source>
+        <translation>Посочете ИП-та на обратно прокси (или подмрежи, напр. 0.0.0.0/24), за да използвате препратени клиент адреси (X-Препратени-За заглавка). Използвайте ';' да разделите множество вписвания.</translation>
+    </message>
+    <message>
+        <source>HTTPS key should not be empty</source>
+        <translation>HTTPS ключ не бива да бъде празен</translation>
+    </message>
+    <message>
+        <source>Run external program</source>
+        <translation>Изпълни външна програма</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Файлове проверени</translation>
+    </message>
+    <message>
+        <source>Enable port forwarding for embedded tracker:</source>
+        <translation>Разреши пренасочване на портове за вграден тракер:</translation>
+    </message>
+    <message>
+        <source>If checked, hostname lookups are done via the proxy.</source>
+        <translation>Ако е отметнато, търсения на име на хост се прави чрез проксито.</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Метаданни получени</translation>
+    </message>
+    <message>
+        <source>Torrent stop condition:</source>
+        <translation>Условие за спиране на торент:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Няма</translation>
+    </message>
+    <message>
+        <source>Example: 172.17.32.0/24, fdff:ffff:c8::/40</source>
+        <translation>Пример: 172.17.32.0/24, fdff:ffff:c8::/40</translation>
+    </message>
+    <message>
+        <source>SQLite database (experimental)</source>
+        <translation>SQLite база данни (експериментално)</translation>
+    </message>
+    <message>
+        <source>Resume data storage type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Fastresume files</source>
+        <translation>Бързо възобновяване на файлове</translation>
+    </message>
+    <message>
+        <source>Backup the log file after:</source>
+        <translation>Резервно копие на лог файла след:</translation>
+    </message>
+    <message>
+        <source>days</source>
+        <translation>дни</translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation>Лог файл</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>Поведение</translation>
+    </message>
+    <message>
+        <source>Delete backup logs older than:</source>
+        <translation>Изтриване на резервните копия на лог файловете по-стари от:</translation>
+    </message>
+    <message>
+        <source>Use proxy for BitTorrent purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>years</source>
+        <translation>години</translation>
+    </message>
+    <message>
+        <source>Save path:</source>
+        <translation>Местоположение за запис:</translation>
+    </message>
+    <message>
+        <source>months</source>
+        <translation>месеци</translation>
+    </message>
+    <message>
+        <source>Remember Multi-Rename settings</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for general purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for RSS purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket send buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Max) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket receive buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use Subcategories</source>
+        <translation>Използване на Под-категории</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Stop tracker timeout [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Min) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>UPnP lease duration [0: permanent lease]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode depth limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode token limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When total seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(None)</source>
+        <translation>(Без)</translation>
+    </message>
+    <message>
+        <source>Python executable path (may require restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Resets to default if empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Perform hostname lookup via proxy</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>DHT bootstrap nodes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When inactive seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Mixed mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>.torrent file size limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(Auto detect if empty)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Keep unselected files in ".unwanted" folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable Mark-of-the-Web (MOTW) for downloaded files (require macOS or Windows):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source> sec</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Hashing threads:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use alternative WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache expiry interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P (Experimental)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The alternative WebUI files location cannot be blank.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Write-through</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI password must be at least 6 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI username must be at least 3 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Same host request delay:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Customize application instance name:</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -1553,12 +1925,16 @@
         <translation>Копирай IP:порт</translation>
     </message>
     <message>
-        <source>Add a new peer...</source>
-        <translation>Добави нов участник...</translation>
-    </message>
-    <message>
         <source>Country/Region</source>
         <translation>Държава/Област</translation>
+    </message>
+    <message>
+        <source>Add peers...</source>
+        <translation>Добави участници...</translation>
+    </message>
+    <message>
+        <source>Peer ID Client</source>
+        <translation>Клиент на участник ИД</translation>
     </message>
 </context>
 <context>
@@ -1777,6 +2153,70 @@
         <source>N/A</source>
         <translation>Няма</translation>
     </message>
+    <message>
+        <source>Progress:</source>
+        <translation>Напредък:</translation>
+    </message>
+    <message>
+        <source>Use regular expressions</source>
+        <translation>Ползване на регулярни изрази</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Filename + Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enumerate Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Rename failed: file or folder already exists</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Toggle Selection</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replacement Input</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include folders</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Search Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Case sensitive</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all occurrences</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>ScanFoldersModel</name>
@@ -1987,11 +2427,19 @@
     </message>
     <message>
         <source>Checking (%1)</source>
-        <translation type="unfinished" />
+        <translation>Проверяване (%1)</translation>
     </message>
     <message>
         <source>Checking (0)</source>
-        <translation type="unfinished" />
+        <translation>Проверяване (0)</translation>
+    </message>
+    <message>
+        <source>Moving (%1)</source>
+        <translation>Преместване (%1)</translation>
+    </message>
+    <message>
+        <source>Moving (0)</source>
+        <translation>Преместване (0)</translation>
     </message>
 </context>
 <context>
@@ -2145,6 +2593,10 @@
         <source>Availability</source>
         <translation>Наличност</translation>
     </message>
+    <message>
+        <source>Reannounce In</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TrackerListWidget</name>
@@ -2163,10 +2615,6 @@
     <message>
         <source>Message</source>
         <translation>Съобщение</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation>Свалени</translation>
     </message>
     <message>
         <source>Tracker URL:</source>
@@ -2203,10 +2651,6 @@
     <message>
         <source>Copy tracker URL</source>
         <translation>Копиране на URL на тракер</translation>
-    </message>
-    <message>
-        <source>Add a new tracker...</source>
-        <translation>Добави нов тракер...</translation>
     </message>
     <message>
         <source>Edit tracker URL...</source>
@@ -2249,19 +2693,35 @@
         <translation>Напредък</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Размер</translation>
+        <source>Total Size</source>
+        <translation>Общ размер</translation>
+    </message>
+    <message>
+        <source>Times Downloaded</source>
+        <translation>Пъти свалено</translation>
+    </message>
+    <message>
+        <source>Add trackers...</source>
+        <translation>Добави тракери...</translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Оригинал</translation>
     </message>
 </context>
 <context>
     <name>TrackersAdditionDialog</name>
     <message>
-        <source>Trackers addition dialog</source>
-        <translation>Допълнителен диалог на тракери</translation>
-    </message>
-    <message>
         <source>List of trackers to add (one per line):</source>
         <translation>Списък тракери за добавяне (по един на ред):</translation>
+    </message>
+    <message>
+        <source>Add trackers</source>
+        <translation>Добави тракери</translation>
     </message>
 </context>
 <context>
@@ -2337,7 +2797,7 @@
     </message>
     <message>
         <source>[F] Downloading metadata</source>
-        <translation type="unfinished" />
+        <translation>[П] Сваляне на метаданните</translation>
     </message>
 </context>
 <context>
@@ -2357,6 +2817,10 @@
     <message>
         <source>Trackers</source>
         <translation>Тракери</translation>
+    </message>
+    <message>
+        <source>Collapse/expand</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2387,11 +2851,6 @@
         <source>Pause</source>
         <comment>Pause the torrent</comment>
         <translation>Пауза</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <comment>Delete the torrent</comment>
-        <translation>Изтрий</translation>
     </message>
     <message>
         <source>Limit share ratio...</source>
@@ -2466,10 +2925,6 @@
     <message>
         <source>Download in sequential order</source>
         <translation>Сваляне по азбучен ред</translation>
-    </message>
-    <message>
-        <source>Force Recheck</source>
-        <translation>Включени проверки за промени</translation>
     </message>
     <message>
         <source>New Category</source>
@@ -2547,6 +3002,26 @@
         <source>Torrent ID</source>
         <translation>Торент ИД</translation>
     </message>
+    <message>
+        <source>Export .torrent</source>
+        <translation>Изнеси .torrent</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Премахни</translation>
+    </message>
+    <message>
+        <source>Rename Files...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Renaming</source>
+        <translation>Преименуване</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>UpDownRatioDialog</name>
@@ -2571,8 +3046,12 @@
         <translation>съотношение</translation>
     </message>
     <message>
-        <source>minutes</source>
-        <translation>минути</translation>
+        <source>total minutes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>inactive minutes</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2581,16 +3060,12 @@
 <context>
     <name>confirmDeletionDlg</name>
     <message>
-        <source>Deletion confirmation</source>
-        <translation>Потвърждение за изтриване</translation>
+        <source>Also permanently delete the files</source>
+        <translation>Също изтрий за постоянно файловете</translation>
     </message>
     <message>
-        <source>Also delete the files on the hard disk</source>
-        <translation>Също изтрий файловете от твърдия диск</translation>
-    </message>
-    <message>
-        <source>Deletion confirmation - qBittorrent</source>
-        <translation>Потвърждение за изтриване - qBittorrent</translation>
+        <source>Remove torrent(s)</source>
+        <translation>Премахни торент(и)</translation>
     </message>
 </context>
 <context>
@@ -2745,10 +3220,6 @@
         <translation>Търсене в:</translation>
     </message>
     <message>
-        <source>Results (showing</source>
-        <translation>Резултати (показва</translation>
-    </message>
-    <message>
         <source>Filter</source>
         <translation>Филтри</translation>
     </message>
@@ -2779,6 +3250,22 @@
     <message>
         <source>to</source>
         <translation>към</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Резултати</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation>показване</translation>
+    </message>
+    <message>
+        <source>Click the "Search plugins..." button at the bottom right of the window to install some.</source>
+        <translation>Щракнете бутонът "Търси приставки..." на дъното вдясно на прозореца да инсталирате някакви.</translation>
+    </message>
+    <message>
+        <source>There aren't any search plugins installed.</source>
+        <translation>Няма никакви инсталирани търсещи приставки.</translation>
     </message>
 </context>
 <context>
@@ -2904,10 +3391,6 @@
         <translation>Добави етикет...</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Изтрий торентите</translation>
-    </message>
-    <message>
         <source>Tag:</source>
         <translation>Етикет:</translation>
     </message>
@@ -2930,6 +3413,10 @@
     <message>
         <source>Remove tag</source>
         <translation>Изтриване на етикет</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Премахни торенти</translation>
     </message>
 </context>
 <context>
@@ -3006,16 +3493,28 @@
         <translation>Държава:</translation>
     </message>
     <message>
-        <source>Author</source>
-        <translation>Автор</translation>
-    </message>
-    <message>
         <source>Software Used</source>
         <translation>Използван софтуер</translation>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
         <translation>Свободната IP to Country Lite база данни от DB-IP се използва за намиране на държавите на участници. Базата данни е лицензирана под Creative Commons Attribution 4.0 International License</translation>
+    </message>
+    <message>
+        <source>Authors</source>
+        <translation>Автори</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Франция</translation>
+    </message>
+    <message>
+        <source>qBittorrent Mascot</source>
+        <translation>qBittorrent Талисман</translation>
+    </message>
+    <message>
+        <source>qBittorrent icon</source>
+        <translation>qBittorrent икона</translation>
     </message>
 </context>
 <context>
@@ -3414,13 +3913,13 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <source>Don't create subfolder</source>
         <translation>Не създавай подпапка</translation>
     </message>
+    <message>
+        <source>Add Tags:</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
-    <message>
-        <source>Delete torrents</source>
-        <translation>Изтрий торентите</translation>
-    </message>
     <message>
         <source>Resume torrents</source>
         <translation>Продължи торентите</translation>
@@ -3437,6 +3936,10 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <source>Pause torrents</source>
         <translation>Пауза на торентите</translation>
     </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Премахни торенти</translation>
+    </message>
 </context>
 <context>
     <name>FeedListWidget</name>
@@ -3447,6 +3950,141 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Unread</source>
         <translation>Непрочетен</translation>
+    </message>
+</context>
+<context>
+    <name>ExecutionLogWidget</name>
+    <message>
+        <source>General</source>
+        <translation>Общи</translation>
+    </message>
+    <message>
+        <source>Blocked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Неизвестен</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Всички</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation>показване</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Копирай</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation> Избери всички</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log Type</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Изчистване</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Предупреждение</translation>
+    </message>
+    <message>
+        <source>Information Messages</source>
+        <translation>Информационни Съобщения</translation>
+    </message>
+    <message>
+        <source>Warning Messages</source>
+        <translation>Предупредителни Съобщения</translation>
+    </message>
+    <message>
+        <source>Filter logs</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blocked IPs</source>
+        <translation>Блокирани IP-та</translation>
+    </message>
+    <message>
+        <source>out of</source>
+        <translation>от</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Състояние</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Съобщение</translation>
+    </message>
+    <message>
+        <source>Log Levels:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Reason</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>item</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Banned</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Normal Messages</source>
+        <translation>Нормални Съобщения</translation>
+    </message>
+    <message>
+        <source>Critical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Critical Messages</source>
+        <translation>Критични Съобщения</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Нормален</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Резултати</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Choose a log level...</source>
+        <translation type="unfinished" />
     </message>
 </context>
 </TS>

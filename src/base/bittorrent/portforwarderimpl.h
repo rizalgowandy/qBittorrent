@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2019  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2019-2022  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,14 +28,16 @@
 
 #pragma once
 
-#include <vector>
-
-#include <libtorrent/fwd.hpp>
-#include <libtorrent/portmap.hpp>
-
 #include <QHash>
+#include <QSet>
 
 #include "base/net/portforwarder.h"
+#include "base/settingvalue.h"
+
+namespace BitTorrent
+{
+    class SessionImpl;
+}
 
 class PortForwarderImpl final : public Net::PortForwarder
 {
@@ -43,20 +45,21 @@ class PortForwarderImpl final : public Net::PortForwarder
     Q_DISABLE_COPY_MOVE(PortForwarderImpl)
 
 public:
-    explicit PortForwarderImpl(lt::session *provider, QObject *parent = nullptr);
+    explicit PortForwarderImpl(BitTorrent::SessionImpl *provider, QObject *parent = nullptr);
     ~PortForwarderImpl() override;
 
     bool isEnabled() const override;
     void setEnabled(bool enabled) override;
 
-    void addPort(quint16 port) override;
-    void deletePort(quint16 port) override;
+    void setPorts(const QString &profile, QSet<quint16> ports) override;
+    void removePorts(const QString &profile) override;
 
 private:
     void start();
     void stop();
 
-    bool m_active;
-    lt::session *m_provider;
-    QHash<quint16, std::vector<lt::port_mapping_t>> m_mappedPorts;
+    CachedSettingValue<bool> m_storeActive;
+
+    BitTorrent::SessionImpl *const m_provider = nullptr;
+    QHash<QString, QSet<quint16>> m_portProfiles;
 };

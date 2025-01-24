@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="sk" version="2.1">
+<TS version="2.1" language="sk">
 <context>
     <name>AboutDlg</name>
     <message>
@@ -28,19 +28,47 @@
     </message>
     <message>
         <source>Content layout:</source>
-        <translation type="unfinished" />
+        <translation>Rozloženie obsahu:</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Originál</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Vytvoriť podpriečinok</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Nevytvárať podpriečinok</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation>Manuálne</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Automaticky</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metadáta obdržané</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Súbory skontrolované</translation>
+    </message>
+    <message>
+        <source>Stop condition:</source>
+        <translation>Podmienka pre zastavenie:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Žiadna</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Pridať navrch poradovníka</translation>
     </message>
 </context>
 <context>
@@ -77,16 +105,20 @@
         <translation>Pozastaviť torrenty</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Zmazať torrenty</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Nová kategória</translation>
     </message>
     <message>
         <source>Edit category...</source>
         <translation>Upraviť kategóriu...</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Odstrániť torrenty</translation>
+    </message>
+    <message>
+        <source>Add subcategory...</source>
+        <translation>Pridať podkategóriu...</translation>
     </message>
 </context>
 <context>
@@ -144,10 +176,6 @@
         <translation>Nepodarilo sa uložiť nastavenia programu, qBittorrent je pravdepodobne nedostupný.</translation>
     </message>
     <message>
-        <source>IRC: #qbittorrent on Freenode</source>
-        <translation>IRC: #qbittorrent na Freenode</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Neznámy</translation>
     </message>
@@ -160,36 +188,28 @@
         <translation>Doba seedovania musí byť v rozsahu od 0 do 525600 minút.</translation>
     </message>
     <message>
-        <source>The port used for incoming connections must be between 1 and 65535.</source>
-        <translation type="vanished">Port pre prichádzajúce spojenia musí byť medzi 1 a 65535.</translation>
-    </message>
-    <message>
         <source>The port used for the Web UI must be between 1 and 65535.</source>
-        <translation>Port pre webové rozhranie musí byť medzi 1 a 65535.</translation>
+        <translation type="vanished">Port pre webové rozhranie musí byť medzi 1 a 65535.</translation>
     </message>
     <message>
         <source>Unable to log in, qBittorrent is probably unreachable.</source>
-        <translation>Nepodarilo sa prihlásiť, qBittorrent je pravdepodobne nedosiahnuteľný.</translation>
+        <translation type="vanished">Nepodarilo sa prihlásiť, qBittorrent je pravdepodobne nedosiahnuteľný.</translation>
     </message>
     <message>
         <source>Invalid Username or Password.</source>
-        <translation>Nesprávne užívateľské meno alebo heslo.</translation>
+        <translation type="vanished">Nesprávne užívateľské meno alebo heslo.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Meno používateľa</translation>
+        <translation type="vanished">Meno používateľa</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Heslo</translation>
+        <translation type="vanished">Heslo</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>Prihlasovacie meno</translation>
-    </message>
-    <message>
-        <source>Original authors</source>
-        <translation>Pôvodní autori</translation>
+        <translation type="vanished">Prihlasovacie meno</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -284,10 +304,6 @@
         <translation>Nahrať lokálny torrent</translation>
     </message>
     <message>
-        <source>Are you sure you want to delete the selected torrents from the transfer list?</source>
-        <translation>Ste si istý, že chcete zmazať vybrané torrenty zo zoznamu prenosov?</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Uložiť</translation>
     </message>
@@ -333,7 +349,7 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
-        <translation>qBittorrent bol ukončený</translation>
+        <translation type="vanished">qBittorrent bol ukončený</translation>
     </message>
     <message>
         <source>Open documentation</source>
@@ -349,7 +365,7 @@
     </message>
     <message>
         <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
-        <translation>Je potrebný JavaScript! Musíte povoliť JavaScript aby Web UI pracovalo správne</translation>
+        <translation type="vanished">Je potrebný JavaScript! Musíte povoliť JavaScript aby Web UI pracovalo správne</translation>
     </message>
     <message>
         <source>Name cannot be empty</source>
@@ -365,10 +381,30 @@
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished" />
+        <translation>OK</translation>
     </message>
     <message>
         <source>The port used for incoming connections must be between 0 and 65535.</source>
+        <translation>Port používaný pre prichádzajúce pripojenia musí byť medzi 0 a 65535</translation>
+    </message>
+    <message>
+        <source>Original author</source>
+        <translation>Pôvodný autor</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the selected torrents from the transfer list?</source>
+        <translation>Naozaj chcete odstrániť vybrané torrenty zo zoznamu prenosov?</translation>
+    </message>
+    <message>
+        <source>The port used for the WebUI must be between 1 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>%1 has been shutdown</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the WebUI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -435,10 +471,6 @@
         <translation>Pozastaviť</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Zmazať</translation>
-    </message>
-    <message>
         <source>Pause All</source>
         <translation>Pozastaviť všetky</translation>
     </message>
@@ -477,7 +509,7 @@
     <message>
         <source>[D: %1, U: %2] qBittorrent %3</source>
         <comment>D = Download; U = Upload; %3 is qBittorrent version</comment>
-        <translation>[S: %1, N: %2] qBittorrent %3</translation>
+        <translation type="vanished">[S: %1, N: %2] qBittorrent %3</translation>
     </message>
     <message>
         <source>Alternative speed limits</source>
@@ -556,10 +588,6 @@
         <translation>Ikona rýchlosti sťahovania</translation>
     </message>
     <message>
-        <source>Connection status</source>
-        <translation>Stav pripojenia</translation>
-    </message>
-    <message>
         <source>Alternative speed limits: On</source>
         <translation>Alternatívne limity rýchlosti: Zapnuté</translation>
     </message>
@@ -573,10 +601,42 @@
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS čítačka</translation>
     </message>
     <message>
         <source>RSS</source>
+        <translation>RSS</translation>
+    </message>
+    <message>
+        <source>Filters Sidebar</source>
+        <translation>Bočný panel s filtrami</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Zrušiť</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Would you like to resume all torrents?</source>
+        <translation>Chcete obnoviť všetky torrenty?</translation>
+    </message>
+    <message>
+        <source>Would you like to pause all torrents?</source>
+        <translation>Chcete pozastaviť všetky torrenty?</translation>
+    </message>
+    <message>
+        <source>Execution Log</source>
+        <translation>Záznam spustení</translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation>Log</translation>
+    </message>
+    <message>
+        <source>[D: %1, U: %2]</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -604,7 +664,7 @@
     </message>
     <message>
         <source>Web UI</source>
-        <translation>Web UI</translation>
+        <translation type="vanished">Web UI</translation>
     </message>
     <message>
         <source>Language</source>
@@ -617,10 +677,6 @@
     <message>
         <source>Email notification upon download completion</source>
         <translation>Upozornenie o dokončení sťahovania emailom</translation>
-    </message>
-    <message>
-        <source>Run external program on torrent completion</source>
-        <translation>Po dokončení sťahovania spustiť externý program</translation>
     </message>
     <message>
         <source>IP Filtering</source>
@@ -727,10 +783,6 @@
         <translation>Použiť presmerovanie portov UPnP/NAT-PMP z môjho routera</translation>
     </message>
     <message>
-        <source>Use different port on each startup</source>
-        <translation type="vanished">Použiť pri každom spustení iný port</translation>
-    </message>
-    <message>
         <source>Connections Limits</source>
         <translation>Obmedzenia spojení</translation>
     </message>
@@ -759,10 +811,6 @@
         <translation>Typ:</translation>
     </message>
     <message>
-        <source>(None)</source>
-        <translation>(žiadny)</translation>
-    </message>
-    <message>
         <source>SOCKS4</source>
         <translation>SOCKS4</translation>
     </message>
@@ -785,10 +833,6 @@
     <message>
         <source>Use proxy for peer connections</source>
         <translation>Používať proxy na spojenia s rovesníkmi</translation>
-    </message>
-    <message>
-        <source>Use proxy only for torrents</source>
-        <translation>Používať proxy len na torrenty.</translation>
     </message>
     <message>
         <source>Filter path (.dat, .p2p, .p2b):</source>
@@ -970,11 +1014,11 @@
     </message>
     <message>
         <source>The Web UI username must be at least 3 characters long.</source>
-        <translation>Používateľské meno pre webové rozhranie musí mať dĺžku aspoň 3 znaky.</translation>
+        <translation type="vanished">Používateľské meno pre webové rozhranie musí mať dĺžku aspoň 3 znaky.</translation>
     </message>
     <message>
         <source>The Web UI password must be at least 6 characters long.</source>
-        <translation>Heslo pre webové rozhranie musí mať dĺžku aspoň 6 znakov.</translation>
+        <translation type="vanished">Heslo pre webové rozhranie musí mať dĺžku aspoň 6 znakov.</translation>
     </message>
     <message>
         <source>minutes</source>
@@ -1014,7 +1058,7 @@
     </message>
     <message>
         <source>Use alternative Web UI</source>
-        <translation>Použiť alternatívne Web UI</translation>
+        <translation type="vanished">Použiť alternatívne Web UI</translation>
     </message>
     <message>
         <source>Default Save Path:</source>
@@ -1022,7 +1066,7 @@
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation>Umiestnenie súborov Alternatívneho UI nemôže byť prázdne.</translation>
+        <translation type="vanished">Umiestnenie súborov Alternatívneho UI nemôže byť prázdne.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
@@ -1133,16 +1177,8 @@
         <translation>Priorita pre začínajúcich a končiacich leecherov</translation>
     </message>
     <message>
-        <source>Enable OS cache:</source>
-        <translation>Zapnúť vyrovnávaciu pamäť systému:</translation>
-    </message>
-    <message>
         <source>When ratio reaches</source>
         <translation>Keď je dosiahnuté ratio</translation>
-    </message>
-    <message>
-        <source>When seeding time reaches</source>
-        <translation>Ak je dosiahnutý limit seedovania</translation>
     </message>
     <message>
         <source>Allow multiple connections from the same IP address:</source>
@@ -1189,14 +1225,6 @@
         <translation>Sekcia libtorrent</translation>
     </message>
     <message>
-        <source>Outgoing ports (Min) [0: Disabled]:</source>
-        <translation>Odcházajúce porty (min) [0: Vypnuté]:</translation>
-    </message>
-    <message>
-        <source>IP Address to report to trackers (requires restart):</source>
-        <translation>Akú IP adresu oznamovať trackeru (vyžaduje reštart):</translation>
-    </message>
-    <message>
         <source>Recheck torrents on completion:</source>
         <translation>Znovu skontrolovať torrenty po dokončení:</translation>
     </message>
@@ -1215,10 +1243,6 @@
     <message>
         <source>Remove torrent</source>
         <translation>Odstrániť torrent</translation>
-    </message>
-    <message>
-        <source>Outgoing ports (Max) [0: Disabled]:</source>
-        <translation>Odcházajúce porty (max) [0: Vypnuté]:</translation>
     </message>
     <message>
         <source>Asynchronous I/O threads:</source>
@@ -1297,24 +1321,12 @@
         <translation>ban pre:</translation>
     </message>
     <message>
-        <source>Use piece extent affinity (requires libtorrent &gt;= 1.2.2):</source>
-        <translation>Použite rozšírenia o príbuznej časti (vyžaduje libtorrent&gt; = 1.2.2):</translation>
-    </message>
-    <message>
-        <source>Stop tracker timeout:</source>
-        <translation>Stop časový limit trackeru:</translation>
-    </message>
-    <message>
         <source>Ban client after consecutive failures:</source>
         <translation>Banovať klienta po následných zlyhaniach:</translation>
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS)</source>
         <translation>Povoliť príznak zabezpečenie súborov cookie (vyžaduje HTTPS)</translation>
-    </message>
-    <message>
-        <source>UPnP lease duration [0: Permanent lease]:</source>
-        <translation>Trvanie UPnP prenájmu [0: trvalý prenájom]:</translation>
     </message>
     <message>
         <source>Header: value pairs, one per line</source>
@@ -1326,158 +1338,570 @@
     </message>
     <message>
         <source>Filters:</source>
-        <translation type="unfinished" />
+        <translation>Filtre:</translation>
     </message>
     <message>
         <source>Enable fetching RSS feeds</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Hashing threads (requires libtorrent &gt;= 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Coalesce reads &amp; writes (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>Zapnúť načítanie RSS kanálov</translation>
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
-        <translation type="unfinished" />
+        <translation>Percento prahovej hodnoty fluktuácie partnerov:</translation>
     </message>
     <message>
         <source>RSS Torrent Auto Downloader</source>
-        <translation type="unfinished" />
+        <translation>Automatické RSS sťahovanie torrentov</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished" />
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Network interface:</source>
-        <translation type="unfinished" />
+        <translation>Sieťové rozhranie:</translation>
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS čítačka</translation>
     </message>
     <message>
         <source>Edit auto downloading rules...</source>
-        <translation type="unfinished" />
+        <translation>Upraviť pravidlá automatického sťahovania...</translation>
     </message>
     <message>
         <source>Download REPACK/PROPER episodes</source>
-        <translation type="unfinished" />
+        <translation>Stiahnuť REPACK/PROPER epizódy</translation>
     </message>
     <message>
         <source>Feeds refresh interval:</source>
-        <translation type="unfinished" />
+        <translation>Interval obnovovania kanálov:</translation>
     </message>
     <message>
         <source>Peer turnover disconnect percentage:</source>
-        <translation type="unfinished" />
+        <translation>Percentuálny podiel odpojenia obratu partnerov:</translation>
     </message>
     <message>
         <source>Maximum number of articles per feed:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Max concurrent HTTP announces (requires libtorrent &gt;= 1.2.7):</source>
-        <translation type="unfinished" />
+        <translation>Maximálny počet článkov na kanál:</translation>
     </message>
     <message>
         <source> min</source>
-        <translation type="unfinished" />
+        <translation>min</translation>
     </message>
     <message>
         <source>Peer turnover disconnect interval:</source>
-        <translation type="unfinished" />
+        <translation>Interval odpojenia obratu partnerov:</translation>
     </message>
     <message>
         <source>Optional IP address to bind to:</source>
-        <translation type="unfinished" />
+        <translation>Voliteľná IP adresa, na ktorú sa má viazať:</translation>
     </message>
     <message>
         <source>Disallow connection to peers on privileged ports:</source>
-        <translation type="unfinished" />
+        <translation>Zakázať pripojenie k partnerom na privilegovaných portoch:</translation>
     </message>
     <message>
         <source>Enable auto downloading of RSS torrents</source>
-        <translation type="unfinished" />
+        <translation>Zapnúť automatické RSS sťahovanie torrentov</translation>
     </message>
     <message>
         <source>RSS Smart Episode Filter</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache expiry interval (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>RSS inteligentný filter epizód</translation>
     </message>
     <message>
         <source>Validate HTTPS tracker certificate:</source>
-        <translation type="unfinished" />
+        <translation>Overenie certifikátu sledovania HTTPS:</translation>
     </message>
     <message>
         <source>Peer connection protocol:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Support internationalized domain name (IDN) (requires libtorrent &gt;= 1.2.12):</source>
-        <translation type="unfinished" />
+        <translation>Protokol partnerského pripojenia:</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Rozloženie obsahu torrentu:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Vytvorte podpriečinok</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Originál</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Nevytvárajte podpriečinok</translation>
     </message>
     <message>
         <source>Type of service (ToS) for connections to peers</source>
-        <translation type="unfinished" />
+        <translation>Typ služby (ToS) pre pripojenia k rovesníkom</translation>
     </message>
     <message>
         <source>Outgoing connections per second:</source>
-        <translation type="unfinished" />
+        <translation>Odchádzajúce pripojenia za sekundu:</translation>
     </message>
     <message>
         <source>Random</source>
-        <translation type="unfinished" />
+        <translation>Náhodný</translation>
     </message>
     <message>
         <source>%K: Torrent ID</source>
-        <translation type="unfinished" />
+        <translation>%K: Torrent ID</translation>
     </message>
     <message>
         <source>Reannounce to all trackers when IP or port changed:</source>
-        <translation type="unfinished" />
+        <translation>Znova oznámiť všetkým sledovačom pri zmene IP alebo portu:</translation>
     </message>
     <message>
         <source>Trusted proxies list:</source>
-        <translation type="unfinished" />
+        <translation>Zoznam dôveryhodných serverov proxy:</translation>
     </message>
     <message>
         <source>Enable reverse proxy support</source>
-        <translation type="unfinished" />
+        <translation>Povoliť podporu reverzného servera proxy</translation>
     </message>
     <message>
         <source>%J: Info hash v2</source>
-        <translation type="unfinished" />
+        <translation>%J: Info hash v2</translation>
     </message>
     <message>
         <source>%I: Info hash v1</source>
+        <translation>%I: Info hash v1</translation>
+    </message>
+    <message>
+        <source>IP address reported to trackers (requires restart):</source>
+        <translation>IP adresa nahlásená trackerom (vyžaduje reštart):</translation>
+    </message>
+    <message>
+        <source>Set to 0 to let your system pick an unused port</source>
+        <translation>Nastavte na 0, aby váš systém vybral nepoužívaný port</translation>
+    </message>
+    <message>
+        <source>Server-side request forgery (SSRF) mitigation:</source>
+        <translation>Zmiernenie falšovania požiadaviek na strane servera (SSRF):</translation>
+    </message>
+    <message>
+        <source>Disk queue size:</source>
+        <translation>Veľkosť diskovej fronty</translation>
+    </message>
+    <message>
+        <source>Log performance warnings</source>
+        <translation>Logovať upozornenia ohľadom výkonu</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding requests to a single peer:</source>
+        <translation>Maximum nespracovaných požiadaviek na jedného peera</translation>
+    </message>
+    <message>
+        <source>Max active checking torrents:</source>
+        <translation>Maximum súbežne kontrolovaných torrentov:</translation>
+    </message>
+    <message>
+        <source>Memory mapped files</source>
+        <translation>Súbory namapované v pamäti</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Predvolený</translation>
+    </message>
+    <message>
+        <source>POSIX-compliant</source>
+        <translation>POSIX-vyhovujúci</translation>
+    </message>
+    <message>
+        <source>This option is less effective on Linux</source>
+        <translation>Táto voľba je na Linuxe menej efektívna</translation>
+    </message>
+    <message>
+        <source>It controls the internal state update interval which in turn will affect UI updates</source>
+        <translation>Riadi interval aktualizácie vnútorného stavu, ktorý zase ovplyvní aktualizácie používateľského rozhrania</translation>
+    </message>
+    <message>
+        <source>Disk IO read mode:</source>
+        <translation>Režim IO čítania disku</translation>
+    </message>
+    <message>
+        <source>Disable OS cache</source>
+        <translation>Vypnúť vyrovnávaciu pamäť OS</translation>
+    </message>
+    <message>
+        <source>Disk IO write mode:</source>
+        <translation>Režim IO zapisovania disku</translation>
+    </message>
+    <message>
+        <source>Use piece extent affinity:</source>
+        <translation>Použite afinitu k dielikovému rozsahu</translation>
+    </message>
+    <message>
+        <source>Max concurrent HTTP announces:</source>
+        <translation>Maximum súbežných HTTP oznámení</translation>
+    </message>
+    <message>
+        <source>Enable OS cache</source>
+        <translation>Zapnúť vyrovnávaciu pamäť OS</translation>
+    </message>
+    <message>
+        <source>Refresh interval:</source>
+        <translation>Interval obnovenia:</translation>
+    </message>
+    <message>
+        <source>ms</source>
+        <translation>ms</translation>
+    </message>
+    <message>
+        <source>Excluded file names</source>
+        <translation>Vynechané názvy súborov</translation>
+    </message>
+    <message>
+        <source>Support internationalized domain name (IDN):</source>
+        <translation>Podporovať domény obsahujúce špeciálne znaky (IDN)</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent finished</source>
+        <translation>Spustiť externý program po dokončení torrentu</translation>
+    </message>
+    <message>
+        <source>Whitelist for filtering HTTP Host header values.
+In order to defend against DNS rebinding attack,
+you should put in domain names used by WebUI server.
+
+Use ';' to split multiple entries. Can use wildcard '*'.</source>
+        <translation>Zoznam povolených pre filtrovanie hodnôt HTTP hlaviček hostiteľa.
+Pre obranu proti DNS rebinding útokom,
+mali vložiť doménové názvy použité pre WebUI server.
+
+Použite ';' pre oddelenie viacerých položiek. Môžete použiť masku '*'.</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent added</source>
+        <translation>Spustiť externý program po pridaní torrentu</translation>
+    </message>
+    <message>
+        <source>HTTPS certificate should not be empty</source>
+        <translation>HTTPS certifikát by nemal byť prázdny</translation>
+    </message>
+    <message>
+        <source>Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries.</source>
+        <translation>Uveďte IP adresy (alebo podsiete, napr. 0.0.0.0/24) reverzného proxy pre preposlanie adresy klienta (hlavička X-Forwarded-For). Použite ';' pre rozdelenie viacerých položiek.</translation>
+    </message>
+    <message>
+        <source>HTTPS key should not be empty</source>
+        <translation>HTTPS kľúč by nemal byť prázdny</translation>
+    </message>
+    <message>
+        <source>Run external program</source>
+        <translation>Spustiť externý program</translation>
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation>Súbory skontrolované</translation>
+    </message>
+    <message>
+        <source>Enable port forwarding for embedded tracker:</source>
+        <translation>Zapnúť presmerovanie portu na zabudovaný tracker</translation>
+    </message>
+    <message>
+        <source>If checked, hostname lookups are done via the proxy.</source>
+        <translation>Ak je zaškrnuté, vyhľadávanie názvu hostiteľa prebieha cez proxy</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation>Metadáta obdržané</translation>
+    </message>
+    <message>
+        <source>Torrent stop condition:</source>
+        <translation>Podmienka pre zastavenie torrentu:</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Žiadna</translation>
+    </message>
+    <message>
+        <source>Example: 172.17.32.0/24, fdff:ffff:c8::/40</source>
+        <translation>Príklad: 172.17.32.0/24, fdff:ffff:c8::/40</translation>
+    </message>
+    <message>
+        <source>SQLite database (experimental)</source>
+        <translation>SQLite databáza (experimentálne)</translation>
+    </message>
+    <message>
+        <source>Resume data storage type (requires restart):</source>
+        <translation>Obnoviť typ úložiska dát (vyžadovaný reštart):</translation>
+    </message>
+    <message>
+        <source>Fastresume files</source>
+        <translation>Súbory rýchleho obnovenia</translation>
+    </message>
+    <message>
+        <source>Backup the log file after:</source>
+        <translation>Zálohovať log súbor po dosiahnutí:</translation>
+    </message>
+    <message>
+        <source>days</source>
+        <translation>dní</translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation>Log súbor</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>Správanie</translation>
+    </message>
+    <message>
+        <source>Delete backup logs older than:</source>
+        <translation>Vymazať zálohy log súborov staršie ako:</translation>
+    </message>
+    <message>
+        <source>Use proxy for BitTorrent purposes</source>
+        <translation>Použiť proxy pre účely BitTorrent</translation>
+    </message>
+    <message>
+        <source>years</source>
+        <translation>rokov</translation>
+    </message>
+    <message>
+        <source>Save path:</source>
+        <translation>Uložiť do:</translation>
+    </message>
+    <message>
+        <source>months</source>
+        <translation>mesiacov</translation>
+    </message>
+    <message>
+        <source>Remember Multi-Rename settings</source>
+        <translation>Zapamätať nastavenie hromadného premenovania</translation>
+    </message>
+    <message>
+        <source>Use proxy for general purposes</source>
+        <translation>Použiť proxy pre všeobecné účely</translation>
+    </message>
+    <message>
+        <source>Use proxy for RSS purposes</source>
+        <translation>Použiť proxy pre účely RSS</translation>
+    </message>
+    <message>
+        <source>Disk cache expiry interval (requires libtorrent &amp;lt; 2.0):</source>
+        <translation type="vanished">Interval vypršania diskovej cache (vyžaduje libtorrent &amp;lt; 2.0):</translation>
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit (applied if libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">Limit využitia fyzickej pamäti (RAM) (použije sa, ak libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>Disk cache (requires libtorrent &amp;lt; 2.0):</source>
+        <translation type="vanished">Vyrovnávajúca pamäť disku (libtorrent &amp;lt; 2.0):</translation>
+    </message>
+    <message>
+        <source>Socket send buffer size [0: system default]:</source>
+        <translation>Veľkosť send bufferu pre socket [0: predvolený systémom]:</translation>
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes (requires libtorrent &amp;lt; 2.0):</source>
+        <translation type="vanished">Zlúčenie čítacích &amp;amp; zapisovacích operácií (vyžaduje libtorrent &amp;lt; 2.0):</translation>
+    </message>
+    <message>
+        <source>Outgoing ports (Max) [0: disabled]:</source>
+        <translation>Odchádzajúce porty (Max) [0: vypnuté]</translation>
+    </message>
+    <message>
+        <source>Socket receive buffer size [0: system default]:</source>
+        <translation>Veľkosť receive bufferu pre socket [0: predvolený systémom]:</translation>
+    </message>
+    <message>
+        <source>Use Subcategories</source>
+        <translation>Použi podkategórie</translation>
+    </message>
+    <message>
+        <source>Disk IO type (libtorrent &amp;gt;= 2.0; requires restart):</source>
+        <translation type="vanished">Disk IO typ (libtorrent &amp;gt;= 2.0; vyžaduje reštart):</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation>Pridať navrch poradovníka</translation>
+    </message>
+    <message>
+        <source>Write-through (requires libtorrent &amp;gt;= 2.0.6)</source>
+        <translation type="vanished">Prepisovanie (vyžaduje libtorrent &amp;gt;= 2.0.6)</translation>
+    </message>
+    <message>
+        <source>Stop tracker timeout [0: disabled]:</source>
+        <translation>Časový limit pre zastavenie trackera [0: vypnuté]:</translation>
+    </message>
+    <message>
+        <source>Outgoing ports (Min) [0: disabled]:</source>
+        <translation>Odchádzajúce porty (Min) [0: vypnuté]:</translation>
+    </message>
+    <message>
+        <source>Hashing threads (requires libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">Hashovacie vlákna (vyžaduje libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>UPnP lease duration [0: permanent lease]:</source>
+        <translation>Doba UPnP prepožičania [0: trvalé prepožičanie]:</translation>
+    </message>
+    <message>
+        <source>Bdecode depth limit:</source>
+        <translation>Bdecode obmedzenie hĺbky:</translation>
+    </message>
+    <message>
+        <source>Bdecode token limit:</source>
+        <translation>Bdecode obmedzenie tokenu:</translation>
+    </message>
+    <message>
+        <source>When total seeding time reaches</source>
+        <translation>Keď celkový čas seedovania dosiahne</translation>
+    </message>
+    <message>
+        <source>(None)</source>
+        <translation>(žiadny)</translation>
+    </message>
+    <message>
+        <source>I2P inbound length (requires libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">I2P prichádzajúca dĺžka (vyžaduje libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>Python executable path (may require restart):</source>
+        <translation>Cesta k binárke Pythonu (môže vyžadovať reštart):</translation>
+    </message>
+    <message>
+        <source>Resets to default if empty</source>
+        <translation>Vráti pôvodné (ak je prázdne)</translation>
+    </message>
+    <message>
+        <source>Perform hostname lookup via proxy</source>
+        <translation>Zisťovať názov hostiteľa cez proxy</translation>
+    </message>
+    <message>
+        <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
+        <translation>Ak je zapnutý &amp;quot;zmiešaný režim&amp;quot; I2P torrenty majú povolené získavať peerov tiež z iných zdrojov ako z trackera a pripájať sa na bežné IP adresy bez poskytovania akejkoľvek anonymizácie. To môže byť užitočné, ak používateľ nemá záujem o anonymizáciu I2P, no napriek tomu chce byť schopný pripájať sa na I2P peerov.</translation>
+    </message>
+    <message>
+        <source>I2P inbound quantity (requires libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">I2P prichádzajúce množstvo (vyžaduje libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>I2P outbound length (requires libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">I2P odchádzajúca dĺžka (vyžaduje libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>I2P outbound quantity (requires libtorrent &amp;gt;= 2.0):</source>
+        <translation type="vanished">I2P odchádzajúce množstvo (vyžaduje libtorrent &amp;gt;= 2.0):</translation>
+    </message>
+    <message>
+        <source>I2P (Experimental) (requires libtorrent &amp;gt;= 2.0)</source>
+        <translation type="vanished">I2P (Experimentáne) (vyžadue libtorrent &amp;gt;= 2.0)</translation>
+    </message>
+    <message>
+        <source>DHT bootstrap nodes:</source>
+        <translation>DHT bootstrap uzly:</translation>
+    </message>
+    <message>
+        <source>When inactive seeding time reaches</source>
+        <translation>Keď čas neaktívneho seedovania dosiahne</translation>
+    </message>
+    <message>
+        <source>Mixed mode</source>
+        <translation>Zmiešaný režim</translation>
+    </message>
+    <message>
+        <source>.torrent file size limit:</source>
+        <translation>Obmedzenie veľkosti .torrent súboru:</translation>
+    </message>
+    <message>
+        <source>(Auto detect if empty)</source>
+        <translation>(Automaticky zistiť, ak je prázdne)</translation>
+    </message>
+    <message>
+        <source>Keep unselected files in ".unwanted" folder</source>
+        <translation>Ponechať neoznačené súbory v adresári ".unwanted"</translation>
+    </message>
+    <message>
+        <source>Enable Mark-of-the-Web (MOTW) for downloaded files (require macOS or Windows):</source>
+        <translation>Zapnúť Mark-of-the-Web (MOTW) pre stiahnuté súbory (vyžaduje macOS alebo Windows):</translation>
+    </message>
+    <message>
+        <source> sec</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Hashing threads:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use alternative WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache expiry interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P (Experimental)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The alternative WebUI files location cannot be blank.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Write-through</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI password must be at least 6 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI username must be at least 3 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Same host request delay:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Customize application instance name:</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1552,12 +1976,16 @@
         <translation>Kopírovať IP:port</translation>
     </message>
     <message>
-        <source>Add a new peer...</source>
-        <translation>Pridať nového rovesníka...</translation>
-    </message>
-    <message>
         <source>Country/Region</source>
         <translation>Krajina/Oblasť</translation>
+    </message>
+    <message>
+        <source>Add peers...</source>
+        <translation>Pridať rovesníkov...</translation>
+    </message>
+    <message>
+        <source>Peer ID Client</source>
+        <translation>Peer ID klient</translation>
     </message>
 </context>
 <context>
@@ -1762,19 +2190,83 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (nasadené pre %2)</translation>
     </message>
     <message>
         <source>Info Hash v2:</source>
-        <translation type="unfinished" />
+        <translation>Info Hash v2:</translation>
     </message>
     <message>
         <source>Info Hash v1:</source>
-        <translation type="unfinished" />
+        <translation>Info Hash v1:</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation type="unfinished" />
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Progress:</source>
+        <translation>Priebeh:</translation>
+    </message>
+    <message>
+        <source>Use regular expressions</source>
+        <translation>Používať regulárne výrazy</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation>Názov súboru</translation>
+    </message>
+    <message>
+        <source>Filename + Extension</source>
+        <translation>Názov súboru + prípona</translation>
+    </message>
+    <message>
+        <source>Enumerate Files</source>
+        <translation>Očíslovať súbory</translation>
+    </message>
+    <message>
+        <source>Rename failed: file or folder already exists</source>
+        <translation>Premenovanie zlyhalo: súbor alebo adresár už existuje</translation>
+    </message>
+    <message>
+        <source>Toggle Selection</source>
+        <translation>Prepnúť výber</translation>
+    </message>
+    <message>
+        <source>Replacement Input</source>
+        <translation>Vstup pre nahradenie</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation>Nahradiť</translation>
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation>Prípona</translation>
+    </message>
+    <message>
+        <source>Replace All</source>
+        <translation>Nahradiť všetko</translation>
+    </message>
+    <message>
+        <source>Include files</source>
+        <translation>Zahrnúť súbory</translation>
+    </message>
+    <message>
+        <source>Include folders</source>
+        <translation>Zahrnúť adresáre</translation>
+    </message>
+    <message>
+        <source>Search Files</source>
+        <translation>Prehľadávať súbory</translation>
+    </message>
+    <message>
+        <source>Case sensitive</source>
+        <translation>Rozlišovať veľkosť písmen</translation>
+    </message>
+    <message>
+        <source>Match all occurrences</source>
+        <translation>Všetky výskyty</translation>
     </message>
 </context>
 <context>
@@ -1797,11 +2289,11 @@
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished" />
+        <translation>Iné...</translation>
     </message>
     <message>
         <source>Type folder here</source>
-        <translation type="unfinished" />
+        <translation>Tu zadajte priečinok</translation>
     </message>
 </context>
 <context>
@@ -1986,11 +2478,19 @@
     </message>
     <message>
         <source>Checking (%1)</source>
-        <translation type="unfinished" />
+        <translation>Kontrola (%1)</translation>
     </message>
     <message>
         <source>Checking (0)</source>
-        <translation type="unfinished" />
+        <translation>Kontrola (0)</translation>
+    </message>
+    <message>
+        <source>Moving (%1)</source>
+        <translation>Presúvané (%1)</translation>
+    </message>
+    <message>
+        <source>Moving (0)</source>
+        <translation>Presúvané (0)</translation>
     </message>
 </context>
 <context>
@@ -2144,6 +2644,10 @@
         <source>Availability</source>
         <translation>Dostupnosť</translation>
     </message>
+    <message>
+        <source>Reannounce In</source>
+        <translation>Znova ohlásiť o:</translation>
+    </message>
 </context>
 <context>
     <name>TrackerListWidget</name>
@@ -2162,10 +2666,6 @@
     <message>
         <source>Message</source>
         <translation>Správa</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation>Stiahnuté</translation>
     </message>
     <message>
         <source>Tracker URL:</source>
@@ -2202,10 +2702,6 @@
     <message>
         <source>Copy tracker URL</source>
         <translation>Skopírovať URL trackera</translation>
-    </message>
-    <message>
-        <source>Add a new tracker...</source>
-        <translation>Pridať nový tracker...</translation>
     </message>
     <message>
         <source>Edit tracker URL...</source>
@@ -2248,19 +2744,35 @@
         <translation>Priebeh</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Veľkosť</translation>
+        <source>Total Size</source>
+        <translation>Celková veľkosť</translation>
+    </message>
+    <message>
+        <source>Times Downloaded</source>
+        <translation>Počet stiahnutí</translation>
+    </message>
+    <message>
+        <source>Add trackers...</source>
+        <translation>Pridať trackery...</translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation>Premenované</translation>
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Pôvodný</translation>
     </message>
 </context>
 <context>
     <name>TrackersAdditionDialog</name>
     <message>
-        <source>Trackers addition dialog</source>
-        <translation>Dialóg pre pridanie torrentu</translation>
-    </message>
-    <message>
         <source>List of trackers to add (one per line):</source>
         <translation>Pridať nasledovné trackery (jeden tracker na riadok):</translation>
+    </message>
+    <message>
+        <source>Add trackers</source>
+        <translation>Pridať trackery</translation>
     </message>
 </context>
 <context>
@@ -2332,11 +2844,11 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (nasadené pre %2)</translation>
     </message>
     <message>
         <source>[F] Downloading metadata</source>
-        <translation type="unfinished" />
+        <translation>[F] Sťahovanie metadát</translation>
     </message>
 </context>
 <context>
@@ -2355,7 +2867,11 @@
     </message>
     <message>
         <source>Trackers</source>
-        <translation type="unfinished" />
+        <translation>Trackery</translation>
+    </message>
+    <message>
+        <source>Collapse/expand</source>
+        <translation>Zbaliť/rozbaliť</translation>
     </message>
 </context>
 <context>
@@ -2386,11 +2902,6 @@
         <source>Pause</source>
         <comment>Pause the torrent</comment>
         <translation>Pozastaviť</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <comment>Delete the torrent</comment>
-        <translation>Zmazať</translation>
     </message>
     <message>
         <source>Limit share ratio...</source>
@@ -2467,10 +2978,6 @@
         <translation>Sťahovať v poradí</translation>
     </message>
     <message>
-        <source>Force Recheck</source>
-        <translation>Vynútiť opätovnú kontrolu</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Nová kategória</translation>
     </message>
@@ -2536,15 +3043,35 @@
     </message>
     <message>
         <source>Info hash v1</source>
-        <translation type="unfinished" />
+        <translation>Info hash v1</translation>
     </message>
     <message>
         <source>Info hash v2</source>
-        <translation type="unfinished" />
+        <translation>Info hash v2</translation>
     </message>
     <message>
         <source>Torrent ID</source>
-        <translation type="unfinished" />
+        <translation>Torrent ID</translation>
+    </message>
+    <message>
+        <source>Export .torrent</source>
+        <translation>Exportovať .torrent</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Odstrániť</translation>
+    </message>
+    <message>
+        <source>Rename Files...</source>
+        <translation>Premenovať súbory...</translation>
+    </message>
+    <message>
+        <source>Renaming</source>
+        <translation>Premenovanie</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation>Komentár:</translation>
     </message>
 </context>
 <context>
@@ -2570,8 +3097,12 @@
         <translation>ratio</translation>
     </message>
     <message>
-        <source>minutes</source>
-        <translation>minút</translation>
+        <source>total minutes</source>
+        <translation>minút celkom</translation>
+    </message>
+    <message>
+        <source>inactive minutes</source>
+        <translation>minút neaktivity</translation>
     </message>
 </context>
 <context>
@@ -2580,16 +3111,12 @@
 <context>
     <name>confirmDeletionDlg</name>
     <message>
-        <source>Deletion confirmation</source>
-        <translation>Potvrdenie zmazania</translation>
+        <source>Also permanently delete the files</source>
+        <translation>Odstrániť aj súbory natrvalo</translation>
     </message>
     <message>
-        <source>Also delete the files on the hard disk</source>
-        <translation>Zmazať aj súbory na pevnom disku</translation>
-    </message>
-    <message>
-        <source>Deletion confirmation - qBittorrent</source>
-        <translation>Potvrdenie zmazania - qBittorrent</translation>
+        <source>Remove torrent(s)</source>
+        <translation>Odstrániť torrent(y)</translation>
     </message>
 </context>
 <context>
@@ -2676,7 +3203,7 @@
     </message>
     <message>
         <source>%1y %2d</source>
-        <translation type="unfinished" />
+        <translation>%1y %2d</translation>
     </message>
 </context>
 <context>
@@ -2744,10 +3271,6 @@
         <translation>Hľadať v:</translation>
     </message>
     <message>
-        <source>Results (showing</source>
-        <translation>Výsledky</translation>
-    </message>
-    <message>
         <source>Filter</source>
         <translation>Filter</translation>
     </message>
@@ -2769,15 +3292,32 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished" />
+        <translation>Upozornenie</translation>
     </message>
     <message>
         <source>Increase window width to display additional filters</source>
-        <translation type="unfinished" />
+        <translation>Zväčšite šírku okna pre zobrazenie ďalších filtrov</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished" />
+        <translation>do</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Výsledky</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation>zobrazené</translation>
+    </message>
+    <message>
+        <source>Click the "Search plugins..." button at the bottom right of the window to install some.</source>
+        <translation>Žiadne vyhľadávacie pluginy nie sú nainštalované.
+Kliknite na tlačidlo "Vyhľadať pluginy..." vpravo dole v okne, aby ste nejaké nainštalovali.</translation>
+    </message>
+    <message>
+        <source>There aren't any search plugins installed.</source>
+        <translation>Nie sú nainštalované žiadne pluginy.</translation>
     </message>
 </context>
 <context>
@@ -2903,10 +3443,6 @@
         <translation>Pridať značku...</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Vymazať torrenty</translation>
-    </message>
-    <message>
         <source>Tag:</source>
         <translation>Značka:</translation>
     </message>
@@ -2929,6 +3465,10 @@
     <message>
         <source>Remove tag</source>
         <translation>Odstrániť značku</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Odstrániť torrenty</translation>
     </message>
 </context>
 <context>
@@ -3005,16 +3545,28 @@
         <translation>Národonosť:</translation>
     </message>
     <message>
-        <source>Author</source>
-        <translation>Autor</translation>
-    </message>
-    <message>
         <source>Software Used</source>
         <translation>Použitý software</translation>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
         <translation>Bezplatná databáza IP to Country Lite od DB-IP sa používa na riešenie krajín peerov. Databáza je licencovaná podľa medzinárodnej licencie Creative Commons Attribution 4.0</translation>
+    </message>
+    <message>
+        <source>Authors</source>
+        <translation>Autori</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Francúzsko</translation>
+    </message>
+    <message>
+        <source>qBittorrent Mascot</source>
+        <translation>qBittorrent maskot</translation>
+    </message>
+    <message>
+        <source>qBittorrent icon</source>
+        <translation>Ikona qBittorrentu</translation>
     </message>
 </context>
 <context>
@@ -3074,377 +3626,517 @@
     <name>RSSWidget</name>
     <message>
         <source>Date: </source>
-        <translation type="unfinished" />
+        <translation>Dátum: </translation>
     </message>
     <message>
         <source>Please choose a new name for this RSS feed</source>
-        <translation type="unfinished" />
+        <translation>Prosím, vyberte nový názov pre tento RSS kanál</translation>
     </message>
     <message>
         <source>Please choose a folder name</source>
-        <translation type="unfinished" />
+        <translation>Prosím, vyberte názov priečinka</translation>
     </message>
     <message>
         <source>New feed name:</source>
-        <translation type="unfinished" />
+        <translation>Nový názov kanála:</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished" />
+        <translation>Aktualizovať všetky</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished" />
+        <translation>Vymazať</translation>
     </message>
     <message>
         <source>RSS Downloader...</source>
-        <translation type="unfinished" />
+        <translation>Sťahovanie RSS kanálov...</translation>
     </message>
     <message>
         <source>Mark items read</source>
-        <translation type="unfinished" />
+        <translation>Označiť položku ako prečítané</translation>
     </message>
     <message>
         <source>Update all feeds</source>
-        <translation type="unfinished" />
+        <translation>Aktualizovať všetky kanály</translation>
     </message>
     <message>
         <source>Copy feed URL</source>
-        <translation type="unfinished" />
+        <translation>Skopírovať URL kanála</translation>
     </message>
     <message>
         <source>Torrents: (double-click to download)</source>
-        <translation type="unfinished" />
+        <translation>Torrenty: (dvojklik pre stiahnutie)</translation>
     </message>
     <message>
         <source>Open news URL</source>
-        <translation type="unfinished" />
+        <translation>Otvoriť adresu URL správ</translation>
     </message>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished" />
+        <translation>Premenovať...</translation>
     </message>
     <message>
         <source>Feed URL:</source>
-        <translation type="unfinished" />
+        <translation>URL kanálu:</translation>
     </message>
     <message>
         <source>New folder...</source>
-        <translation type="unfinished" />
+        <translation>Nový priečinok...</translation>
     </message>
     <message>
         <source>New subscription</source>
-        <translation type="unfinished" />
+        <translation>Nový odber</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>Aktualizovať</translation>
     </message>
     <message>
         <source>Folder name:</source>
-        <translation type="unfinished" />
+        <translation>Názov priečinka:</translation>
     </message>
     <message>
         <source>Please type a RSS feed URL</source>
-        <translation type="unfinished" />
+        <translation>Prosím, zadajte URL RSS kanálu</translation>
     </message>
     <message>
         <source>Fetching of RSS feeds is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>Získanie RSS kanálov je teraz vypnuté! Môžete ho zapnúť v nastaveniach aplikácie.</translation>
     </message>
     <message>
         <source>Deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Potvrdenie zmazania</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the selected RSS feeds?</source>
-        <translation type="unfinished" />
+        <translation>Ste si istý, že chcete vymazať označené RSS kanály?</translation>
     </message>
     <message>
         <source>New subscription...</source>
-        <translation type="unfinished" />
+        <translation>Nový odber...</translation>
     </message>
     <message>
         <source>Download torrent</source>
-        <translation type="unfinished" />
+        <translation>Stiahnuť torrent</translation>
     </message>
 </context>
 <context>
     <name>AutomatedRssDownloader</name>
     <message>
         <source>Download Rules</source>
-        <translation type="unfinished" />
+        <translation>Pravidlá sťahovania</translation>
     </message>
     <message>
         <source>Matching RSS Articles</source>
-        <translation type="unfinished" />
+        <translation>Zodpovedajúce články RSS</translation>
     </message>
     <message>
         <source>* to match zero or more of any characters</source>
-        <translation type="unfinished" />
+        <translation>* pre zhodu so žiadnym alebo viac s akýmikoľvek znakmi</translation>
     </message>
     <message>
         <source> will match all articles.</source>
-        <translation type="unfinished" />
+        <translation>zahrnie všetky položky.</translation>
     </message>
     <message>
         <source>Episode filter rules: </source>
-        <translation type="unfinished" />
+        <translation>Pravidlá pre filtrovanie epizód:</translation>
     </message>
     <message>
         <source>Auto downloading of RSS torrents is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>Autosťahovanie RSS torrentov je teraz vypnuté! Môžete ho zapnúť v nastaveniach aplikácie.</translation>
     </message>
     <message>
         <source>Rule Definition</source>
-        <translation type="unfinished" />
+        <translation>Definícia pravidla</translation>
     </message>
     <message>
         <source>Save to:</source>
-        <translation type="unfinished" />
+        <translation>Uložiť do:</translation>
     </message>
     <message>
         <source>Use Regular Expressions</source>
-        <translation type="unfinished" />
+        <translation>Používať regulárne výrazy</translation>
     </message>
     <message>
         <source>New rule name</source>
-        <translation type="unfinished" />
+        <translation>Nový názov pravidla</translation>
     </message>
     <message>
         <source>Filter must end with semicolon</source>
-        <translation type="unfinished" />
+        <translation>Filter musí končiť bodkočiarkou</translation>
     </message>
     <message>
         <source>? to match any single character</source>
-        <translation type="unfinished" />
+        <translation>? pre zhodu s ľubovoľným jediným znakom</translation>
     </message>
     <message>
         <source>Matches articles based on episode filter.</source>
-        <translation type="unfinished" />
+        <translation>Nájde články podľa filtra epizód.</translation>
     </message>
     <message>
         <source>Assign Category:</source>
-        <translation type="unfinished" />
+        <translation>Priradiť kategóriu:</translation>
     </message>
     <message>
         <source>Regex mode: use Perl-compatible regular expressions</source>
-        <translation type="unfinished" />
+        <translation>Regex mód: použite regulárny výraz komatibilní s Perlom</translation>
     </message>
     <message>
         <source>| is used as OR operator</source>
-        <translation type="unfinished" />
+        <translation>| slúži ako operátor OR</translation>
     </message>
     <message>
         <source>Clear downloaded episodes</source>
-        <translation type="unfinished" />
+        <translation>Odstrániť stiahnuté epizódy</translation>
     </message>
     <message>
         <source>Whitespaces count as AND operators (all words, any order)</source>
-        <translation type="unfinished" />
+        <translation>Medzera slúži ako operátor AND (všetky slová v akomkoľvek poradí)</translation>
     </message>
     <message>
         <source>An expression with an empty %1 clause (e.g. %2)</source>
-        <translation type="unfinished" />
+        <translation>Výraz s prázdnym %1 obsahom (napr. %2)</translation>
     </message>
     <message>
         <source>Example: </source>
-        <translation type="unfinished" />
+        <translation>Príklad:</translation>
     </message>
     <message>
         <source>Add new rule...</source>
-        <translation type="unfinished" />
+        <translation>Pridať nové pravidlo...</translation>
     </message>
     <message>
         <source>Are you sure you want to clear the list of downloaded episodes for the selected rule?</source>
-        <translation type="unfinished" />
+        <translation>Naozaj chcete vymazať zoznam stiahnutých epizód pre vybrané pravidlo?</translation>
     </message>
     <message>
         <source>Must Contain:</source>
-        <translation type="unfinished" />
+        <translation>Musí obsahovať:</translation>
     </message>
     <message>
         <source>Infinite range: &lt;b&gt;1x25-;&lt;/b&gt; matches episodes 25 and upward of season one, and all episodes of later seasons</source>
-        <translation type="unfinished" />
+        <translation>Neohraničený rozsah: &lt;b&gt;1x25-;&lt;/b&gt; zodpovedá epizóde 25 a všetkým nasledujúcim z prvej sezóny a všetkým nasledujúcim</translation>
     </message>
     <message>
         <source>Save to a Different Directory</source>
-        <translation type="unfinished" />
+        <translation>Uložiť do iného adresára</translation>
     </message>
     <message>
         <source>Must Not Contain:</source>
-        <translation type="unfinished" />
+        <translation>Nesmie obsahovať:</translation>
     </message>
     <message>
         <source>Single number: &lt;b&gt;1x25;&lt;/b&gt; matches episode 25 of season one</source>
-        <translation type="unfinished" />
+        <translation>Jedno číslo: &lt;b&gt;1x25;&lt;/b&gt; zodpovedá epizóde 25 prvej sezóny</translation>
     </message>
     <message>
         <source>Three range types for episodes are supported: </source>
-        <translation type="unfinished" />
+        <translation>Tri druhy rozsahov pre epizódy sú podporované:</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the selected download rules?</source>
-        <translation type="unfinished" />
+        <translation>Ste si istý, že chcete odstrániť vybrané pravidlá sťahovania?</translation>
     </message>
     <message>
         <source>Use global settings</source>
-        <translation type="unfinished" />
+        <translation>Použiť globálne nastavenie</translation>
     </message>
     <message>
         <source>Normal range: &lt;b&gt;1x25-40;&lt;/b&gt; matches episodes 25 through 40 of season one</source>
-        <translation type="unfinished" />
+        <translation>Normálny rozsah: &lt;b&gt;1x25-40;&lt;/b&gt; zodpovedá epizódam 25 až 40 prvej sezóny</translation>
     </message>
     <message>
         <source>Please type the new rule name</source>
-        <translation type="unfinished" />
+        <translation>Prosím, napíšte názov nového pravidla</translation>
     </message>
     <message>
         <source>Rule renaming</source>
-        <translation type="unfinished" />
+        <translation>Premenovanie pravidiel</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished" />
+        <translation>Vždy</translation>
     </message>
     <message>
         <source>Episode number is a mandatory positive value</source>
-        <translation type="unfinished" />
+        <translation>Číslo epizódy je povinná pozitívna hodnota</translation>
     </message>
     <message>
         <source> will match 2, 5, 8 through 15, 30 and onward episodes of season one</source>
-        <translation type="unfinished" />
+        <translation>nájde epizódy 2, 5, 8 až 15, 30 a všetky nasledujúce z prvej sezóny</translation>
     </message>
     <message>
         <source>Rule deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Potvrdenie zmazania pravidla</translation>
     </message>
     <message>
         <source>Last Match: %1 days ago</source>
-        <translation type="unfinished" />
+        <translation>Naposledy nájdené: pred %1 dňami</translation>
     </message>
     <message>
         <source>Episode Filter:</source>
-        <translation type="unfinished" />
+        <translation>Filter epizód:</translation>
     </message>
     <message>
         <source>Rss Downloader</source>
-        <translation type="unfinished" />
+        <translation>Sťahovanie kanálov RSS</translation>
     </message>
     <message>
         <source>Season number is a mandatory non-zero value</source>
-        <translation type="unfinished" />
+        <translation>Číslo sezóny je povinná, nenulová hodnota</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished" />
+        <translation>Nikdy</translation>
     </message>
     <message>
         <source>Apply Rule to Feeds:</source>
-        <translation type="unfinished" />
+        <translation>Použiť pravidlo na kanály:</translation>
     </message>
     <message>
         <source> days</source>
-        <translation type="unfinished" />
+        <translation>dní</translation>
     </message>
     <message>
         <source>Use Smart Episode Filter</source>
-        <translation type="unfinished" />
+        <translation>Použite inteligentný filter epizód</translation>
     </message>
     <message>
         <source>If word order is important use * instead of whitespace.</source>
-        <translation type="unfinished" />
+        <translation>Ak je dôležité poradie slov, použite * namiesto medzery.</translation>
     </message>
     <message>
         <source>Add Paused:</source>
-        <translation type="unfinished" />
+        <translation>Pridať pozastavený:</translation>
     </message>
     <message>
         <source>Please type the name of the new download rule.</source>
-        <translation type="unfinished" />
+        <translation>Prosím, napíšte nový názov pre tonto pravidlo sťahovania.</translation>
     </message>
     <message>
         <source>Wildcard mode: you can use</source>
-        <translation type="unfinished" />
+        <translation>Mód zástupných znakov: môžete použiť</translation>
     </message>
     <message>
         <source> will exclude all articles.</source>
-        <translation type="unfinished" />
+        <translation>vylúči všetky položky</translation>
     </message>
     <message>
         <source>Delete rule</source>
-        <translation type="unfinished" />
+        <translation>Zmazať pravidlo</translation>
     </message>
     <message>
         <source>Ignore Subsequent Matches for (0 to Disable)</source>
-        <translation type="unfinished" />
+        <translation>Ignorovať následné zhody po dobu (0 pre vypnutie)</translation>
     </message>
     <message>
         <source>Rename rule...</source>
-        <translation type="unfinished" />
+        <translation>Premenovať pravidlo...</translation>
     </message>
     <message>
         <source>Last Match: Unknown</source>
-        <translation type="unfinished" />
+        <translation>Naposledy nájdené: neznáme</translation>
     </message>
     <message>
         <source>Clear downloaded episodes...</source>
-        <translation type="unfinished" />
+        <translation>Odstrániť stiahnuté epizódy...</translation>
     </message>
     <message>
         <source>Smart Episode Filter will check the episode number to prevent downloading of duplicates.
 Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also support - as a separator)</source>
-        <translation type="unfinished" />
+        <translation>Chytrý Filter Epizód skontroluje číslo epizódy pre zabránenie sťahovanie duplikátov. 
+Podporuje formáty: S01E01, 1x1, 2017.12.31 a 31.12.2017 (podporuje aj formáty dátumu - ako oddeľovač)</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
-        <translation type="unfinished" />
+        <translation>Rozvrhnutie obsahu torrentu:</translation>
     </message>
     <message>
         <source>Create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Vytvoriť podzložku</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Pôvodný</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
-        <translation type="unfinished" />
+        <translation>Nevytvárať podzložku</translation>
+    </message>
+    <message>
+        <source>Add Tags:</source>
+        <translation>Pridať značky:</translation>
     </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
     <message>
-        <source>Delete torrents</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Resume torrents</source>
-        <translation type="unfinished" />
+        <translation>Obnov torrenty</translation>
     </message>
     <message>
         <source>All (%1)</source>
-        <translation type="unfinished" />
+        <translation>Všetky (%1)</translation>
     </message>
     <message>
         <source>Trackerless (%1)</source>
-        <translation type="unfinished" />
+        <translation>Bez trackeru (%1)</translation>
     </message>
     <message>
         <source>Pause torrents</source>
-        <translation type="unfinished" />
+        <translation>Pozastaviť torrenty</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation>Odstrániť torrenty</translation>
     </message>
 </context>
 <context>
     <name>FeedListWidget</name>
     <message>
         <source>RSS feeds</source>
-        <translation type="unfinished" />
+        <translation>RSS kanály</translation>
     </message>
     <message>
         <source>Unread</source>
-        <translation type="unfinished" />
+        <translation>Neprečítané</translation>
+    </message>
+</context>
+<context>
+    <name>ExecutionLogWidget</name>
+    <message>
+        <source>General</source>
+        <translation>Všeobecné</translation>
+    </message>
+    <message>
+        <source>Blocked</source>
+        <translation>Zablokované</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Neznáma</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Všetky</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation>zobrazené</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopírovať</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Vybrať všetko</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Log Type</source>
+        <translation>Typ logu</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Vyčistiť</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Upozornenie</translation>
+    </message>
+    <message>
+        <source>Information Messages</source>
+        <translation>Informačné správy</translation>
+    </message>
+    <message>
+        <source>Warning Messages</source>
+        <translation>Upozorňujúce správy</translation>
+    </message>
+    <message>
+        <source>Filter logs</source>
+        <translation>Filtrovať logy</translation>
+    </message>
+    <message>
+        <source>Blocked IPs</source>
+        <translation>Zablokované IP</translation>
+    </message>
+    <message>
+        <source>out of</source>
+        <translation>mimo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Stav</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Časová značka</translation>
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation>Vyčistiť všetko</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Správa</translation>
+    </message>
+    <message>
+        <source>Log Levels:</source>
+        <translation>Úrovne logu:</translation>
+    </message>
+    <message>
+        <source>Reason</source>
+        <translation>Dôvod</translation>
+    </message>
+    <message>
+        <source>item</source>
+        <translation>položka</translation>
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Banned</source>
+        <translation>Zablokované</translation>
+    </message>
+    <message>
+        <source>Normal Messages</source>
+        <translation>Normálne správy</translation>
+    </message>
+    <message>
+        <source>Critical</source>
+        <translation>Kritický</translation>
+    </message>
+    <message>
+        <source>Critical Messages</source>
+        <translation>Kritické správy</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normálna</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation>položky</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Výsledky</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>Info</translation>
+    </message>
+    <message>
+        <source>Choose a log level...</source>
+        <translation>Vyberte úrovne logu...</translation>
     </message>
 </context>
 </TS>

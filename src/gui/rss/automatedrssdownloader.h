@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2017, 2023  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -29,12 +29,14 @@
 
 #pragma once
 
+#include <utility>
+
 #include <QDialog>
 #include <QHash>
-#include <QPair>
 #include <QSet>
 
 #include "base/rss/rss_autodownloadrule.h"
+#include "base/settingvalue.h"
 
 class QListWidgetItem;
 class QRegularExpression;
@@ -49,6 +51,8 @@ namespace Ui
     class AutomatedRssDownloader;
 }
 
+class AddTorrentParamsWidget;
+
 class AutomatedRssDownloader : public QDialog
 {
     Q_OBJECT
@@ -59,12 +63,11 @@ public:
     ~AutomatedRssDownloader() override;
 
 private slots:
-    void on_addRuleBtn_clicked();
-    void on_removeRuleBtn_clicked();
-    void on_addCategoryBtn_clicked();
-    void on_exportBtn_clicked();
-    void on_importBtn_clicked();
-
+    void onAddRuleBtnClicked();
+    void onRemoveRuleBtnClicked();
+    void onExportBtnClicked();
+    void onImportBtnClicked();
+    void onRenameRuleBtnClicked();
     void handleRuleCheckStateChange(QListWidgetItem *ruleItem);
     void handleFeedCheckStateChange(QListWidgetItem *feedItem);
     void displayRulesListMenu();
@@ -87,7 +90,6 @@ private:
     void loadSettings();
     void saveSettings();
     void createRuleItem(const RSS::AutoDownloadRule &rule);
-    void initCategoryCombobox();
     void clearRuleDefinitionBox();
     void updateEditedRule();
     void updateMatchingArticles();
@@ -99,10 +101,15 @@ private:
     const QString m_formatFilterJSON;
     const QString m_formatFilterLegacy;
 
-    Ui::AutomatedRssDownloader *m_ui;
-    QListWidgetItem *m_currentRuleItem;
-    QSet<QPair<QString, QString>> m_treeListEntries;
+    Ui::AutomatedRssDownloader *m_ui = nullptr;
+    AddTorrentParamsWidget *m_addTorrentParamsWidget = nullptr;
+    QListWidgetItem *m_currentRuleItem = nullptr;
+    QSet<std::pair<QString, QString>> m_treeListEntries;
     RSS::AutoDownloadRule m_currentRule;
     QHash<QString, QListWidgetItem *> m_itemsByRuleName;
-    QRegularExpression *m_episodeRegex;
+    QRegularExpression *m_episodeRegex = nullptr;
+
+    SettingValue<QSize> m_storeDialogSize;
+    SettingValue<QByteArray> m_storeMainSplitterState;
+    SettingValue<QByteArray> m_storeRuleDefSplitterState;
 };
