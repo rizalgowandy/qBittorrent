@@ -29,21 +29,18 @@
 
 #include "programupdater.h"
 
-#if defined(Q_OS_WIN)
-#include <Windows.h>
-#include <versionhelpers.h>  // must follow after Windows.h
-#endif
+#include <libtorrent/version.hpp>
 
+#include <QtCore/qconfig.h>
+#include <QtSystemDetection>
 #include <QDebug>
 #include <QDesktopServices>
 #include <QRegularExpression>
 #include <QXmlStreamReader>
 
-#if defined(Q_OS_WIN)
-#include <QSysInfo>
-#endif
-
+#include "base/global.h"
 #include "base/net/downloadmanager.h"
+#include "base/preferences.h"
 #include "base/utils/version.h"
 #include "base/version.h"
 
@@ -51,36 +48,46 @@ namespace
 {
     bool isVersionMoreRecent(const QString &remoteVersion)
     {
-        using Version = Utils::Version<int, 4, 3>;
+        using Version = Utils::Version<4, 3>;
 
-        try
-        {
-            const Version newVersion {remoteVersion};
-            const Version currentVersion {QBT_VERSION_MAJOR, QBT_VERSION_MINOR, QBT_VERSION_BUGFIX, QBT_VERSION_BUILD};
-            if (newVersion == currentVersion)
-            {
-                const bool isDevVersion = QString::fromLatin1(QBT_VERSION_STATUS).contains(
-                    QRegularExpression(QLatin1String("(alpha|beta|rc)")));
-                if (isDevVersion)
-                    return true;
-            }
-            return (newVersion > currentVersion);
-        }
-        catch (const RuntimeError &)
-        {
+        const auto newVersion = Version::fromString(remoteVersion);
+        if (!newVersion.isValid())
             return false;
+
+        const Version currentVersion {QBT_VERSION_MAJOR, QBT_VERSION_MINOR, QBT_VERSION_BUGFIX, QBT_VERSION_BUILD};
+        if (newVersion == currentVersion)
+        {
+            const bool isDevVersion = QStringLiteral(QBT_VERSION_STATUS).contains(
+                QRegularExpression(u"(alpha|beta|rc)"_s));
+            if (isDevVersion)
+                return true;
         }
+        return (newVersion > currentVersion);
+    }
+
+    QString buildVariant()
+    {
+#if defined(Q_OS_MACOS)
+        const auto BASE_OS = u"Mac OS X"_s;
+#elif defined(Q_OS_WIN)
+        const auto BASE_OS = u"Windows x64"_s;
+#endif
+
+        if constexpr ((QT_VERSION_MAJOR == 6) && (LIBTORRENT_VERSION_MAJOR == 1))
+            return BASE_OS;
+
+        return u"%1 (qt%2 lt%3%4)"_s.arg(BASE_OS, QString::number(QT_VERSION_MAJOR), QString::number(LIBTORRENT_VERSION_MAJOR), QString::number(LIBTORRENT_VERSION_MINOR));
     }
 }
 
 void ProgramUpdater::checkForUpdates() const
 {
-    const auto RSS_URL = QString::fromLatin1("https://www.fosshub.com/feed/5b8793a7f9ee5a5c3e97a3b2.xml");
+    const auto RSS_URL = u"https://www.fosshub.com/feed/5b8793a7f9ee5a5c3e97a3b2.xml"_s;
     // Don't change this User-Agent. In case our updater goes haywire,
     // the filehost can identify it and contact us.
     Net::DownloadManager::instance()->download(
-        Net::DownloadRequest(RSS_URL).userAgent("qBittorrent/" QBT_VERSION_2 " ProgramUpdater (www.qbittorrent.org)")
-        , this, &ProgramUpdater::rssDownloadFinished);
+            Net::DownloadRequest(RSS_URL).userAgent(QStringLiteral("qBittorrent/" QBT_VERSION_2 " ProgramUpdater (www.qbittorrent.org)"))
+            , Preferences::instance()->useProxyForGeneralPurposes(), this, &ProgramUpdater::rssDownloadFinished);
 }
 
 QString ProgramUpdater::getNewVersion() const
@@ -107,14 +114,7 @@ void ProgramUpdater::rssDownloadFinished(const Net::DownloadResult &result)
             : QString {};
     };
 
-#ifdef Q_OS_MACOS
-    const QString OS_TYPE {"Mac OS X"};
-#elif defined(Q_OS_WIN)
-    const QString OS_TYPE {(::IsWindows7OrGreater()
-        && QSysInfo::currentCpuArchitecture().endsWith("64"))
-        ? "Windows x64" : "Windows"};
-#endif
-
+    const QString variant = buildVariant();
     bool inItem = false;
     QString version;
     QString updateLink;
@@ -127,20 +127,20 @@ void ProgramUpdater::rssDownloadFinished(const Net::DownloadResult &result)
 
         if (xml.isStartElement())
         {
-            if (xml.name() == QLatin1String("item"))
+            if (xml.name() == u"item")
                 inItem = true;
-            else if (inItem && (xml.name() == QLatin1String("link")))
+            else if (inItem && (xml.name() == u"link"))
                 updateLink = getStringValue(xml);
-            else if (inItem && (xml.name() == QLatin1String("type")))
+            else if (inItem && (xml.name() == u"type"))
                 type = getStringValue(xml);
-            else if (inItem && (xml.name() == QLatin1String("version")))
+            else if (inItem && (xml.name() == u"version"))
                 version = getStringValue(xml);
         }
         else if (xml.isEndElement())
         {
-            if (inItem && (xml.name() == QLatin1String("item")))
+            if (inItem && (xml.name() == u"item"))
             {
-                if (type.compare(OS_TYPE, Qt::CaseInsensitive) == 0)
+                if (type.compare(variant, Qt::CaseInsensitive) == 0)
                 {
                     qDebug("The last update available is %s", qUtf8Printable(version));
                     if (!version.isEmpty())

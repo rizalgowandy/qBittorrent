@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2024  Radu Carpa <radu.carpa@cern.ch>
  * Copyright (C) 2017  Mike Tzou (Chocobo1)
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  *
@@ -30,8 +31,10 @@
 #pragma once
 
 #include <QDialog>
+#include <QThreadPool>
 
-#include "base/bittorrent/torrentcreatorthread.h"
+#include "base/bittorrent/torrentcreator.h"
+#include "base/path.h"
 #include "base/settingvalue.h"
 
 namespace Ui
@@ -42,11 +45,12 @@ namespace Ui
 class TorrentCreatorDialog final : public QDialog
 {
     Q_OBJECT
+    Q_DISABLE_COPY_MOVE(TorrentCreatorDialog)
 
 public:
-    TorrentCreatorDialog(QWidget *parent = nullptr, const QString &defaultPath = {});
+    TorrentCreatorDialog(QWidget *parent = nullptr, const Path &defaultPath = {});
     ~TorrentCreatorDialog() override;
-    void updateInputPath(const QString &path);
+    void updateInputPath(const Path &path);
 
 private slots:
     void updateProgressBar(int progress);
@@ -55,7 +59,7 @@ private slots:
     void onAddFileButtonClicked();
     void onAddFolderButtonClicked();
     void handleCreationFailure(const QString &msg);
-    void handleCreationSuccess(const QString &path, const QString &branchPath);
+    void handleCreationSuccess(const BitTorrent::TorrentCreatorResult &result);
 
 private:
     void dropEvent(QDropEvent *event) override;
@@ -72,8 +76,8 @@ private:
     int getPaddedFileSizeLimit() const;
 #endif
 
-    Ui::TorrentCreatorDialog *m_ui;
-    BitTorrent::TorrentCreatorThread *m_creatorThread;
+    Ui::TorrentCreatorDialog *m_ui = nullptr;
+    QThreadPool m_threadPool;
 
     // settings
     SettingValue<QSize> m_storeDialogSize;
@@ -87,10 +91,10 @@ private:
     SettingValue<bool> m_storeOptimizeAlignment;
     SettingValue<int> m_paddedFileSizeLimit;
 #endif
-    SettingValue<QString> m_storeLastAddPath;
+    SettingValue<Path> m_storeLastAddPath;
     SettingValue<QString> m_storeTrackerList;
     SettingValue<QString> m_storeWebSeedList;
     SettingValue<QString> m_storeComments;
-    SettingValue<QString> m_storeLastSavePath;
+    SettingValue<Path> m_storeLastSavePath;
     SettingValue<QString> m_storeSource;
 };

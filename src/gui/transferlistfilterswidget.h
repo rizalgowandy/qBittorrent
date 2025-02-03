@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2023  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2006  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -28,119 +29,24 @@
 
 #pragma once
 
-#include <QFrame>
-#include <QListWidget>
 #include <QtContainerFwd>
+#include <QWidget>
 
-class QCheckBox;
-class QResizeEvent;
+#include "base/bittorrent/trackerentry.h"
 
+class CategoryFilterWidget;
+class StatusFilterWidget;
+class TagFilterWidget;
+class TrackersFilterWidget;
 class TransferListWidget;
 
 namespace BitTorrent
 {
     class Torrent;
-    class TorrentID;
-    struct TrackerEntry;
+    struct TrackerEntryStatus;
 }
 
-namespace Net
-{
-    struct DownloadResult;
-}
-
-class BaseFilterWidget : public QListWidget
-{
-    Q_OBJECT
-    Q_DISABLE_COPY_MOVE(BaseFilterWidget)
-
-public:
-    BaseFilterWidget(QWidget *parent, TransferListWidget *transferList);
-
-    QSize sizeHint() const override;
-    QSize minimumSizeHint() const override;
-
-public slots:
-    void toggleFilter(bool checked);
-
-protected:
-    TransferListWidget *transferList;
-
-private slots:
-    virtual void showMenu(const QPoint &) = 0;
-    virtual void applyFilter(int row) = 0;
-    virtual void handleNewTorrent(BitTorrent::Torrent *const) = 0;
-    virtual void torrentAboutToBeDeleted(BitTorrent::Torrent *const) = 0;
-};
-
-class StatusFilterWidget final : public BaseFilterWidget
-{
-    Q_OBJECT
-    Q_DISABLE_COPY_MOVE(StatusFilterWidget)
-
-public:
-    StatusFilterWidget(QWidget *parent, TransferListWidget *transferList);
-    ~StatusFilterWidget() override;
-
-private slots:
-    void updateTorrentNumbers();
-
-private:
-    // These 4 methods are virtual slots in the base class.
-    // No need to redeclare them here as slots.
-    void showMenu(const QPoint &) override;
-    void applyFilter(int row) override;
-    void handleNewTorrent(BitTorrent::Torrent *const) override;
-    void torrentAboutToBeDeleted(BitTorrent::Torrent *const) override;
-};
-
-class TrackerFiltersList final : public BaseFilterWidget
-{
-    Q_OBJECT
-    Q_DISABLE_COPY_MOVE(TrackerFiltersList)
-
-public:
-    TrackerFiltersList(QWidget *parent, TransferListWidget *transferList, bool downloadFavicon);
-    ~TrackerFiltersList() override;
-
-    // Redefine addItem() to make sure the list stays sorted
-    void addItem(const QString &tracker, const BitTorrent::TorrentID &id);
-    void removeItem(const QString &tracker, const BitTorrent::TorrentID &id);
-    void changeTrackerless(bool trackerless, const BitTorrent::TorrentID &id);
-    void setDownloadTrackerFavicon(bool value);
-
-public slots:
-    void trackerSuccess(const BitTorrent::TorrentID &id, const QString &tracker);
-    void trackerError(const BitTorrent::TorrentID &id, const QString &tracker);
-    void trackerWarning(const BitTorrent::TorrentID &id, const QString &tracker);
-
-private slots:
-    void handleFavicoDownloadFinished(const Net::DownloadResult &result);
-
-private:
-    // These 4 methods are virtual slots in the base class.
-    // No need to redeclare them here as slots.
-    void showMenu(const QPoint &) override;
-    void applyFilter(int row) override;
-    void handleNewTorrent(BitTorrent::Torrent *const torrent) override;
-    void torrentAboutToBeDeleted(BitTorrent::Torrent *const torrent) override;
-    QString trackerFromRow(int row) const;
-    int rowFromTracker(const QString &tracker) const;
-    QSet<BitTorrent::TorrentID> getTorrentIDs(int row) const;
-    void downloadFavicon(const QString &url);
-
-    QHash<QString, QSet<BitTorrent::TorrentID>> m_trackers;  // <tracker host, torrent IDs>
-    QHash<BitTorrent::TorrentID, QSet<QString>> m_errors;  // <torrent ID, tracker hosts>
-    QHash<BitTorrent::TorrentID, QSet<QString>> m_warnings;  // <torrent ID, tracker hosts>
-    QStringList m_iconPaths;
-    int m_totalTorrents;
-    bool m_downloadTrackerFavicon;
-};
-
-class CategoryFilterWidget;
-class TagFilterWidget;
-
-class TransferListFiltersWidget final : public QFrame
+class TransferListFiltersWidget final : public QWidget
 {
     Q_OBJECT
     Q_DISABLE_COPY_MOVE(TransferListFiltersWidget)
@@ -150,17 +56,11 @@ public:
     void setDownloadTrackerFavicon(bool value);
 
 public slots:
-    void addTrackers(const BitTorrent::Torrent *torrent, const QVector<BitTorrent::TrackerEntry> &trackers);
-    void removeTrackers(const BitTorrent::Torrent *torrent, const QVector<BitTorrent::TrackerEntry> &trackers);
-    void changeTrackerless(const BitTorrent::Torrent *torrent, bool trackerless);
-    void trackerSuccess(const BitTorrent::Torrent *torrent, const QString &tracker);
-    void trackerWarning(const BitTorrent::Torrent *torrent, const QString &tracker);
-    void trackerError(const BitTorrent::Torrent *torrent, const QString &tracker);
-
-signals:
-    void trackerSuccess(const BitTorrent::TorrentID &id, const QString &tracker);
-    void trackerError(const BitTorrent::TorrentID &id, const QString &tracker);
-    void trackerWarning(const BitTorrent::TorrentID &id, const QString &tracker);
+    void addTrackers(const BitTorrent::Torrent *torrent, const QList<BitTorrent::TrackerEntry> &trackers);
+    void removeTrackers(const BitTorrent::Torrent *torrent, const QStringList &trackers);
+    void refreshTrackers(const BitTorrent::Torrent *torrent);
+    void trackerEntryStatusesUpdated(const BitTorrent::Torrent *torrent
+            , const QHash<QString, BitTorrent::TrackerEntryStatus> &updatedTrackers);
 
 private slots:
     void onCategoryFilterStateChanged(bool enabled);
@@ -170,8 +70,8 @@ private:
     void toggleCategoryFilter(bool enabled);
     void toggleTagFilter(bool enabled);
 
-    TransferListWidget *m_transferList;
-    TrackerFiltersList *m_trackerFilters;
-    CategoryFilterWidget *m_categoryFilterWidget;
-    TagFilterWidget *m_tagFilterWidget;
+    TransferListWidget *m_transferList = nullptr;
+    TrackersFilterWidget *m_trackersFilterWidget = nullptr;
+    CategoryFilterWidget *m_categoryFilterWidget = nullptr;
+    TagFilterWidget *m_tagFilterWidget = nullptr;
 };

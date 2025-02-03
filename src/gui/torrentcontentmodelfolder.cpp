@@ -30,7 +30,6 @@
 
 #include <QVariant>
 
-#include "base/bittorrent/common.h"
 #include "base/global.h"
 
 TorrentContentModelFolder::TorrentContentModelFolder(const QString &name, TorrentContentModelFolder *parent)
@@ -38,12 +37,9 @@ TorrentContentModelFolder::TorrentContentModelFolder(const QString &name, Torren
 {
     Q_ASSERT(parent);
     m_name = name;
-    // Do not display incomplete extensions
-    if (m_name.endsWith(QB_EXT))
-        m_name.chop(4);
 }
 
-TorrentContentModelFolder::TorrentContentModelFolder(const QVector<QString> &data)
+TorrentContentModelFolder::TorrentContentModelFolder(const QList<QString> &data)
     : TorrentContentModelItem(nullptr)
 {
     Q_ASSERT(data.size() == NB_COL);
@@ -67,7 +63,7 @@ void TorrentContentModelFolder::deleteAllChildren()
     m_childItems.clear();
 }
 
-const QVector<TorrentContentModelItem *> &TorrentContentModelFolder::children() const
+const QList<TorrentContentModelItem *> &TorrentContentModelFolder::children() const
 {
     return m_childItems;
 }
@@ -85,17 +81,6 @@ TorrentContentModelItem *TorrentContentModelFolder::child(int row) const
 {
     return m_childItems.value(row, nullptr);
 }
-
-TorrentContentModelFolder *TorrentContentModelFolder::childFolderWithName(const QString &name) const
-{
-    for (TorrentContentModelItem *child : asConst(m_childItems))
-    {
-        if ((child->itemType() == FolderType) && (child->name() == name))
-            return static_cast<TorrentContentModelFolder *>(child);
-    }
-    return nullptr;
-}
-
 int TorrentContentModelFolder::childCount() const
 {
     return m_childItems.count();
@@ -139,8 +124,10 @@ void TorrentContentModelFolder::setPriority(BitTorrent::DownloadPriority newPrio
 
     // Update children
     if (m_priority != BitTorrent::DownloadPriority::Mixed)
+    {
         for (TorrentContentModelItem *child : asConst(m_childItems))
             child->setPriority(m_priority, false);
+    }
 }
 
 void TorrentContentModelFolder::recalculateProgress()
@@ -160,10 +147,19 @@ void TorrentContentModelFolder::recalculateProgress()
         tRemaining += child->remaining();
     }
 
-    if (!isRootItem() && (tSize > 0))
+    if (!isRootItem())
     {
-        m_progress = tProgress / tSize;
-        m_remaining = tRemaining;
+        if (tSize > 0)
+        {
+            m_progress = tProgress / tSize;
+            m_remaining = tRemaining;
+        }
+        else
+        {
+            m_progress = 1.0;
+            m_remaining = 0;
+        }
+
         Q_ASSERT(m_progress <= 1.);
     }
 }

@@ -35,6 +35,7 @@
 #include <QDataStream>
 #include <QFile>
 
+#include "base/global.h"
 #include "base/logger.h"
 
 namespace
@@ -47,7 +48,7 @@ namespace
             unsigned char octetIndex = 0;
 
             const char *octetStart = str;
-            char *endptr;
+            char *endptr = nullptr;
             for (; *str; ++str)
             {
                 if (*str == '.')
@@ -88,7 +89,7 @@ namespace
         }
 
     private:
-        lt::address_v4::bytes_type m_buf;
+        lt::address_v4::bytes_type m_buf {};
     };
 
     bool parseIPAddress(const char *data, lt::address &address)
@@ -110,7 +111,6 @@ namespace
 
 FilterParserThread::FilterParserThread(QObject *parent)
     : QThread(parent)
-    , m_abort(false)
 {
 }
 
@@ -124,7 +124,7 @@ FilterParserThread::~FilterParserThread()
 int FilterParserThread::parseDATFilterFile()
 {
     int ruleCount = 0;
-    QFile file(m_filePath);
+    QFile file {m_filePath.data()};
     if (!file.exists()) return ruleCount;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -133,7 +133,7 @@ int FilterParserThread::parseDATFilterFile()
         return ruleCount;
     }
 
-    std::vector<char> buffer(BUFFER_SIZE, 0); // seems a bit faster than QVector
+    std::vector<char> buffer(BUFFER_SIZE, 0); // seems a bit faster than QList
     qint64 bytesRead = 0;
     int offset = 0;
     int start = 0;
@@ -288,7 +288,7 @@ int FilterParserThread::parseDATFilterFile()
 int FilterParserThread::parseP2PFilterFile()
 {
     int ruleCount = 0;
-    QFile file(m_filePath);
+    QFile file {m_filePath.data()};
     if (!file.exists()) return ruleCount;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -297,7 +297,7 @@ int FilterParserThread::parseP2PFilterFile()
         return ruleCount;
     }
 
-    std::vector<char> buffer(BUFFER_SIZE, 0); // seems a bit faster than QVector
+    std::vector<char> buffer(BUFFER_SIZE, 0); // seems a bit faster than QList
     qint64 bytesRead = 0;
     int offset = 0;
     int start = 0;
@@ -469,7 +469,7 @@ int FilterParserThread::getlineInStream(QDataStream &stream, std::string &name, 
 int FilterParserThread::parseP2BFilterFile()
 {
     int ruleCount = 0;
-    QFile file(m_filePath);
+    QFile file {m_filePath.data()};
     if (!file.exists()) return ruleCount;
 
     if (!file.open(QIODevice::ReadOnly))
@@ -483,9 +483,9 @@ int FilterParserThread::parseP2BFilterFile()
     char buf[7];
     unsigned char version;
     if (!stream.readRawData(buf, sizeof(buf))
-        || memcmp(buf, "\xFF\xFF\xFF\xFFP2B", 7)
+        || (memcmp(buf, "\xFF\xFF\xFF\xFFP2B", 7) != 0)
         || !stream.readRawData(reinterpret_cast<char*>(&version), sizeof(version)))
-        {
+    {
         LogMsg(tr("Parsing Error: The filter file is not a valid PeerGuardian P2B file."), Log::CRITICAL);
         return ruleCount;
     }
@@ -592,7 +592,7 @@ int FilterParserThread::parseP2BFilterFile()
 //  * eMule IP list (DAT): http://wiki.phoenixlabs.org/wiki/DAT_Format
 //  * PeerGuardian Text (P2P): http://wiki.phoenixlabs.org/wiki/P2P_Format
 //  * PeerGuardian Binary (P2B): http://wiki.phoenixlabs.org/wiki/P2B_Format
-void FilterParserThread::processFilterFile(const QString &filePath)
+void FilterParserThread::processFilterFile(const Path &filePath)
 {
     if (isRunning())
     {
@@ -617,17 +617,17 @@ void FilterParserThread::run()
 {
     qDebug("Processing filter file");
     int ruleCount = 0;
-    if (m_filePath.endsWith(".p2p", Qt::CaseInsensitive))
+    if (m_filePath.hasExtension(u".p2p"_s))
     {
         // PeerGuardian p2p file
         ruleCount = parseP2PFilterFile();
     }
-    else if (m_filePath.endsWith(".p2b", Qt::CaseInsensitive))
+    else if (m_filePath.hasExtension(u".p2b"_s))
     {
         // PeerGuardian p2b file
         ruleCount = parseP2BFilterFile();
     }
-    else if (m_filePath.endsWith(".dat", Qt::CaseInsensitive))
+    else if (m_filePath.hasExtension(u".dat"_s))
     {
         // eMule DAT format
         ruleCount = parseDATFilterFile();

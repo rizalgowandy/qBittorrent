@@ -38,6 +38,7 @@
 
 #include "base/bittorrent/session.h"
 #include "base/bittorrent/sessionstatus.h"
+#include "base/preferences.h"
 #include "base/utils/misc.h"
 #include "speedlimitdialog.h"
 #include "uithememanager.h"
@@ -48,8 +49,8 @@ StatusBar::StatusBar(QWidget *parent)
 {
 #ifndef Q_OS_MACOS
     // Redefining global stylesheet breaks certain elements on mac like tabs.
-    // Qt checks whether the stylesheet class inherts("QMacStyle") and this becomes false.
-    setStyleSheet("QStatusBar::item { border-width: 0; }");
+    // Qt checks whether the stylesheet class inherits("QMacStyle") and this becomes false.
+    setStyleSheet(u"QStatusBar::item { border-width: 0; }"_s);
 #endif
 
     BitTorrent::Session *const session = BitTorrent::Session::instance();
@@ -63,29 +64,31 @@ StatusBar::StatusBar(QWidget *parent)
     m_connecStatusLblIcon->setFlat(true);
     m_connecStatusLblIcon->setFocusPolicy(Qt::NoFocus);
     m_connecStatusLblIcon->setCursor(Qt::PointingHandCursor);
-    m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("firewalled")));
-    m_connecStatusLblIcon->setToolTip(
-        QString::fromLatin1("<b>%1</b><br><i>%2</i>").arg(tr("Connection status:")
-            , tr("No direct connections. This may indicate network configuration problems.")));
+    m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(u"firewalled"_s));
+    m_connecStatusLblIcon->setToolTip(u"<b>%1</b><br><i>%2</i>"_s.arg(tr("Connection status:")
+        , tr("No direct connections. This may indicate network configuration problems.")));
     connect(m_connecStatusLblIcon, &QAbstractButton::clicked, this, &StatusBar::connectionButtonClicked);
 
     m_dlSpeedLbl = new QPushButton(this);
-    m_dlSpeedLbl->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("downloading_small")));
+    m_dlSpeedLbl->setIcon(UIThemeManager::instance()->getIcon(u"downloading"_s, u"downloading_small"_s));
     connect(m_dlSpeedLbl, &QAbstractButton::clicked, this, &StatusBar::capSpeed);
     m_dlSpeedLbl->setFlat(true);
     m_dlSpeedLbl->setFocusPolicy(Qt::NoFocus);
     m_dlSpeedLbl->setCursor(Qt::PointingHandCursor);
-    m_dlSpeedLbl->setStyleSheet("text-align:left;");
+    m_dlSpeedLbl->setStyleSheet(u"text-align:left;"_s);
     m_dlSpeedLbl->setMinimumWidth(200);
 
     m_upSpeedLbl = new QPushButton(this);
-    m_upSpeedLbl->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("seeding")));
+    m_upSpeedLbl->setIcon(UIThemeManager::instance()->getIcon(u"upload"_s, u"seeding"_s));
     connect(m_upSpeedLbl, &QAbstractButton::clicked, this, &StatusBar::capSpeed);
     m_upSpeedLbl->setFlat(true);
     m_upSpeedLbl->setFocusPolicy(Qt::NoFocus);
     m_upSpeedLbl->setCursor(Qt::PointingHandCursor);
-    m_upSpeedLbl->setStyleSheet("text-align:left;");
+    m_upSpeedLbl->setStyleSheet(u"text-align:left;"_s);
     m_upSpeedLbl->setMinimumWidth(200);
+
+    m_lastExternalIPsLbl = new QLabel(tr("External IP: N/A"));
+    m_lastExternalIPsLbl->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
 
     m_DHTLbl = new QLabel(tr("DHT: %1 nodes").arg(0), this);
     m_DHTLbl->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
@@ -130,24 +133,33 @@ StatusBar::StatusBar(QWidget *parent)
 #ifndef Q_OS_MACOS
     statusSep4->setFrameShadow(QFrame::Raised);
 #endif
-    layout->addWidget(m_DHTLbl);
+    QFrame *statusSep5 = new QFrame(this);
+    statusSep5->setFrameStyle(QFrame::VLine);
+#ifndef Q_OS_MACOS
+    statusSep5->setFrameShadow(QFrame::Raised);
+#endif
+    layout->addWidget(m_lastExternalIPsLbl);
     layout->addWidget(statusSep1);
-    layout->addWidget(m_connecStatusLblIcon);
+    layout->addWidget(m_DHTLbl);
     layout->addWidget(statusSep2);
+    layout->addWidget(m_connecStatusLblIcon);
+    layout->addWidget(statusSep3);
     layout->addWidget(m_altSpeedsBtn);
     layout->addWidget(statusSep4);
     layout->addWidget(m_dlSpeedLbl);
-    layout->addWidget(statusSep3);
+    layout->addWidget(statusSep5);
     layout->addWidget(m_upSpeedLbl);
 
     addPermanentWidget(container);
-    setStyleSheet("QWidget {margin: 0;}");
+    setStyleSheet(u"QWidget {margin: 0;}"_s);
     container->adjustSize();
     adjustSize();
+    updateExternalAddressesVisibility();
     // Is DHT enabled
     m_DHTLbl->setVisible(session->isDHTEnabled());
     refresh();
     connect(session, &BitTorrent::Session::statsUpdated, this, &StatusBar::refresh);
+    connect(Preferences::instance(), &Preferences::changed, this, &StatusBar::optionsSaved);
 }
 
 StatusBar::~StatusBar()
@@ -159,12 +171,14 @@ void StatusBar::showRestartRequired()
 {
     // Restart required notification
     const QString restartText = tr("qBittorrent needs to be restarted!");
-    QLabel *restartIconLbl = new QLabel(this);
-    restartIconLbl->setPixmap(style()->standardPixmap(QStyle::SP_MessageBoxWarning));
+
+    const QPixmap pixmap = style()->standardIcon(QStyle::SP_MessageBoxWarning).pixmap(Utils::Gui::smallIconSize());
+    auto *restartIconLbl = new QLabel(this);
+    restartIconLbl->setPixmap(pixmap);
     restartIconLbl->setToolTip(restartText);
     insertWidget(0, restartIconLbl);
 
-    QLabel *restartLbl = new QLabel(this);
+    auto *restartLbl = new QLabel(this);
     restartLbl->setText(restartText);
     insertWidget(1, restartLbl);
 }
@@ -175,21 +189,24 @@ void StatusBar::updateConnectionStatus()
 
     if (!BitTorrent::Session::instance()->isListening())
     {
-        m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("disconnected")));
-        m_connecStatusLblIcon->setToolTip(QLatin1String("<b>") + tr("Connection Status:") + QLatin1String("</b><br>") + tr("Offline. This usually means that qBittorrent failed to listen on the selected port for incoming connections."));
+        m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(u"disconnected"_s));
+        const QString tooltip = u"<b>%1</b><br>%2"_s.arg(tr("Connection Status:"), tr("Offline. This usually means that qBittorrent failed to listen on the selected port for incoming connections."));
+        m_connecStatusLblIcon->setToolTip(tooltip);
     }
     else
     {
         if (sessionStatus.hasIncomingConnections)
         {
             // Connection OK
-            m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("connected")));
-            m_connecStatusLblIcon->setToolTip(QLatin1String("<b>") + tr("Connection Status:") + QLatin1String("</b><br>") + tr("Online"));
+            m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(u"connected"_s));
+            const QString tooltip = u"<b>%1</b><br>%2"_s.arg(tr("Connection Status:"), tr("Online"));
+            m_connecStatusLblIcon->setToolTip(tooltip);
         }
         else
         {
-            m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("firewalled")));
-            m_connecStatusLblIcon->setToolTip(QLatin1String("<b>") + tr("Connection status:") + QLatin1String("</b><br>") + QLatin1String("<i>") + tr("No direct connections. This may indicate network configuration problems.") + QLatin1String("</i>"));
+            m_connecStatusLblIcon->setIcon(UIThemeManager::instance()->getIcon(u"firewalled"_s));
+            const QString tooltip = u"<b>%1</b><br><i>%2</i>"_s.arg(tr("Connection Status:"), tr("No direct connections. This may indicate network configuration problems."));
+            m_connecStatusLblIcon->setToolTip(tooltip);
         }
     }
 }
@@ -208,6 +225,28 @@ void StatusBar::updateDHTNodesNumber()
     }
 }
 
+void StatusBar::updateExternalAddressesLabel()
+{
+    const QString lastExternalIPv4Address = BitTorrent::Session::instance()->lastExternalIPv4Address();
+    const QString lastExternalIPv6Address = BitTorrent::Session::instance()->lastExternalIPv6Address();
+    QString addressText = tr("External IP: N/A");
+
+    const bool hasIPv4Address = !lastExternalIPv4Address.isEmpty();
+    const bool hasIPv6Address = !lastExternalIPv6Address.isEmpty();
+
+    if (hasIPv4Address && hasIPv6Address)
+        addressText = tr("External IPs: %1, %2").arg(lastExternalIPv4Address, lastExternalIPv6Address);
+    else if (hasIPv4Address || hasIPv6Address)
+        addressText = tr("External IP: %1%2").arg(lastExternalIPv4Address, lastExternalIPv6Address);
+
+    m_lastExternalIPsLbl->setText(addressText);
+}
+
+void StatusBar::updateExternalAddressesVisibility()
+{
+    m_lastExternalIPsLbl->setVisible(Preferences::instance()->isStatusbarExternalIPDisplayed());
+}
+
 void StatusBar::updateSpeedLabels()
 {
     const BitTorrent::SessionStatus &sessionStatus = BitTorrent::Session::instance()->status();
@@ -215,15 +254,15 @@ void StatusBar::updateSpeedLabels()
     QString dlSpeedLbl = Utils::Misc::friendlyUnit(sessionStatus.payloadDownloadRate, true);
     const int dlSpeedLimit = BitTorrent::Session::instance()->downloadSpeedLimit();
     if (dlSpeedLimit > 0)
-        dlSpeedLbl += " [" + Utils::Misc::friendlyUnit(dlSpeedLimit, true) + ']';
-    dlSpeedLbl += " (" + Utils::Misc::friendlyUnit(sessionStatus.totalPayloadDownload) + ')';
+        dlSpeedLbl += u" [" + Utils::Misc::friendlyUnit(dlSpeedLimit, true) + u']';
+    dlSpeedLbl += u" (" + Utils::Misc::friendlyUnit(sessionStatus.totalPayloadDownload) + u')';
     m_dlSpeedLbl->setText(dlSpeedLbl);
 
     QString upSpeedLbl = Utils::Misc::friendlyUnit(sessionStatus.payloadUploadRate, true);
     const int upSpeedLimit = BitTorrent::Session::instance()->uploadSpeedLimit();
     if (upSpeedLimit > 0)
-        upSpeedLbl += " [" + Utils::Misc::friendlyUnit(upSpeedLimit, true) + ']';
-    upSpeedLbl += " (" + Utils::Misc::friendlyUnit(sessionStatus.totalPayloadUpload) + ')';
+        upSpeedLbl += u" [" + Utils::Misc::friendlyUnit(upSpeedLimit, true) + u']';
+    upSpeedLbl += u" (" + Utils::Misc::friendlyUnit(sessionStatus.totalPayloadUpload) + u')';
     m_upSpeedLbl->setText(upSpeedLbl);
 }
 
@@ -231,6 +270,7 @@ void StatusBar::refresh()
 {
     updateConnectionStatus();
     updateDHTNodesNumber();
+    updateExternalAddressesLabel();
     updateSpeedLabels();
 }
 
@@ -238,13 +278,13 @@ void StatusBar::updateAltSpeedsBtn(bool alternative)
 {
     if (alternative)
     {
-        m_altSpeedsBtn->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("slow")));
+        m_altSpeedsBtn->setIcon(UIThemeManager::instance()->getIcon(u"slow"_s));
         m_altSpeedsBtn->setToolTip(tr("Click to switch to regular speed limits"));
         m_altSpeedsBtn->setDown(true);
     }
     else
     {
-        m_altSpeedsBtn->setIcon(UIThemeManager::instance()->getIcon(QLatin1String("slow_off")));
+        m_altSpeedsBtn->setIcon(UIThemeManager::instance()->getIcon(u"slow_off"_s));
         m_altSpeedsBtn->setToolTip(tr("Click to switch to alternative speed limits"));
         m_altSpeedsBtn->setDown(false);
     }
@@ -253,7 +293,12 @@ void StatusBar::updateAltSpeedsBtn(bool alternative)
 
 void StatusBar::capSpeed()
 {
-    auto dialog = new SpeedLimitDialog {parentWidget()};
+    auto *dialog = new SpeedLimitDialog {parentWidget()};
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->open();
+}
+
+void StatusBar::optionsSaved()
+{
+    updateExternalAddressesVisibility();
 }

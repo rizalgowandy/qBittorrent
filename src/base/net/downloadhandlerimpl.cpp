@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2015, 2018  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2015-2024  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2006  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -29,46 +29,48 @@
 
 #include "downloadhandlerimpl.h"
 
-#include <QTemporaryFile>
+#include <QtSystemDetection>
 #include <QUrl>
 
+#include "base/3rdparty/expected.hpp"
 #include "base/utils/fs.h"
-#include "base/utils/gzip.h"
+#include "base/utils/io.h"
 #include "base/utils/misc.h"
+
+#ifdef QT_NO_COMPRESS
+#include "base/utils/gzip.h"
+#endif
+
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+#include "base/preferences.h"
+#include "base/utils/os.h"
+#endif // Q_OS_MACOS || Q_OS_WIN
 
 const int MAX_REDIRECTIONS = 20;  // the common value for web browsers
 
-namespace
-{
-    bool saveToFile(const QByteArray &replyData, QString &filePath)
-    {
-        QTemporaryFile tmpfile {Utils::Fs::tempPath() + "XXXXXX"};
-        tmpfile.setAutoRemove(false);
-
-        if (!tmpfile.open())
-            return false;
-
-        filePath = tmpfile.fileName();
-
-        tmpfile.write(replyData);
-        return true;
-    }
-}
-
-DownloadHandlerImpl::DownloadHandlerImpl(Net::DownloadManager *manager, const Net::DownloadRequest &downloadRequest)
+Net::DownloadHandlerImpl::DownloadHandlerImpl(DownloadManager *manager
+        , const DownloadRequest &downloadRequest, const bool useProxy)
     : DownloadHandler {manager}
     , m_manager {manager}
     , m_downloadRequest {downloadRequest}
+    , m_useProxy {useProxy}
 {
     m_result.url = url();
-    m_result.status = Net::DownloadStatus::Success;
+    m_result.status = DownloadStatus::Success;
 }
 
-void DownloadHandlerImpl::cancel()
+void Net::DownloadHandlerImpl::cancel()
 {
-    if (m_reply)
+    if (m_isFinished)
+        return;
+
+    if (m_reply && m_reply->isRunning())
     {
         m_reply->abort();
+    }
+    else if (m_redirectionHandler)
+    {
+        m_redirectionHandler->cancel();
     }
     else
     {
@@ -77,10 +79,11 @@ void DownloadHandlerImpl::cancel()
     }
 }
 
-void DownloadHandlerImpl::assignNetworkReply(QNetworkReply *reply)
+void Net::DownloadHandlerImpl::assignNetworkReply(QNetworkReply *reply)
 {
     Q_ASSERT(reply);
     Q_ASSERT(!m_reply);
+    Q_ASSERT(!m_isFinished);
 
     m_reply = reply;
     m_reply->setParent(this);
@@ -89,18 +92,28 @@ void DownloadHandlerImpl::assignNetworkReply(QNetworkReply *reply)
     connect(m_reply, &QNetworkReply::finished, this, &DownloadHandlerImpl::processFinishedDownload);
 }
 
+QNetworkReply *Net::DownloadHandlerImpl::assignedNetworkReply() const
+{
+    return m_reply;
+}
+
 // Returns original url
-QString DownloadHandlerImpl::url() const
+QString Net::DownloadHandlerImpl::url() const
 {
     return m_downloadRequest.url();
 }
 
-const Net::DownloadRequest DownloadHandlerImpl::downloadRequest() const
+Net::DownloadRequest Net::DownloadHandlerImpl::downloadRequest() const
 {
     return m_downloadRequest;
 }
 
-void DownloadHandlerImpl::processFinishedDownload()
+bool Net::DownloadHandlerImpl::useProxy() const
+{
+    return m_useProxy;
+}
+
+void Net::DownloadHandlerImpl::processFinishedDownload()
 {
     qDebug("Download finished: %s", qUtf8Printable(url()));
 
@@ -123,23 +136,57 @@ void DownloadHandlerImpl::processFinishedDownload()
     }
 
     // Success
+#ifdef QT_NO_COMPRESS
     m_result.data = (m_reply->rawHeader("Content-Encoding") == "gzip")
                     ? Utils::Gzip::decompress(m_reply->readAll())
                     : m_reply->readAll();
+#else
+    m_result.data = m_reply->readAll();
+#endif
 
     if (m_downloadRequest.saveToFile())
     {
-        QString filePath;
-        if (saveToFile(m_result.data, filePath))
-            m_result.filePath = filePath;
+        const Path destinationPath = m_downloadRequest.destFileName();
+        if (destinationPath.isEmpty())
+        {
+            const nonstd::expected<Path, QString> result = Utils::IO::saveToTempFile(m_result.data);
+            if (result)
+            {
+                m_result.filePath = result.value();
+
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+                if (Preferences::instance()->isMarkOfTheWebEnabled())
+                    Utils::OS::applyMarkOfTheWeb(m_result.filePath, m_result.url);
+#endif // Q_OS_MACOS || Q_OS_WIN
+            }
+            else
+            {
+                setError(tr("I/O Error: %1").arg(result.error()));
+            }
+        }
         else
-            setError(tr("I/O Error"));
+        {
+            const nonstd::expected<void, QString> result = Utils::IO::saveToFile(destinationPath, m_result.data);
+            if (result)
+            {
+                m_result.filePath = destinationPath;
+
+#if defined(Q_OS_MACOS) || defined(Q_OS_WIN)
+                if (Preferences::instance()->isMarkOfTheWebEnabled())
+                    Utils::OS::applyMarkOfTheWeb(m_result.filePath, m_result.url);
+#endif // Q_OS_MACOS || Q_OS_WIN
+            }
+            else
+            {
+                setError(tr("I/O Error: %1").arg(result.error()));
+            }
+        }
     }
 
     finish();
 }
 
-void DownloadHandlerImpl::checkDownloadSize(const qint64 bytesReceived, const qint64 bytesTotal)
+void Net::DownloadHandlerImpl::checkDownloadSize(const qint64 bytesReceived, const qint64 bytesTotal)
 {
     if ((bytesTotal > 0) && (bytesTotal <= m_downloadRequest.limit()))
     {
@@ -158,7 +205,7 @@ void DownloadHandlerImpl::checkDownloadSize(const qint64 bytesReceived, const qi
     }
 }
 
-void DownloadHandlerImpl::handleRedirection(const QUrl &newUrl)
+void Net::DownloadHandlerImpl::handleRedirection(const QUrl &newUrl)
 {
     if (m_redirectionCount >= MAX_REDIRECTIONS)
     {
@@ -173,21 +220,19 @@ void DownloadHandlerImpl::handleRedirection(const QUrl &newUrl)
     qDebug("Redirecting from %s to %s...", qUtf8Printable(m_reply->url().toString()), qUtf8Printable(newUrlString));
 
     // Redirect to magnet workaround
-    if (newUrlString.startsWith("magnet:", Qt::CaseInsensitive))
+    if (newUrlString.startsWith(u"magnet:", Qt::CaseInsensitive))
     {
-        qDebug("Magnet redirect detected.");
         m_result.status = Net::DownloadStatus::RedirectedToMagnet;
-        m_result.magnet = newUrlString;
+        m_result.magnetURI = newUrlString;
         m_result.errorString = tr("Redirected to magnet URI");
-
         finish();
         return;
     }
 
-    auto redirected = static_cast<DownloadHandlerImpl *>(
-                m_manager->download(Net::DownloadRequest(m_downloadRequest).url(newUrlString)));
-    redirected->m_redirectionCount = m_redirectionCount + 1;
-    connect(redirected, &DownloadHandlerImpl::finished, this, [this](const Net::DownloadResult &result)
+    m_redirectionHandler = static_cast<DownloadHandlerImpl *>(
+            m_manager->download(DownloadRequest(m_downloadRequest).url(newUrlString), useProxy()));
+    m_redirectionHandler->m_redirectionCount = m_redirectionCount + 1;
+    connect(m_redirectionHandler, &DownloadHandlerImpl::finished, this, [this](const DownloadResult &result)
     {
         m_result = result;
         m_result.url = url();
@@ -195,18 +240,19 @@ void DownloadHandlerImpl::handleRedirection(const QUrl &newUrl)
     });
 }
 
-void DownloadHandlerImpl::setError(const QString &error)
+void Net::DownloadHandlerImpl::setError(const QString &error)
 {
     m_result.errorString = error;
-    m_result.status = Net::DownloadStatus::Failed;
+    m_result.status = DownloadStatus::Failed;
 }
 
-void DownloadHandlerImpl::finish()
+void Net::DownloadHandlerImpl::finish()
 {
+    m_isFinished = true;
     emit finished(m_result);
 }
 
-QString DownloadHandlerImpl::errorCodeToString(const QNetworkReply::NetworkError status)
+QString Net::DownloadHandlerImpl::errorCodeToString(const QNetworkReply::NetworkError status)
 {
     switch (status)
     {

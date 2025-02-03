@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2015  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2015-2024  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2012  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include <QDateTime>
 #include <QList>
 #include <QObject>
 #include <QSet>
@@ -37,42 +38,40 @@
 
 class QXmlStreamReader;
 
-namespace RSS
+namespace RSS::Private
 {
-    namespace Private
+    struct ParsingResult
     {
-        struct ParsingResult
-        {
-            QString error;
-            QString lastBuildDate;
-            QString title;
-            QList<QVariantHash> articles;
-        };
+        QString error;
+        QString lastBuildDate;
+        QString title;
+        QList<QVariantHash> articles;
+    };
 
-        class Parser : public QObject
-        {
-            Q_OBJECT
+    class Parser final : public QObject
+    {
+        Q_OBJECT
+        Q_DISABLE_COPY_MOVE(Parser)
 
-        public:
-            explicit Parser(QString lastBuildDate);
-            void parse(const QByteArray &feedData);
+    public:
+        explicit Parser(const QString &lastBuildDate);
+        void parse(const QByteArray &feedData);
 
-        signals:
-            void finished(const RSS::Private::ParsingResult &result);
+    signals:
+        void finished(const RSS::Private::ParsingResult &result);
 
-        private:
-            Q_INVOKABLE void parse_impl(const QByteArray &feedData);
-            void parseRssArticle(QXmlStreamReader &xml);
-            void parseRSSChannel(QXmlStreamReader &xml);
-            void parseAtomArticle(QXmlStreamReader &xml);
-            void parseAtomChannel(QXmlStreamReader &xml);
-            void addArticle(QVariantHash article);
+    private:
+        void parseRssArticle(QXmlStreamReader &xml);
+        void parseRSSChannel(QXmlStreamReader &xml);
+        void parseAtomArticle(QXmlStreamReader &xml);
+        void parseAtomChannel(QXmlStreamReader &xml);
+        void addArticle(QVariantHash article);
 
-            QString m_baseUrl;
-            ParsingResult m_result;
-            QSet<QString> m_articleIDs;
-        };
-    }
+        QDateTime m_fallbackDate;
+        QString m_baseUrl;
+        ParsingResult m_result;
+        QSet<QString> m_articleIDs;
+    };
 }
 
 Q_DECLARE_METATYPE(RSS::Private::ParsingResult)

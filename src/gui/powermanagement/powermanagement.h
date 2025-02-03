@@ -35,31 +35,31 @@
 #include <IOKit/pwr_mgt/IOPMLib.h>
 #endif
 
-#if (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
-// Require DBus
+#ifdef QBT_USES_DBUS
 class PowerManagementInhibitor;
 #endif
 
-class PowerManagement : public QObject
+class PowerManagement final : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
+    Q_DISABLE_COPY_MOVE(PowerManagement)
 
 public:
-  PowerManagement(QObject *parent = nullptr);
-  virtual ~PowerManagement();
+    PowerManagement(QObject *parent = nullptr);
+    ~PowerManagement() override;
 
-  void setActivityState(bool busy);
+    void setActivityState(bool busy);
 
 private:
-  void setBusy();
-  void setIdle();
+    void setBusy();
+    void setIdle();
 
-  bool m_busy = false;
+    bool m_busy = false;
 
-#if (defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)) && defined(QT_DBUS_LIB)
-  PowerManagementInhibitor *m_inhibitor;
+#ifdef QBT_USES_DBUS
+    PowerManagementInhibitor *m_inhibitor = nullptr;
 #endif
 #ifdef Q_OS_MACOS
-  IOPMAssertionID m_assertionID;
+    IOPMAssertionID m_assertionID {};
 #endif
 };

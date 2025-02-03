@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2021  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2021-2023  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christian Kandeler, Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -32,13 +32,9 @@
 #include <QHash>
 
 #include "base/bittorrent/addtorrentparams.h"
-
-class QThread;
-
-namespace BitTorrent
-{
-    class MagnetUri;
-}
+#include "base/bittorrent/torrentdescriptor.h"
+#include "base/path.h"
+#include "base/utils/thread.h"
 
 /*
  * Watches the configured directories for new .torrent files in order
@@ -61,35 +57,31 @@ public:
     static void freeInstance();
     static TorrentFilesWatcher *instance();
 
-    static QString makeCleanPath(const QString &path);
-
-    QHash<QString, WatchedFolderOptions> folders() const;
-    void setWatchedFolder(const QString &path, const WatchedFolderOptions &options);
-    void removeWatchedFolder(const QString &path);
+    QHash<Path, WatchedFolderOptions> folders() const;
+    void setWatchedFolder(const Path &path, const WatchedFolderOptions &options);
+    void removeWatchedFolder(const Path &path);
 
 signals:
-    void watchedFolderSet(const QString &path, const WatchedFolderOptions &options);
-    void watchedFolderRemoved(const QString &path);
+    void watchedFolderSet(const Path &path, const WatchedFolderOptions &options);
+    void watchedFolderRemoved(const Path &path);
 
 private slots:
-    void onMagnetFound(const BitTorrent::MagnetUri &magnetURI, const BitTorrent::AddTorrentParams &addTorrentParams);
-    void onTorrentFound(const BitTorrent::TorrentInfo &torrentInfo, const BitTorrent::AddTorrentParams &addTorrentParams);
+    void onTorrentFound(const BitTorrent::TorrentDescriptor &torrentDescr, const BitTorrent::AddTorrentParams &addTorrentParams);
 
 private:
     explicit TorrentFilesWatcher(QObject *parent = nullptr);
-    ~TorrentFilesWatcher() override;
 
     void load();
     void loadLegacy();
     void store() const;
 
-    void doSetWatchedFolder(const QString &path, const WatchedFolderOptions &options);
+    void doSetWatchedFolder(const Path &path, const WatchedFolderOptions &options);
 
     static TorrentFilesWatcher *m_instance;
 
-    QHash<QString, WatchedFolderOptions> m_watchedFolders;
+    QHash<Path, WatchedFolderOptions> m_watchedFolders;
 
-    QThread *m_ioThread = nullptr;
+    Utils::Thread::UniquePtr m_ioThread;
 
     class Worker;
     Worker *m_asyncWorker = nullptr;

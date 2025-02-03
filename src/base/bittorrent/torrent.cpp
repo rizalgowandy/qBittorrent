@@ -35,7 +35,7 @@
 
 namespace BitTorrent
 {
-    uint qHash(const TorrentState key, const uint seed)
+    std::size_t qHash(const TorrentState key, const std::size_t seed)
     {
         return ::qHash(static_cast<std::underlying_type_t<TorrentState>>(key), seed);
     }
@@ -48,17 +48,21 @@ namespace BitTorrent
     const int Torrent::USE_GLOBAL_SEEDING_TIME = -2;
     const int Torrent::NO_SEEDING_TIME_LIMIT = -1;
 
+    const int Torrent::USE_GLOBAL_INACTIVE_SEEDING_TIME = -2;
+    const int Torrent::NO_INACTIVE_SEEDING_TIME_LIMIT = -1;
+
     const qreal Torrent::MAX_RATIO = 9999;
     const int Torrent::MAX_SEEDING_TIME = 525600;
+    const int Torrent::MAX_INACTIVE_SEEDING_TIME = 525600;
 
     TorrentID Torrent::id() const
     {
         return infoHash().toTorrentID();
     }
 
-    bool Torrent::isResumed() const
+    bool Torrent::isRunning() const
     {
-        return !isPaused();
+        return !isStopped();
     }
 
     qlonglong Torrent::remainingSize() const

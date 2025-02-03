@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2021  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2021-2023  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -38,6 +38,8 @@ namespace Ui
     class WatchedFolderOptionsDialog;
 }
 
+class AddTorrentParamsWidget;
+
 class WatchedFolderOptionsDialog final : public QDialog
 {
     Q_OBJECT
@@ -50,13 +52,13 @@ public:
     TorrentFilesWatcher::WatchedFolderOptions watchedFolderOptions() const;
 
 private:
-    void populateSavePathComboBox();
+    void populateSavePaths();
     void loadState();
     void saveState();
     void onTMMChanged(int index);
     void onCategoryChanged(int index);
 
-    Ui::WatchedFolderOptionsDialog *m_ui;
-    QString m_savePath;
+    Ui::WatchedFolderOptionsDialog *m_ui = nullptr;
+    AddTorrentParamsWidget *m_addTorrentParamsWidget = nullptr;
     SettingValue<QSize> m_storeDialogSize;
 };

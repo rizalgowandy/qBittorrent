@@ -38,15 +38,17 @@
 #include "ui_banlistoptionsdialog.h"
 #include "utils.h"
 
-#define SETTINGS_KEY(name) "BanListOptionsDialog/" name
+#define SETTINGS_KEY(name) u"BanListOptionsDialog/" name
 
 BanListOptionsDialog::BanListOptionsDialog(QWidget *parent)
     : QDialog(parent)
     , m_ui(new Ui::BanListOptionsDialog)
-    , m_storeDialogSize(SETTINGS_KEY("Size"))
+    , m_storeDialogSize(SETTINGS_KEY(u"Size"_s))
     , m_model(new QStringListModel(BitTorrent::Session::instance()->bannedIPs(), this))
 {
     m_ui->setupUi(this);
+
+    connect(m_ui->buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
     m_sortFilter = new QSortFilterProxyModel(this);
     m_sortFilter->setDynamicSortFilter(true);
@@ -56,7 +58,8 @@ BanListOptionsDialog::BanListOptionsDialog(QWidget *parent)
     m_ui->bannedIPList->sortByColumn(0, Qt::AscendingOrder);
     m_ui->buttonBanIP->setEnabled(false);
 
-    Utils::Gui::resize(this, m_storeDialogSize);
+    if (const QSize dialogSize = m_storeDialogSize; dialogSize.isValid())
+        resize(dialogSize);
 }
 
 BanListOptionsDialog::~BanListOptionsDialog()

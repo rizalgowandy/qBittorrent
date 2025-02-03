@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2018  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2018-2025  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2006  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -31,6 +31,10 @@
 
 #include <QWidget>
 
+#include "base/settingvalue.h"
+#include "gui/guiaddtorrentmanager.h"
+#include "gui/guiapplicationcomponent.h"
+
 #define ENGINE_URL_COLUMN 4
 #define URL_COLUMN 5
 
@@ -50,7 +54,7 @@ namespace Ui
     class SearchJobWidget;
 }
 
-class SearchJobWidget final : public QWidget
+class SearchJobWidget final : public GUIApplicationComponent<QWidget>
 {
     Q_OBJECT
     Q_DISABLE_COPY_MOVE(SearchJobWidget)
@@ -65,6 +69,7 @@ public:
 
     enum class Status
     {
+        Ready,
         Ongoing,
         Finished,
         Error,
@@ -72,13 +77,18 @@ public:
         NoResults
     };
 
-    explicit SearchJobWidget(SearchHandler *searchHandler, QWidget *parent = nullptr);
+    SearchJobWidget(const QString &id, const QString &searchPattern, const QList<SearchResult> &searchResults, IGUIApplication *app, QWidget *parent = nullptr);
+    SearchJobWidget(const QString &id, SearchHandler *searchHandler, IGUIApplication *app, QWidget *parent = nullptr);
     ~SearchJobWidget() override;
 
+    QString id() const;
+    QString searchPattern() const;
+    QList<SearchResult> searchResults() const;
     Status status() const;
     int visibleResultsCount() const;
     LineEdit *lineEditSearchResultsFilter() const;
 
+    void assignSearchHandler(SearchHandler *searchHandler);
     void cancelSearch();
 
 signals:
@@ -88,43 +98,52 @@ signals:
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 
+private slots:
+    void displayColumnHeaderMenu();
+
 private:
+    SearchJobWidget(const QString &id, IGUIApplication *app, QWidget *parent);
+
     void loadSettings();
     void saveSettings() const;
     void updateFilter();
     void filterSearchResults(const QString &name);
-    void showFilterContextMenu(const QPoint &);
+    void showFilterContextMenu();
     void contextMenuEvent(QContextMenuEvent *event) override;
-    void displayToggleColumnsMenu(const QPoint &);
     void onItemDoubleClicked(const QModelIndex &index);
     void searchFinished(bool cancelled);
     void searchFailed();
-    void appendSearchResults(const QVector<SearchResult> &results);
+    void appendSearchResults(const QList<SearchResult> &results);
     void updateResultsCount();
     void setStatus(Status value);
-    void downloadTorrent(const QModelIndex &rowIndex);
-    void addTorrentToSession(const QString &source);
+    void downloadTorrent(const QModelIndex &rowIndex, AddTorrentOption option = AddTorrentOption::Default);
+    void addTorrentToSession(const QString &source, AddTorrentOption option = AddTorrentOption::Default);
     void fillFilterComboBoxes();
     NameFilteringMode filteringMode() const;
     QHeaderView *header() const;
+    int visibleColumnsCount() const;
     void setRowColor(int row, const QColor &color);
+    void setRowVisited(int row);
+    void onUIThemeChanged();
 
-    void downloadTorrents();
+    void downloadTorrents(AddTorrentOption option = AddTorrentOption::Default);
     void openTorrentPages() const;
     void copyTorrentURLs() const;
     void copyTorrentDownloadLinks() const;
     void copyTorrentNames() const;
     void copyField(int column) const;
 
-    static QString statusText(Status st);
-    static SettingValue<NameFilteringMode> &nameFilteringModeSetting();
+    SettingValue<NameFilteringMode> m_nameFilteringMode;
 
-    Ui::SearchJobWidget *m_ui;
-    SearchHandler *m_searchHandler;
-    QStandardItemModel *m_searchListModel;
-    SearchSortModel *m_proxyModel;
-    LineEdit *m_lineEditSearchResultsFilter;
-    Status m_status = Status::Ongoing;
+    QString m_id;
+    QString m_searchPattern;
+    QList<SearchResult> m_searchResults;
+    Ui::SearchJobWidget *m_ui = nullptr;
+    SearchHandler *m_searchHandler = nullptr;
+    QStandardItemModel *m_searchListModel = nullptr;
+    SearchSortModel *m_proxyModel = nullptr;
+    LineEdit *m_lineEditSearchResultsFilter = nullptr;
+    Status m_status = Status::Ready;
     bool m_noSearchResults = true;
 };
 

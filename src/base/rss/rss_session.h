@@ -1,5 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
+ * Copyright (C) 2024  Jonathan Ketchker
  * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2010  Christophe Dumez <chris@qbittorrent.org>
  * Copyright (C) 2010  Arnaud Demaiziere <arnaud@qbittorrent.org>
@@ -68,10 +69,16 @@
  * 3.   Feed is JSON object (keys are property names, values are property values; 'uid' and 'url' are required)
  */
 
+#include <chrono>
+
 #include <QHash>
 #include <QObject>
 #include <QPointer>
 #include <QTimer>
+
+#include "base/3rdparty/expected.hpp"
+#include "base/settingvalue.h"
+#include "base/utils/thread.h"
 
 class QThread;
 
@@ -84,7 +91,7 @@ namespace RSS
     class Folder;
     class Item;
 
-    class Session : public QObject
+    class Session final : public QObject
     {
         Q_OBJECT
         Q_DISABLE_COPY_MOVE(Session)
@@ -110,12 +117,16 @@ namespace RSS
         int refreshInterval() const;
         void setRefreshInterval(int refreshInterval);
 
-        bool addFolder(const QString &path, QString *error = nullptr);
-        bool addFeed(const QString &url, const QString &path, QString *error = nullptr);
-        bool moveItem(const QString &itemPath, const QString &destPath
-                         , QString *error = nullptr);
-        bool moveItem(Item *item, const QString &destPath, QString *error = nullptr);
-        bool removeItem(const QString &itemPath, QString *error = nullptr);
+        std::chrono::seconds fetchDelay() const;
+        void setFetchDelay(std::chrono::seconds delay);
+
+        nonstd::expected<void, QString> addFolder(const QString &path);
+        nonstd::expected<void, QString> addFeed(const QString &url, const QString &path);
+        nonstd::expected<void, QString> setFeedURL(const QString &path, const QString &url);
+        nonstd::expected<void, QString> setFeedURL(Feed *feed, const QString &url);
+        nonstd::expected<void, QString> moveItem(const QString &itemPath, const QString &destPath);
+        nonstd::expected<void, QString> moveItem(Item *item, const QString &destPath);
+        nonstd::expected<void, QString> removeItem(const QString &itemPath);
 
         QList<Item *> items() const;
         Item *itemByPath(const QString &path) const;
@@ -135,6 +146,7 @@ namespace RSS
         void itemAboutToBeRemoved(Item *item);
         void feedIconLoaded(Feed *feed);
         void feedStateChanged(Feed *feed);
+        void feedURLChanged(Feed *feed, const QString &oldURL);
 
     private slots:
         void handleItemAboutToBeDestroyed(Item *item);
@@ -143,23 +155,24 @@ namespace RSS
     private:
         QUuid generateUID() const;
         void load();
-        void loadFolder(const QJsonObject &jsonObj, Folder *folder);
+        bool loadFolder(const QJsonObject &jsonObj, Folder *folder);
         void loadLegacy();
         void store();
-        Folder *prepareItemDest(const QString &path, QString *error);
+        nonstd::expected<Folder *, QString> prepareItemDest(const QString &path);
         Folder *addSubfolder(const QString &name, Folder *parentFolder);
         Feed *addFeedToFolder(const QUuid &uid, const QString &url, const QString &name, Folder *parentFolder);
         void addItem(Item *item, Folder *destFolder);
 
         static QPointer<Session> m_instance;
 
-        bool m_processingEnabled;
-        QThread *m_workingThread;
-        AsyncFileStorage *m_confFileStorage;
-        AsyncFileStorage *m_dataFileStorage;
+        CachedSettingValue<bool> m_storeProcessingEnabled;
+        CachedSettingValue<int> m_storeRefreshInterval;
+        CachedSettingValue<qint64> m_storeFetchDelay;
+        CachedSettingValue<int> m_storeMaxArticlesPerFeed;
+        Utils::Thread::UniquePtr m_workingThread;
+        AsyncFileStorage *m_confFileStorage = nullptr;
+        AsyncFileStorage *m_dataFileStorage = nullptr;
         QTimer m_refreshTimer;
-        int m_refreshInterval;
-        int m_maxArticlesPerFeed;
         QHash<QString, Item *> m_itemsByPath;
         QHash<QUuid, Feed *> m_feedsByUID;
         QHash<QString, Feed *> m_feedsByURL;

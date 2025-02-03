@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS language="da" version="2.1">
+<TS version="2.1" language="da">
 <context>
     <name>AboutDlg</name>
     <message>
@@ -28,11 +28,11 @@
     </message>
     <message>
         <source>Content layout:</source>
-        <translation type="unfinished" />
+        <translation>Indholdsopsætning:</translation>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Original</translation>
     </message>
     <message>
         <source>Create subfolder</source>
@@ -41,6 +41,34 @@
     <message>
         <source>Don't create subfolder</source>
         <translation>Opret ikke undermappe</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation>Manuelt</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Automatisk</translation>
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Stop condition:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -77,16 +105,20 @@
         <translation>Sæt torrents på pause</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Slet torrents</translation>
-    </message>
-    <message>
         <source>New Category</source>
         <translation>Ny kategori</translation>
     </message>
     <message>
         <source>Edit category...</source>
         <translation>Rediger kategori...</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Add subcategory...</source>
+        <translation>Tilføj underkategori...</translation>
     </message>
 </context>
 <context>
@@ -144,10 +176,6 @@
         <translation>Kan ikke gemme programpræferencer, qBittorrent er formodentligt ikke til at få kontakt med.</translation>
     </message>
     <message>
-        <source>IRC: #qbittorrent on Freenode</source>
-        <translation>IRC: #qbittorrent på Freenode</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Ukendt</translation>
     </message>
@@ -160,36 +188,28 @@
         <translation>Grænsen for seedingtid skal være mellem 0 og 525600 minutter.</translation>
     </message>
     <message>
-        <source>The port used for incoming connections must be between 1 and 65535.</source>
-        <translation type="vanished">Porten der bruges til indgående forbindelser skal være mellem 1 og 65535.</translation>
-    </message>
-    <message>
         <source>The port used for the Web UI must be between 1 and 65535.</source>
-        <translation>Porten der bruges til webgrænsefladen skal være mellem 1 og 65535.</translation>
+        <translation type="vanished">Porten der bruges til webgrænsefladen skal være mellem 1 og 65535.</translation>
     </message>
     <message>
         <source>Unable to log in, qBittorrent is probably unreachable.</source>
-        <translation>Kan ikke logge ind, qBittorrent er formodentligt ikke til at få kontakt med.</translation>
+        <translation type="vanished">Kan ikke logge ind, qBittorrent er formodentligt ikke til at få kontakt med.</translation>
     </message>
     <message>
         <source>Invalid Username or Password.</source>
-        <translation>Ugyldigt brugernavn eller adgangskode.</translation>
+        <translation type="vanished">Ugyldigt brugernavn eller adgangskode.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation type="vanished">Brugernavn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation type="vanished">Adgangskode</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation>Login</translation>
-    </message>
-    <message>
-        <source>Original authors</source>
-        <translation>Oprindelige forfattere</translation>
+        <translation type="vanished">Login</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -284,10 +304,6 @@
         <translation>Upload  lokal torrent</translation>
     </message>
     <message>
-        <source>Are you sure you want to delete the selected torrents from the transfer list?</source>
-        <translation>Er du sikker på, at du vil slette de valgte torrents fra overførselslisten?</translation>
-    </message>
-    <message>
         <source>Save</source>
         <translation>Gem</translation>
     </message>
@@ -333,7 +349,7 @@
     </message>
     <message>
         <source>qBittorrent has been shutdown</source>
-        <translation>qBittorrent er blevet lukket ned</translation>
+        <translation type="vanished">qBittorrent er blevet lukket ned</translation>
     </message>
     <message>
         <source>Open documentation</source>
@@ -349,7 +365,7 @@
     </message>
     <message>
         <source>JavaScript Required! You must enable JavaScript for the Web UI to work properly</source>
-        <translation>JavaScript kræves! Du skal aktivere JavaScript for at webgrænsefladen virker korrekt</translation>
+        <translation type="vanished">JavaScript kræves! Du skal aktivere JavaScript for at webgrænsefladen virker korrekt</translation>
     </message>
     <message>
         <source>Name cannot be empty</source>
@@ -369,6 +385,26 @@
     </message>
     <message>
         <source>The port used for incoming connections must be between 0 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original author</source>
+        <translation>Oprindelig forfatter</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the selected torrents from the transfer list?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The port used for the WebUI must be between 1 and 65535.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>%1 has been shutdown</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>JavaScript Required! You must enable JavaScript for the WebUI to work properly</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -435,10 +471,6 @@
         <translation>Sæt på pause</translation>
     </message>
     <message>
-        <source>Delete</source>
-        <translation>Slet</translation>
-    </message>
-    <message>
         <source>Pause All</source>
         <translation>Sæt alle på pause</translation>
     </message>
@@ -477,7 +509,7 @@
     <message>
         <source>[D: %1, U: %2] qBittorrent %3</source>
         <comment>D = Download; U = Upload; %3 is qBittorrent version</comment>
-        <translation>[D: %1/s, U: %2/s] qBittorrent %3</translation>
+        <translation type="vanished">[D: %1/s, U: %2/s] qBittorrent %3</translation>
     </message>
     <message>
         <source>Alternative speed limits</source>
@@ -556,10 +588,6 @@
         <translation type="unfinished" />
     </message>
     <message>
-        <source>Connection status</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Alternative speed limits: On</source>
         <translation type="unfinished" />
     </message>
@@ -573,10 +601,42 @@
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS-læser</translation>
     </message>
     <message>
         <source>RSS</source>
+        <translation>RSS</translation>
+    </message>
+    <message>
+        <source>Filters Sidebar</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuller</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Fjern</translation>
+    </message>
+    <message>
+        <source>Would you like to resume all torrents?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Would you like to pause all torrents?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Execution Log</source>
+        <translation>Eksekveringslog</translation>
+    </message>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>[D: %1, U: %2]</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -604,7 +664,7 @@
     </message>
     <message>
         <source>Web UI</source>
-        <translation>Webgrænseflade</translation>
+        <translation type="vanished">Webgrænseflade</translation>
     </message>
     <message>
         <source>Language</source>
@@ -617,10 +677,6 @@
     <message>
         <source>Email notification upon download completion</source>
         <translation>Notifikation via e-mail når download er færdig</translation>
-    </message>
-    <message>
-        <source>Run external program on torrent completion</source>
-        <translation>Kør eksternt program når torrent er færdig</translation>
     </message>
     <message>
         <source>IP Filtering</source>
@@ -727,10 +783,6 @@
         <translation>Brug UPnP/NAT-PMP port-viderestilling fra min router</translation>
     </message>
     <message>
-        <source>Use different port on each startup</source>
-        <translation type="vanished">Brug en anden port ved hver opstart</translation>
-    </message>
-    <message>
         <source>Connections Limits</source>
         <translation>Grænser for forbindelser</translation>
     </message>
@@ -759,10 +811,6 @@
         <translation>Type:</translation>
     </message>
     <message>
-        <source>(None)</source>
-        <translation>(Ingen)</translation>
-    </message>
-    <message>
         <source>SOCKS4</source>
         <translation>SOCKS4</translation>
     </message>
@@ -785,10 +833,6 @@
     <message>
         <source>Use proxy for peer connections</source>
         <translation>Brug proxy til modpartsforbindelser</translation>
-    </message>
-    <message>
-        <source>Use proxy only for torrents</source>
-        <translation>Brug kun proxy til torrents</translation>
     </message>
     <message>
         <source>Filter path (.dat, .p2p, .p2b):</source>
@@ -970,11 +1014,11 @@
     </message>
     <message>
         <source>The Web UI username must be at least 3 characters long.</source>
-        <translation>Webgrænsefladens brugernavn skal være mindst 3 tegn langt.</translation>
+        <translation type="vanished">Webgrænsefladens brugernavn skal være mindst 3 tegn langt.</translation>
     </message>
     <message>
         <source>The Web UI password must be at least 6 characters long.</source>
-        <translation>Webgrænsefladens adgangskode skal være mindst 6 tegn langt.</translation>
+        <translation type="vanished">Webgrænsefladens adgangskode skal være mindst 6 tegn langt.</translation>
     </message>
     <message>
         <source>minutes</source>
@@ -1014,7 +1058,7 @@
     </message>
     <message>
         <source>Use alternative Web UI</source>
-        <translation>Brug alternativ webgrænseflade</translation>
+        <translation type="vanished">Brug alternativ webgrænseflade</translation>
     </message>
     <message>
         <source>Default Save Path:</source>
@@ -1022,7 +1066,7 @@
     </message>
     <message>
         <source>The alternative Web UI files location cannot be blank.</source>
-        <translation>Placeringen til de alternative webbrugefladefiler må ikke være tom.</translation>
+        <translation type="vanished">Placeringen til de alternative webbrugefladefiler må ikke være tom.</translation>
     </message>
     <message>
         <source>Do not start the download automatically</source>
@@ -1133,16 +1177,8 @@
         <translation>Anti-leech</translation>
     </message>
     <message>
-        <source>Enable OS cache:</source>
-        <translation>Aktivér OS-mellemlager:</translation>
-    </message>
-    <message>
         <source>When ratio reaches</source>
         <translation>Når deleforhold når</translation>
-    </message>
-    <message>
-        <source>When seeding time reaches</source>
-        <translation>Når seedingtid når</translation>
     </message>
     <message>
         <source>Allow multiple connections from the same IP address:</source>
@@ -1189,14 +1225,6 @@
         <translation>libtorrent-sektion</translation>
     </message>
     <message>
-        <source>Outgoing ports (Min) [0: Disabled]:</source>
-        <translation>Udgående porte (Min.) [0: Deaktiveret]:</translation>
-    </message>
-    <message>
-        <source>IP Address to report to trackers (requires restart):</source>
-        <translation>IP-adresse der reporteres til tracker (kræver genstart):</translation>
-    </message>
-    <message>
         <source>Recheck torrents on completion:</source>
         <translation>Gentjek torrents når de er færdige:</translation>
     </message>
@@ -1215,10 +1243,6 @@
     <message>
         <source>Remove torrent</source>
         <translation>Fjern torrent</translation>
-    </message>
-    <message>
-        <source>Outgoing ports (Max) [0: Disabled]:</source>
-        <translation>Udgående porte (Maks.) [0: Deaktiveret]:</translation>
     </message>
     <message>
         <source>Asynchronous I/O threads:</source>
@@ -1297,23 +1321,11 @@
         <translation type="unfinished" />
     </message>
     <message>
-        <source>Use piece extent affinity (requires libtorrent &gt;= 1.2.2):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Stop tracker timeout:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Ban client after consecutive failures:</source>
         <translation type="unfinished" />
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS)</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>UPnP lease duration [0: Permanent lease]:</source>
         <translation type="unfinished" />
     </message>
     <message>
@@ -1326,19 +1338,11 @@
     </message>
     <message>
         <source>Filters:</source>
-        <translation type="unfinished" />
+        <translation>Filtre:</translation>
     </message>
     <message>
         <source>Enable fetching RSS feeds</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Hashing threads (requires libtorrent &gt;= 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Coalesce reads &amp; writes (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>Aktivér hentning af RSS-feeds</translation>
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
@@ -1346,11 +1350,11 @@
     </message>
     <message>
         <source>RSS Torrent Auto Downloader</source>
-        <translation type="unfinished" />
+        <translation>Automatisk download af RSS-torrent</translation>
     </message>
     <message>
         <source>RSS</source>
-        <translation type="unfinished" />
+        <translation>RSS</translation>
     </message>
     <message>
         <source>Network interface:</source>
@@ -1358,19 +1362,19 @@
     </message>
     <message>
         <source>RSS Reader</source>
-        <translation type="unfinished" />
+        <translation>RSS-læser</translation>
     </message>
     <message>
         <source>Edit auto downloading rules...</source>
-        <translation type="unfinished" />
+        <translation>Rediger regler for automatisk download...</translation>
     </message>
     <message>
         <source>Download REPACK/PROPER episodes</source>
-        <translation type="unfinished" />
+        <translation>Download REPACK-/PROPER-episoder</translation>
     </message>
     <message>
         <source>Feeds refresh interval:</source>
-        <translation type="unfinished" />
+        <translation>Interval for genopfriskning af feeds:</translation>
     </message>
     <message>
         <source>Peer turnover disconnect percentage:</source>
@@ -1378,15 +1382,11 @@
     </message>
     <message>
         <source>Maximum number of articles per feed:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Max concurrent HTTP announces (requires libtorrent &gt;= 1.2.7):</source>
-        <translation type="unfinished" />
+        <translation>Maksimum antal artikler pr. feed:</translation>
     </message>
     <message>
         <source> min</source>
-        <translation type="unfinished" />
+        <translation> min</translation>
     </message>
     <message>
         <source>Peer turnover disconnect interval:</source>
@@ -1402,19 +1402,11 @@
     </message>
     <message>
         <source>Enable auto downloading of RSS torrents</source>
-        <translation type="unfinished" />
+        <translation>Aktivér automatisk download af RSS-torrents</translation>
     </message>
     <message>
         <source>RSS Smart Episode Filter</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Disk cache expiry interval (requires libtorrent &lt; 2.0):</source>
-        <translation type="unfinished" />
+        <translation>RSS smart episodefilter</translation>
     </message>
     <message>
         <source>Validate HTTPS tracker certificate:</source>
@@ -1422,10 +1414,6 @@
     </message>
     <message>
         <source>Peer connection protocol:</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
-        <source>Support internationalized domain name (IDN) (requires libtorrent &gt;= 1.2.12):</source>
         <translation type="unfinished" />
     </message>
     <message>
@@ -1438,7 +1426,7 @@
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Original</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
@@ -1454,7 +1442,7 @@
     </message>
     <message>
         <source>Random</source>
-        <translation type="unfinished" />
+        <translation>Tilfældig</translation>
     </message>
     <message>
         <source>%K: Torrent ID</source>
@@ -1478,6 +1466,394 @@
     </message>
     <message>
         <source>%I: Info hash v1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP address reported to trackers (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Set to 0 to let your system pick an unused port</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Server-side request forgery (SSRF) mitigation:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk queue size:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log performance warnings</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Maximum outstanding requests to a single peer:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max active checking torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Memory mapped files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Standard</translation>
+    </message>
+    <message>
+        <source>POSIX-compliant</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>This option is less effective on Linux</source>
+        <translation>Denne funktion er mindre effektiv på Linux</translation>
+    </message>
+    <message>
+        <source>It controls the internal state update interval which in turn will affect UI updates</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO read mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disable OS cache</source>
+        <translation>Deaktivere OS cache</translation>
+    </message>
+    <message>
+        <source>Disk IO write mode:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use piece extent affinity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Max concurrent HTTP announces:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable OS cache</source>
+        <translation>Aktivér OS-mellemlager</translation>
+    </message>
+    <message>
+        <source>Refresh interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>ms</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Excluded file names</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Support internationalized domain name (IDN):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program on torrent finished</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Whitelist for filtering HTTP Host header values.
+In order to defend against DNS rebinding attack,
+you should put in domain names used by WebUI server.
+
+Use ';' to split multiple entries. Can use wildcard '*'.</source>
+        <translation>Hvidliste til filtrering af HTTP værtsheaderværdier.
+For at afværge DNS-genbindingsangreb,
+bør du putte domænenavne i som bruges af webgrænsefladens server.
+
+Brug ';' til af adskille flere indtastninger. Jokertegnet '*' kan bruges.</translation>
+    </message>
+    <message>
+        <source>Run external program on torrent added</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS certificate should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>HTTPS key should not be empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Run external program</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Files checked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable port forwarding for embedded tracker:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If checked, hostname lookups are done via the proxy.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Metadata received</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Torrent stop condition:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Example: 172.17.32.0/24, fdff:ffff:c8::/40</source>
+        <translation>Eksempel: 172.17.32.0/24, fdff:ffff:c8::/40</translation>
+    </message>
+    <message>
+        <source>SQLite database (experimental)</source>
+        <translation>SQLite database (eksperimental)</translation>
+    </message>
+    <message>
+        <source>Resume data storage type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Fastresume files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Backup the log file after:</source>
+        <translation>Sikkerhedskopiér logfilen efter:</translation>
+    </message>
+    <message>
+        <source>days</source>
+        <translation>dage</translation>
+    </message>
+    <message>
+        <source>Log file</source>
+        <translation>Log fil</translation>
+    </message>
+    <message>
+        <source>Behavior</source>
+        <translation>Opførsel</translation>
+    </message>
+    <message>
+        <source>Delete backup logs older than:</source>
+        <translation>Slet sikkerhedskopieret logge som er ældre end:</translation>
+    </message>
+    <message>
+        <source>Use proxy for BitTorrent purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>years</source>
+        <translation>år</translation>
+    </message>
+    <message>
+        <source>Save path:</source>
+        <translation>Gemmesti:</translation>
+    </message>
+    <message>
+        <source>months</source>
+        <translation>måneder</translation>
+    </message>
+    <message>
+        <source>Remember Multi-Rename settings</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for general purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use proxy for RSS purposes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket send buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Max) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Socket receive buffer size [0: system default]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use Subcategories</source>
+        <translation>Brug underkategorier</translation>
+    </message>
+    <message>
+        <source>Add to top of queue</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Stop tracker timeout [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Outgoing ports (Min) [0: disabled]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>UPnP lease duration [0: permanent lease]:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode depth limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Bdecode token limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When total seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(None)</source>
+        <translation>(Ingen)</translation>
+    </message>
+    <message>
+        <source>Python executable path (may require restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Resets to default if empty</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Perform hostname lookup via proxy</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>DHT bootstrap nodes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>When inactive seeding time reaches</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Mixed mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>.torrent file size limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>(Auto detect if empty)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Keep unselected files in ".unwanted" folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enable Mark-of-the-Web (MOTW) for downloaded files (require macOS or Windows):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source> sec</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound quantity:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Hashing threads:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Physical memory (RAM) usage limit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use alternative WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache expiry interval:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P outbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P (Experimental)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk IO type (requires restart):</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The alternative WebUI files location cannot be blank.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Disk cache:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Write-through</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>WebUI</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI password must be at least 6 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Coalesce reads &amp;amp; writes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>I2P inbound length:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>The WebUI username must be at least 3 characters long.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Same host request delay:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Customize application instance name:</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1552,11 +1928,15 @@
         <translation>Kopiér IP:port</translation>
     </message>
     <message>
-        <source>Add a new peer...</source>
-        <translation>Tilføj en ny modpart...</translation>
+        <source>Country/Region</source>
+        <translation type="unfinished" />
     </message>
     <message>
-        <source>Country/Region</source>
+        <source>Add peers...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Peer ID Client</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1762,7 +2142,7 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (seedet i %2)</translation>
     </message>
     <message>
         <source>Info Hash v2:</source>
@@ -1774,6 +2154,70 @@
     </message>
     <message>
         <source>N/A</source>
+        <translation>-</translation>
+    </message>
+    <message>
+        <source>Progress:</source>
+        <translation>Forløb:</translation>
+    </message>
+    <message>
+        <source>Use regular expressions</source>
+        <translation>Brug regulære udtryk</translation>
+    </message>
+    <message>
+        <source>Filename</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Filename + Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Enumerate Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Rename failed: file or folder already exists</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Toggle Selection</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replacement Input</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Extension</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Replace All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Include folders</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Search Files</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Case sensitive</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all occurrences</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -1797,11 +2241,11 @@
     </message>
     <message>
         <source>Other...</source>
-        <translation type="unfinished" />
+        <translation>Andet...</translation>
     </message>
     <message>
         <source>Type folder here</source>
-        <translation type="unfinished" />
+        <translation>Skriv mappe her</translation>
     </message>
 </context>
 <context>
@@ -1992,6 +2436,14 @@
         <source>Checking (0)</source>
         <translation type="unfinished" />
     </message>
+    <message>
+        <source>Moving (%1)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Moving (0)</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TorrentContentModel</name>
@@ -2144,6 +2596,10 @@
         <source>Availability</source>
         <translation>Tilgængelighed</translation>
     </message>
+    <message>
+        <source>Reannounce In</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TrackerListWidget</name>
@@ -2162,10 +2618,6 @@
     <message>
         <source>Message</source>
         <translation>Meddelelse</translation>
-    </message>
-    <message>
-        <source>Downloaded</source>
-        <translation>Downloadet</translation>
     </message>
     <message>
         <source>Tracker URL:</source>
@@ -2202,10 +2654,6 @@
     <message>
         <source>Copy tracker URL</source>
         <translation>Kopiér tracker-URL</translation>
-    </message>
-    <message>
-        <source>Add a new tracker...</source>
-        <translation>Tilføj en ny tracker...</translation>
     </message>
     <message>
         <source>Edit tracker URL...</source>
@@ -2248,19 +2696,35 @@
         <translation>Forløb</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Størrelse</translation>
+        <source>Total Size</source>
+        <translation>Samlet størrelse</translation>
+    </message>
+    <message>
+        <source>Times Downloaded</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Add trackers...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Original</source>
+        <translation>Original</translation>
     </message>
 </context>
 <context>
     <name>TrackersAdditionDialog</name>
     <message>
-        <source>Trackers addition dialog</source>
-        <translation>Tilføjelse af tracker-dialog</translation>
-    </message>
-    <message>
         <source>List of trackers to add (one per line):</source>
         <translation>Liste over trackere der skal tilføjes (en pr. linje):</translation>
+    </message>
+    <message>
+        <source>Add trackers</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2332,7 +2796,7 @@
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
-        <translation type="unfinished" />
+        <translation>%1 (seedet i %2)</translation>
     </message>
     <message>
         <source>[F] Downloading metadata</source>
@@ -2355,6 +2819,10 @@
     </message>
     <message>
         <source>Trackers</source>
+        <translation>Trackere</translation>
+    </message>
+    <message>
+        <source>Collapse/expand</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2386,11 +2854,6 @@
         <source>Pause</source>
         <comment>Pause the torrent</comment>
         <translation>Sæt på pause</translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <comment>Delete the torrent</comment>
-        <translation>Slet</translation>
     </message>
     <message>
         <source>Limit share ratio...</source>
@@ -2465,10 +2928,6 @@
     <message>
         <source>Download in sequential order</source>
         <translation>Download i fortløbende rækkefølge</translation>
-    </message>
-    <message>
-        <source>Force Recheck</source>
-        <translation>Tving gentjek</translation>
     </message>
     <message>
         <source>New Category</source>
@@ -2546,6 +3005,26 @@
         <source>Torrent ID</source>
         <translation type="unfinished" />
     </message>
+    <message>
+        <source>Export .torrent</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Fjern</translation>
+    </message>
+    <message>
+        <source>Rename Files...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Renaming</source>
+        <translation>Omdøber</translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>UpDownRatioDialog</name>
@@ -2570,8 +3049,12 @@
         <translation>forhold</translation>
     </message>
     <message>
-        <source>minutes</source>
-        <translation>minutter</translation>
+        <source>total minutes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>inactive minutes</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2580,16 +3063,12 @@
 <context>
     <name>confirmDeletionDlg</name>
     <message>
-        <source>Deletion confirmation</source>
-        <translation>Bekræftelse for sletning</translation>
+        <source>Also permanently delete the files</source>
+        <translation type="unfinished" />
     </message>
     <message>
-        <source>Also delete the files on the hard disk</source>
-        <translation>Slet også filerne på harddisken</translation>
-    </message>
-    <message>
-        <source>Deletion confirmation - qBittorrent</source>
-        <translation>Bekræft sletning - qBittorrent</translation>
+        <source>Remove torrent(s)</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -2676,7 +3155,7 @@
     </message>
     <message>
         <source>%1y %2d</source>
-        <translation type="unfinished" />
+        <translation>%1å %2d</translation>
     </message>
 </context>
 <context>
@@ -2744,10 +3223,6 @@
         <translation>Søg i:</translation>
     </message>
     <message>
-        <source>Results (showing</source>
-        <translation>Resultater (viser</translation>
-    </message>
-    <message>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
@@ -2769,7 +3244,7 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished" />
+        <translation>Advarsel</translation>
     </message>
     <message>
         <source>Increase window width to display additional filters</source>
@@ -2777,6 +3252,22 @@
     </message>
     <message>
         <source>to</source>
+        <translation>til</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Resultater</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Click the "Search plugins..." button at the bottom right of the window to install some.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>There aren't any search plugins installed.</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2903,10 +3394,6 @@
         <translation>Tilføj mærkat...</translation>
     </message>
     <message>
-        <source>Delete torrents</source>
-        <translation>Slet torrents</translation>
-    </message>
-    <message>
         <source>Tag:</source>
         <translation>Mærkat:</translation>
     </message>
@@ -2929,6 +3416,10 @@
     <message>
         <source>Remove tag</source>
         <translation>Fjern mærkat</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3005,15 +3496,27 @@
         <translation>Nationalitet:</translation>
     </message>
     <message>
-        <source>Author</source>
-        <translation>Forfatter</translation>
-    </message>
-    <message>
         <source>Software Used</source>
-        <translation type="unfinished" />
+        <translation>Anvendt software</translation>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
+        <translation>Den frie IP to Country Lite database af DB-IP anvendes til bestemmelse af fællers lande. Databasen er bevilliget under Creative Commons Attribution 4.0 international licens</translation>
+    </message>
+    <message>
+        <source>Authors</source>
+        <translation>Forfattere</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>Frankrig</translation>
+    </message>
+    <message>
+        <source>qBittorrent Mascot</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>qBittorrent icon</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -3074,258 +3577,258 @@
     <name>RSSWidget</name>
     <message>
         <source>Date: </source>
-        <translation type="unfinished" />
+        <translation>Dato: </translation>
     </message>
     <message>
         <source>Please choose a new name for this RSS feed</source>
-        <translation type="unfinished" />
+        <translation>Vælg venligst et nyt navn til dette RSS-feed</translation>
     </message>
     <message>
         <source>Please choose a folder name</source>
-        <translation type="unfinished" />
+        <translation>Vælg venligst et mappenavn</translation>
     </message>
     <message>
         <source>New feed name:</source>
-        <translation type="unfinished" />
+        <translation>Nyt feednavn:</translation>
     </message>
     <message>
         <source>Update all</source>
-        <translation type="unfinished" />
+        <translation>Opdater alle</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished" />
+        <translation>Slet</translation>
     </message>
     <message>
         <source>RSS Downloader...</source>
-        <translation type="unfinished" />
+        <translation>RSS-downloader...</translation>
     </message>
     <message>
         <source>Mark items read</source>
-        <translation type="unfinished" />
+        <translation>Mærk elementer som læst</translation>
     </message>
     <message>
         <source>Update all feeds</source>
-        <translation type="unfinished" />
+        <translation>Opdater alle feeds</translation>
     </message>
     <message>
         <source>Copy feed URL</source>
-        <translation type="unfinished" />
+        <translation>Kopiér URL for feed</translation>
     </message>
     <message>
         <source>Torrents: (double-click to download)</source>
-        <translation type="unfinished" />
+        <translation>Torrents: (dobbeltklik for at downloade)</translation>
     </message>
     <message>
         <source>Open news URL</source>
-        <translation type="unfinished" />
+        <translation>Åbn nyheds-URL</translation>
     </message>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished" />
+        <translation>Omdøb...</translation>
     </message>
     <message>
         <source>Feed URL:</source>
-        <translation type="unfinished" />
+        <translation>URL for feed:</translation>
     </message>
     <message>
         <source>New folder...</source>
-        <translation type="unfinished" />
+        <translation>Ny mappe...</translation>
     </message>
     <message>
         <source>New subscription</source>
-        <translation type="unfinished" />
+        <translation>Nyt abonnement</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished" />
+        <translation>Opdater</translation>
     </message>
     <message>
         <source>Folder name:</source>
-        <translation type="unfinished" />
+        <translation>Mappenavn:</translation>
     </message>
     <message>
         <source>Please type a RSS feed URL</source>
-        <translation type="unfinished" />
+        <translation>Skriv venligst en URL for RSS-feed</translation>
     </message>
     <message>
         <source>Fetching of RSS feeds is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>Hentning af RSS-feeds er nu deaktiveret. Du kan aktivere det i programindstillingerne.</translation>
     </message>
     <message>
         <source>Deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Bekræftelse for sletning</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the selected RSS feeds?</source>
-        <translation type="unfinished" />
+        <translation>Er du sikker på, at du vil slette de valgte RSS-feeds?</translation>
     </message>
     <message>
         <source>New subscription...</source>
-        <translation type="unfinished" />
+        <translation>Nyt abonnement...</translation>
     </message>
     <message>
         <source>Download torrent</source>
-        <translation type="unfinished" />
+        <translation>Download torrent</translation>
     </message>
 </context>
 <context>
     <name>AutomatedRssDownloader</name>
     <message>
         <source>Download Rules</source>
-        <translation type="unfinished" />
+        <translation>Downloadregler</translation>
     </message>
     <message>
         <source>Matching RSS Articles</source>
-        <translation type="unfinished" />
+        <translation>Matchende RSS-artikler</translation>
     </message>
     <message>
         <source>* to match zero or more of any characters</source>
-        <translation type="unfinished" />
+        <translation>* for at matche nul eller flere tegn</translation>
     </message>
     <message>
         <source> will match all articles.</source>
-        <translation type="unfinished" />
+        <translation> vil matche alle artikler.</translation>
     </message>
     <message>
         <source>Episode filter rules: </source>
-        <translation type="unfinished" />
+        <translation>Regler for episodefilter: </translation>
     </message>
     <message>
         <source>Auto downloading of RSS torrents is disabled now! You can enable it in application settings.</source>
-        <translation type="unfinished" />
+        <translation>Automatisk download af RSS-torrents er nu deaktiveret! Du kan aktivere det i programindstillingerne.</translation>
     </message>
     <message>
         <source>Rule Definition</source>
-        <translation type="unfinished" />
+        <translation>Regeldefinition</translation>
     </message>
     <message>
         <source>Save to:</source>
-        <translation type="unfinished" />
+        <translation>Gem i:</translation>
     </message>
     <message>
         <source>Use Regular Expressions</source>
-        <translation type="unfinished" />
+        <translation>Brug regulære udtryk</translation>
     </message>
     <message>
         <source>New rule name</source>
-        <translation type="unfinished" />
+        <translation>Nyt regelnavn</translation>
     </message>
     <message>
         <source>Filter must end with semicolon</source>
-        <translation type="unfinished" />
+        <translation>Filter skal slutte med semikolon</translation>
     </message>
     <message>
         <source>? to match any single character</source>
-        <translation type="unfinished" />
+        <translation>? for at matche ét tegn</translation>
     </message>
     <message>
         <source>Matches articles based on episode filter.</source>
-        <translation type="unfinished" />
+        <translation>Matcher artikler baseret på episodefilter.</translation>
     </message>
     <message>
         <source>Assign Category:</source>
-        <translation type="unfinished" />
+        <translation>Tildel kategori:</translation>
     </message>
     <message>
         <source>Regex mode: use Perl-compatible regular expressions</source>
-        <translation type="unfinished" />
+        <translation>Regulært udtryk-tilstand: brug Perl-kompatible regulære udtryk</translation>
     </message>
     <message>
         <source>| is used as OR operator</source>
-        <translation type="unfinished" />
+        <translation>| bruges som en ELLER-operatør</translation>
     </message>
     <message>
         <source>Clear downloaded episodes</source>
-        <translation type="unfinished" />
+        <translation>Ryd downloadede episoder</translation>
     </message>
     <message>
         <source>Whitespaces count as AND operators (all words, any order)</source>
-        <translation type="unfinished" />
+        <translation>Blanktegn tæller som OG-operatører (alle ord, vilkårlig rækkefølge)</translation>
     </message>
     <message>
         <source>An expression with an empty %1 clause (e.g. %2)</source>
-        <translation type="unfinished" />
+        <translation>Et udtryk med et tomt %1-klausul (f.eks. %2)</translation>
     </message>
     <message>
         <source>Example: </source>
-        <translation type="unfinished" />
+        <translation>Eksempel: </translation>
     </message>
     <message>
         <source>Add new rule...</source>
-        <translation type="unfinished" />
+        <translation>Tilføj ny regel...</translation>
     </message>
     <message>
         <source>Are you sure you want to clear the list of downloaded episodes for the selected rule?</source>
-        <translation type="unfinished" />
+        <translation>Er du sikker på, at du vil rydde listen over downloadede episoder for den valgte regel?</translation>
     </message>
     <message>
         <source>Must Contain:</source>
-        <translation type="unfinished" />
+        <translation>Skal indeholde:</translation>
     </message>
     <message>
         <source>Infinite range: &lt;b&gt;1x25-;&lt;/b&gt; matches episodes 25 and upward of season one, and all episodes of later seasons</source>
-        <translation type="unfinished" />
+        <translation>Uendeligt område: &lt;b&gt;1x25-;&lt;/b&gt; matcher episode 25 og op for sæson 1 og alle episoder for senere sæsoner</translation>
     </message>
     <message>
         <source>Save to a Different Directory</source>
-        <translation type="unfinished" />
+        <translation>Gem i en anden mappe</translation>
     </message>
     <message>
         <source>Must Not Contain:</source>
-        <translation type="unfinished" />
+        <translation>Skal ikke indeholde:</translation>
     </message>
     <message>
         <source>Single number: &lt;b&gt;1x25;&lt;/b&gt; matches episode 25 of season one</source>
-        <translation type="unfinished" />
+        <translation>Ét nummer: &lt;b&gt;1x25;&lt;/b&gt; matcher episode 25 for sæson 1</translation>
     </message>
     <message>
         <source>Three range types for episodes are supported: </source>
-        <translation type="unfinished" />
+        <translation>Der understøttes tre områdetyper for episoder: </translation>
     </message>
     <message>
         <source>Are you sure you want to remove the selected download rules?</source>
-        <translation type="unfinished" />
+        <translation>Er du sikker på, at du vil fjerne de valgte downloadregler?</translation>
     </message>
     <message>
         <source>Use global settings</source>
-        <translation type="unfinished" />
+        <translation>Brug globale indstillinger</translation>
     </message>
     <message>
         <source>Normal range: &lt;b&gt;1x25-40;&lt;/b&gt; matches episodes 25 through 40 of season one</source>
-        <translation type="unfinished" />
+        <translation>Normalt område: &lt;b&gt;1x25-40;&lt;/b&gt; matcher episode 25 til 40 for sæson 1</translation>
     </message>
     <message>
         <source>Please type the new rule name</source>
-        <translation type="unfinished" />
+        <translation>Skriv venligst det nye regelnavn</translation>
     </message>
     <message>
         <source>Rule renaming</source>
-        <translation type="unfinished" />
+        <translation>Omdøbning af regel</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished" />
+        <translation>Altid</translation>
     </message>
     <message>
         <source>Episode number is a mandatory positive value</source>
-        <translation type="unfinished" />
+        <translation>Episodenummer er en obligatorisk positiv værdi</translation>
     </message>
     <message>
         <source> will match 2, 5, 8 through 15, 30 and onward episodes of season one</source>
-        <translation type="unfinished" />
+        <translation> matcher episode 2, 5, 8 op til 15, 30 og videre for sæson 1</translation>
     </message>
     <message>
         <source>Rule deletion confirmation</source>
-        <translation type="unfinished" />
+        <translation>Bekræftelse for sletning af regel</translation>
     </message>
     <message>
         <source>Last Match: %1 days ago</source>
-        <translation type="unfinished" />
+        <translation>Sidste match: %1 dage siden</translation>
     </message>
     <message>
         <source>Episode Filter:</source>
-        <translation type="unfinished" />
+        <translation>Episodefilter:</translation>
     </message>
     <message>
         <source>Rss Downloader</source>
@@ -3333,63 +3836,63 @@
     </message>
     <message>
         <source>Season number is a mandatory non-zero value</source>
-        <translation type="unfinished" />
+        <translation>Sæsonnummer er en obligatorisk ikke-nul-værdi</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished" />
+        <translation>Aldrig</translation>
     </message>
     <message>
         <source>Apply Rule to Feeds:</source>
-        <translation type="unfinished" />
+        <translation>Anvend regel på feeds:</translation>
     </message>
     <message>
         <source> days</source>
-        <translation type="unfinished" />
+        <translation> dage</translation>
     </message>
     <message>
         <source>Use Smart Episode Filter</source>
-        <translation type="unfinished" />
+        <translation>Brug smart episodefilter</translation>
     </message>
     <message>
         <source>If word order is important use * instead of whitespace.</source>
-        <translation type="unfinished" />
+        <translation>Hvis rækkefølgen på ord er vigtig, så brug * i stedet for blanktegn.</translation>
     </message>
     <message>
         <source>Add Paused:</source>
-        <translation type="unfinished" />
+        <translation>Tilføj sat på pause:</translation>
     </message>
     <message>
         <source>Please type the name of the new download rule.</source>
-        <translation type="unfinished" />
+        <translation>Skriv venligst navnet på den nye downloadregel.</translation>
     </message>
     <message>
         <source>Wildcard mode: you can use</source>
-        <translation type="unfinished" />
+        <translation>Jokertegnstilstand: du kan bruge</translation>
     </message>
     <message>
         <source> will exclude all articles.</source>
-        <translation type="unfinished" />
+        <translation> vil ekskludere alle artikler.</translation>
     </message>
     <message>
         <source>Delete rule</source>
-        <translation type="unfinished" />
+        <translation>Slet regel</translation>
     </message>
     <message>
         <source>Ignore Subsequent Matches for (0 to Disable)</source>
-        <translation type="unfinished" />
+        <translation>Ignorer efterfølgende match for (0 for at deaktivere)</translation>
     </message>
     <message>
         <source>Rename rule...</source>
-        <translation type="unfinished" />
+        <translation>Omdøb regel...</translation>
     </message>
     <message>
         <source>Last Match: Unknown</source>
-        <translation type="unfinished" />
+        <translation>Sidste match: Ukendt</translation>
     </message>
     <message>
         <source>Clear downloaded episodes...</source>
-        <translation type="unfinished" />
+        <translation>Ryd downloadede episoder...</translation>
     </message>
     <message>
         <source>Smart Episode Filter will check the episode number to prevent downloading of duplicates.
@@ -3406,33 +3909,37 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished" />
+        <translation>Original</translation>
     </message>
     <message>
         <source>Don't create subfolder</source>
         <translation>Opret ikke undermappe</translation>
     </message>
+    <message>
+        <source>Add Tags:</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
     <message>
-        <source>Delete torrents</source>
-        <translation type="unfinished" />
-    </message>
-    <message>
         <source>Resume torrents</source>
-        <translation type="unfinished" />
+        <translation>Genoptag torrents</translation>
     </message>
     <message>
         <source>All (%1)</source>
-        <translation type="unfinished" />
+        <translation>Alle (%1)</translation>
     </message>
     <message>
         <source>Trackerless (%1)</source>
-        <translation type="unfinished" />
+        <translation>Trackerløs (%1)</translation>
     </message>
     <message>
         <source>Pause torrents</source>
+        <translation>Sæt torrents på pause</translation>
+    </message>
+    <message>
+        <source>Remove torrents</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -3440,10 +3947,145 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <name>FeedListWidget</name>
     <message>
         <source>RSS feeds</source>
-        <translation type="unfinished" />
+        <translation>RSS-feeds</translation>
     </message>
     <message>
         <source>Unread</source>
+        <translation>Ulæst</translation>
+    </message>
+</context>
+<context>
+    <name>ExecutionLogWidget</name>
+    <message>
+        <source>General</source>
+        <translation>Generelt</translation>
+    </message>
+    <message>
+        <source>Blocked</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Ukendt</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Alle</translation>
+    </message>
+    <message>
+        <source>showing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopiér</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Vælg alt</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Log Type</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Ryd</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Advarsel</translation>
+    </message>
+    <message>
+        <source>Information Messages</source>
+        <translation>Informationsmeddelelser</translation>
+    </message>
+    <message>
+        <source>Warning Messages</source>
+        <translation>Advarselsmeddelelser</translation>
+    </message>
+    <message>
+        <source>Filter logs</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blocked IPs</source>
+        <translation>Blokerede IP'er</translation>
+    </message>
+    <message>
+        <source>out of</source>
+        <translation>ud af</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Clear All</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Meddelelse</translation>
+    </message>
+    <message>
+        <source>Log Levels:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Reason</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>item</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>IP</source>
+        <translation>IP</translation>
+    </message>
+    <message>
+        <source>Banned</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Normal Messages</source>
+        <translation>Normale meddelelser</translation>
+    </message>
+    <message>
+        <source>Critical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Critical Messages</source>
+        <translation>Kritiske meddelelser</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>items</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Results</source>
+        <translation>Resultater</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Choose a log level...</source>
         <translation type="unfinished" />
     </message>
 </context>

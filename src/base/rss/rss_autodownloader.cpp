@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2017  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2017-2023  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,26 +28,29 @@
 
 #include "rss_autodownloader.h"
 
+#include <queue>
+
 #include <QDataStream>
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
-#include <QSaveFile>
+#include <QList>
 #include <QThread>
 #include <QTimer>
 #include <QUrl>
 #include <QVariant>
-#include <QVector>
 
-#include "../bittorrent/magneturi.h"
-#include "../bittorrent/session.h"
-#include "../asyncfilestorage.h"
-#include "../global.h"
-#include "../logger.h"
-#include "../profile.h"
-#include "../settingsstorage.h"
-#include "../utils/fs.h"
+#include "base/addtorrentmanager.h"
+#include "base/asyncfilestorage.h"
+#include "base/bittorrent/session.h"
+#include "base/bittorrent/torrentdescriptor.h"
+#include "base/global.h"
+#include "base/interfaces/iapplication.h"
+#include "base/logger.h"
+#include "base/profile.h"
+#include "base/utils/fs.h"
+#include "base/utils/io.h"
 #include "rss_article.h"
 #include "rss_autodownloadrule.h"
 #include "rss_feed.h"
@@ -60,16 +63,12 @@ struct ProcessingJob
     QVariantHash articleData;
 };
 
-const QString ConfFolderName(QStringLiteral("rss"));
-const QString RulesFileName(QStringLiteral("download_rules.json"));
-
-const QString SettingsKey_ProcessingEnabled(QStringLiteral("RSS/AutoDownloader/EnableProcessing"));
-const QString SettingsKey_SmartEpisodeFilter(QStringLiteral("RSS/AutoDownloader/SmartEpisodeFilter"));
-const QString SettingsKey_DownloadRepacks(QStringLiteral("RSS/AutoDownloader/DownloadRepacks"));
+const QString CONF_FOLDER_NAME = u"rss"_s;
+const QString RULES_FILE_NAME = u"download_rules.json"_s;
 
 namespace
 {
-    QVector<RSS::AutoDownloadRule> rulesFromJSON(const QByteArray &jsonData)
+    QList<RSS::AutoDownloadRule> rulesFromJSON(const QByteArray &jsonData)
     {
         QJsonParseError jsonError;
         const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &jsonError);
@@ -80,7 +79,7 @@ namespace
             throw RSS::ParsingError(RSS::AutoDownloader::tr("Invalid data format."));
 
         const QJsonObject jsonObj {jsonDoc.object()};
-        QVector<RSS::AutoDownloadRule> rules;
+        QList<RSS::AutoDownloadRule> rules;
         for (auto it = jsonObj.begin(); it != jsonObj.end(); ++it)
         {
             const QJsonValue jsonVal {it.value()};
@@ -100,59 +99,71 @@ QPointer<AutoDownloader> AutoDownloader::m_instance = nullptr;
 
 QString computeSmartFilterRegex(const QStringList &filters)
 {
-    return QString::fromLatin1("(?:_|\\b)(?:%1)(?:_|\\b)").arg(filters.join(QString(")|(?:")));
+    return u"(?:_|\\b)(?:%1)(?:_|\\b)"_s.arg(filters.join(u")|(?:"));
 }
 
-AutoDownloader::AutoDownloader()
-    : m_processingEnabled(SettingsStorage::instance()->loadValue(SettingsKey_ProcessingEnabled, false))
-    , m_processingTimer(new QTimer(this))
-    , m_ioThread(new QThread(this))
+AutoDownloader::AutoDownloader(IApplication *app)
+    : ApplicationComponent(app)
+    , m_storeProcessingEnabled {u"RSS/AutoDownloader/EnableProcessing"_s, false}
+    , m_storeSmartEpisodeFilter {u"RSS/AutoDownloader/SmartEpisodeFilter"_s}
+    , m_storeDownloadRepacks {u"RSS/AutoDownloader/DownloadRepacks"_s}
+    , m_processingTimer {new QTimer(this)}
+    , m_ioThread {new QThread}
 {
     Q_ASSERT(!m_instance); // only one instance is allowed
     m_instance = this;
 
-    m_fileStorage = new AsyncFileStorage(
-                Utils::Fs::expandPathAbs(specialFolderLocation(SpecialFolder::Config) + ConfFolderName));
-    if (!m_fileStorage)
-        throw RuntimeError(tr("Directory for RSS AutoDownloader data is unavailable."));
+    m_fileStorage = new AsyncFileStorage(specialFolderLocation(SpecialFolder::Config) / Path(CONF_FOLDER_NAME));
 
-    m_fileStorage->moveToThread(m_ioThread);
-    connect(m_ioThread, &QThread::finished, m_fileStorage, &AsyncFileStorage::deleteLater);
-    connect(m_fileStorage, &AsyncFileStorage::failed, [](const QString &fileName, const QString &errorString)
+    m_fileStorage->moveToThread(m_ioThread.get());
+    connect(m_ioThread.get(), &QThread::finished, m_fileStorage, &AsyncFileStorage::deleteLater);
+    connect(m_fileStorage, &AsyncFileStorage::failed, [](const Path &fileName, const QString &errorString)
     {
         LogMsg(tr("Couldn't save RSS AutoDownloader data in %1. Error: %2")
-               .arg(fileName, errorString), Log::CRITICAL);
+               .arg(fileName.toString(), errorString), Log::CRITICAL);
     });
 
+    m_ioThread->setObjectName("RSS::AutoDownloader m_ioThread");
     m_ioThread->start();
 
-    connect(BitTorrent::Session::instance(), &BitTorrent::Session::downloadFromUrlFinished
-            , this, &AutoDownloader::handleTorrentDownloadFinished);
-    connect(BitTorrent::Session::instance(), &BitTorrent::Session::downloadFromUrlFailed
-            , this, &AutoDownloader::handleTorrentDownloadFailed);
+    connect(app->addTorrentManager(), &AddTorrentManager::torrentAdded
+            , this, &AutoDownloader::handleTorrentAdded);
+    connect(app->addTorrentManager(), &AddTorrentManager::addTorrentFailed
+            , this, &AutoDownloader::handleAddTorrentFailed);
 
     // initialise the smart episode regex
     const QString regex = computeSmartFilterRegex(smartEpisodeFilters());
-    m_smartEpisodeRegex = QRegularExpression(regex,
-                                             QRegularExpression::CaseInsensitiveOption
-                                             | QRegularExpression::ExtendedPatternSyntaxOption
-                                             | QRegularExpression::UseUnicodePropertiesOption);
+    m_smartEpisodeRegex = QRegularExpression(regex
+            , QRegularExpression::CaseInsensitiveOption
+                    | QRegularExpression::ExtendedPatternSyntaxOption
+                    | QRegularExpression::UseUnicodePropertiesOption);
 
     load();
+
+    connect(Session::instance(), &Session::feedURLChanged, this, &AutoDownloader::handleFeedURLChanged);
 
     m_processingTimer->setSingleShot(true);
     connect(m_processingTimer, &QTimer::timeout, this, &AutoDownloader::process);
 
-    if (m_processingEnabled)
-        startProcessing();
+    const auto *btSession = BitTorrent::Session::instance();
+    if (btSession->isRestored())
+    {
+        if (isProcessingEnabled())
+            startProcessing();
+    }
+    else
+    {
+        connect(btSession, &BitTorrent::Session::restored, this, [this]()
+        {
+            if (isProcessingEnabled())
+                startProcessing();
+        });
+    }
 }
 
 AutoDownloader::~AutoDownloader()
 {
     store();
-
-    m_ioThread->quit();
-    m_ioThread->wait();
 }
 
 AutoDownloader *AutoDownloader::instance()
@@ -162,25 +173,27 @@ AutoDownloader *AutoDownloader::instance()
 
 bool AutoDownloader::hasRule(const QString &ruleName) const
 {
-    return m_rules.contains(ruleName);
+    return m_rulesByName.contains(ruleName);
 }
 
 AutoDownloadRule AutoDownloader::ruleByName(const QString &ruleName) const
 {
-    return m_rules.value(ruleName, AutoDownloadRule("Unknown Rule"));
+    const auto index = m_rulesByName.value(ruleName, -1);
+    return m_rules.value(index, AutoDownloadRule(u"Unknown Rule"_s));
 }
 
 QList<AutoDownloadRule> AutoDownloader::rules() const
 {
-    return m_rules.values();
+    return m_rules;
 }
 
-void AutoDownloader::insertRule(const AutoDownloadRule &rule)
+void AutoDownloader::setRule(const AutoDownloadRule &rule)
 {
     if (!hasRule(rule.name()))
     {
         // Insert new rule
         setRule_impl(rule);
+        sortRules();
         m_dirty = true;
         store();
         emit ruleAdded(rule.name());
@@ -190,6 +203,7 @@ void AutoDownloader::insertRule(const AutoDownloadRule &rule)
     {
         // Update existing rule
         setRule_impl(rule);
+        sortRules();
         m_dirty = true;
         storeDeferred();
         emit ruleChanged(rule.name());
@@ -199,12 +213,12 @@ void AutoDownloader::insertRule(const AutoDownloadRule &rule)
 
 bool AutoDownloader::renameRule(const QString &ruleName, const QString &newRuleName)
 {
-    if (!hasRule(ruleName)) return false;
-    if (hasRule(newRuleName)) return false;
+    if (!hasRule(ruleName) || hasRule(newRuleName))
+        return false;
 
-    AutoDownloadRule rule = m_rules.take(ruleName);
-    rule.setName(newRuleName);
-    m_rules.insert(newRuleName, rule);
+    const auto index = m_rulesByName.take(ruleName);
+    m_rules[index].setName(newRuleName);
+    m_rulesByName.insert(newRuleName, index);
     m_dirty = true;
     store();
     emit ruleRenamed(newRuleName, ruleName);
@@ -213,13 +227,21 @@ bool AutoDownloader::renameRule(const QString &ruleName, const QString &newRuleN
 
 void AutoDownloader::removeRule(const QString &ruleName)
 {
-    if (m_rules.contains(ruleName))
+    if (!hasRule(ruleName))
+        return;
+
+    emit ruleAboutToBeRemoved(ruleName);
+
+    const auto index = m_rulesByName.take(ruleName);
+    m_rules.removeAt(index);
+    for (qsizetype i = index; i < m_rules.size(); ++i)
     {
-        emit ruleAboutToBeRemoved(ruleName);
-        m_rules.remove(ruleName);
-        m_dirty = true;
-        store();
+        const AutoDownloadRule &rule = m_rules[i];
+        m_rulesByName[rule.name()] = i;
     }
+
+    m_dirty = true;
+    store();
 }
 
 QByteArray AutoDownloader::exportRules(AutoDownloader::RulesFileFormat format) const
@@ -257,7 +279,7 @@ QByteArray AutoDownloader::exportRulesToJSONFormat() const
 void AutoDownloader::importRulesFromJSONFormat(const QByteArray &data)
 {
     for (const auto &rule : asConst(rulesFromJSON(data)))
-        insertRule(rule);
+        setRule(rule);
 }
 
 QByteArray AutoDownloader::exportRulesToLegacyFormat() const
@@ -284,27 +306,24 @@ void AutoDownloader::importRulesFromLegacyFormat(const QByteArray &data)
         throw ParsingError(tr("Invalid data format"));
 
     for (const QVariant &val : asConst(dict))
-        insertRule(AutoDownloadRule::fromLegacyDict(val.toHash()));
+        setRule(AutoDownloadRule::fromLegacyDict(val.toHash()));
 }
 
 QStringList AutoDownloader::smartEpisodeFilters() const
 {
-    const auto filtersSetting = SettingsStorage::instance()->loadValue<QVariant>(SettingsKey_SmartEpisodeFilter);
-
-    if (filtersSetting.isNull())
+    const QVariant filter = m_storeSmartEpisodeFilter.get();
+    if (filter.isNull())
     {
-        QStringList filters =
+        const QStringList defaultFilters =
         {
-            "s(\\d+)e(\\d+)",                       // Format 1: s01e01
-            "(\\d+)x(\\d+)",                        // Format 2: 01x01
-            "(\\d{4}[.\\-]\\d{1,2}[.\\-]\\d{1,2})", // Format 3: 2017.01.01
-            "(\\d{1,2}[.\\-]\\d{1,2}[.\\-]\\d{4})"  // Format 4: 01.01.2017
+            u"s(\\d+)e(\\d+)"_s,                       // Format 1: s01e01
+            u"(\\d+)x(\\d+)"_s,                        // Format 2: 01x01
+            u"(\\d{4}[.\\-]\\d{1,2}[.\\-]\\d{1,2})"_s, // Format 3: 2017.01.01
+            u"(\\d{1,2}[.\\-]\\d{1,2}[.\\-]\\d{4})"_s  // Format 4: 01.01.2017
         };
-
-        return filters;
+        return defaultFilters;
     }
-
-    return filtersSetting.toStringList();
+    return filter.toStringList();
 }
 
 QRegularExpression AutoDownloader::smartEpisodeRegex() const
@@ -314,7 +333,7 @@ QRegularExpression AutoDownloader::smartEpisodeRegex() const
 
 void AutoDownloader::setSmartEpisodeFilters(const QStringList &filters)
 {
-    SettingsStorage::instance()->storeValue(SettingsKey_SmartEpisodeFilter, filters);
+    m_storeSmartEpisodeFilter = filters;
 
     const QString regex = computeSmartFilterRegex(filters);
     m_smartEpisodeRegex.setPattern(regex);
@@ -322,37 +341,43 @@ void AutoDownloader::setSmartEpisodeFilters(const QStringList &filters)
 
 bool AutoDownloader::downloadRepacks() const
 {
-    return SettingsStorage::instance()->loadValue(SettingsKey_DownloadRepacks, true);
+    return m_storeDownloadRepacks.get(true);
 }
 
-void AutoDownloader::setDownloadRepacks(const bool downloadRepacks)
+void AutoDownloader::setDownloadRepacks(const bool enabled)
 {
-    SettingsStorage::instance()->storeValue(SettingsKey_DownloadRepacks, downloadRepacks);
+    m_storeDownloadRepacks = enabled;
 }
 
 void AutoDownloader::process()
 {
-    if (m_processingQueue.isEmpty()) return; // processing was disabled
+    if (m_processingQueue.isEmpty()) // processing was disabled
+        return;
 
     processJob(m_processingQueue.takeFirst());
     if (!m_processingQueue.isEmpty())
+    {
         // Schedule to process the next torrent (if any)
         m_processingTimer->start();
+    }
 }
 
-void AutoDownloader::handleTorrentDownloadFinished(const QString &url)
+void AutoDownloader::handleTorrentAdded(const QString &source)
 {
-    const auto job = m_waitingJobs.take(url);
-    if (!job) return;
+    const auto job = m_waitingJobs.take(source);
+    if (!job)
+        return;
 
     if (Feed *feed = Session::instance()->feedByURL(job->feedURL))
+    {
         if (Article *article = feed->articleByGUID(job->articleData.value(Article::KeyId).toString()))
             article->markAsRead();
+    }
 }
 
-void AutoDownloader::handleTorrentDownloadFailed(const QString &url)
+void AutoDownloader::handleAddTorrentFailed(const QString &source)
 {
-    m_waitingJobs.remove(url);
+    m_waitingJobs.remove(source);
     // TODO: Re-schedule job here.
 }
 
@@ -362,17 +387,70 @@ void AutoDownloader::handleNewArticle(const Article *article)
         addJobForArticle(article);
 }
 
+void AutoDownloader::handleFeedURLChanged(Feed *feed, const QString &oldURL)
+{
+    for (AutoDownloadRule &rule : m_rules)
+    {
+        if (const auto i = rule.feedURLs().indexOf(oldURL); i >= 0)
+        {
+            auto feedURLs = rule.feedURLs();
+            feedURLs.replace(i, feed->url());
+            rule.setFeedURLs(feedURLs);
+            m_dirty = true;
+        }
+    }
+
+    for (const QSharedPointer<ProcessingJob> &job : asConst(m_processingQueue))
+    {
+        if (job->feedURL == oldURL)
+            job->feedURL = feed->url();
+    }
+
+    for (const QSharedPointer<ProcessingJob> &job : asConst(m_waitingJobs))
+    {
+        if (job->feedURL == oldURL)
+            job->feedURL = feed->url();
+    }
+
+    store();
+}
+
 void AutoDownloader::setRule_impl(const AutoDownloadRule &rule)
 {
-    m_rules.insert(rule.name(), rule);
+    const QString ruleName = rule.name();
+    const auto index = m_rulesByName.value(ruleName, -1);
+    if (index < 0)
+    {
+        m_rules.append(rule);
+        m_rulesByName[ruleName] = m_rules.size() - 1;
+    }
+    else
+    {
+        m_rules[index] = rule;
+    }
+}
+
+void AutoDownloader::sortRules()
+{
+    std::sort(m_rules.begin(), m_rules.end(), [](const AutoDownloadRule &lhs, const AutoDownloadRule &rhs)
+    {
+        return (lhs.priority() < rhs.priority());
+    });
+
+    for (qsizetype i = 0; i < m_rules.size(); ++i)
+    {
+        const AutoDownloadRule &rule = m_rules[i];
+        m_rulesByName[rule.name()] = i;
+    }
 }
 
 void AutoDownloader::addJobForArticle(const Article *article)
 {
     const QString torrentURL = article->torrentUrl();
-    if (m_waitingJobs.contains(torrentURL)) return;
+    if (m_waitingJobs.contains(torrentURL))
+        return;
 
-    QSharedPointer<ProcessingJob> job(new ProcessingJob);
+    auto job = QSharedPointer<ProcessingJob>::create();
     job->feedURL = article->feed()->url();
     job->articleData = article->data();
     m_processingQueue.append(job);
@@ -384,24 +462,23 @@ void AutoDownloader::processJob(const QSharedPointer<ProcessingJob> &job)
 {
     for (AutoDownloadRule &rule : m_rules)
     {
-        if (!rule.isEnabled()) continue;
-        if (!rule.feedURLs().contains(job->feedURL)) continue;
-        if (!rule.accepts(job->articleData)) continue;
+        if (!rule.isEnabled())
+            continue;
+        if (!rule.feedURLs().contains(job->feedURL))
+            continue;
+        if (!rule.accepts(job->articleData))
+            continue;
 
         m_dirty = true;
         storeDeferred();
 
-        BitTorrent::AddTorrentParams params;
-        params.savePath = rule.savePath();
-        params.category = rule.assignedCategory();
-        params.addPaused = rule.addPaused();
-        params.contentLayout = rule.torrentContentLayout();
-        if (!rule.savePath().isEmpty())
-            params.useAutoTMM = false;
-        const auto torrentURL = job->articleData.value(Article::KeyTorrentURL).toString();
-        BitTorrent::Session::instance()->addTorrent(torrentURL, params);
+        LogMsg(tr("RSS article '%1' is accepted by rule '%2'. Trying to add torrent...")
+                .arg(job->articleData.value(Article::KeyTitle).toString(), rule.name()));
 
-        if (BitTorrent::MagnetUri(torrentURL).isValid())
+        const auto torrentURL = job->articleData.value(Article::KeyTorrentURL).toString();
+        app()->addTorrentManager()->addTorrent(torrentURL, rule.addTorrentParams());
+
+        if (BitTorrent::TorrentDescriptor::parse(torrentURL))
         {
             if (Feed *feed = Session::instance()->feedByURL(job->feedURL))
             {
@@ -421,15 +498,21 @@ void AutoDownloader::processJob(const QSharedPointer<ProcessingJob> &job)
 
 void AutoDownloader::load()
 {
-    QFile rulesFile(m_fileStorage->storageDir().absoluteFilePath(RulesFileName));
+    const qint64 maxFileSize = 10 * 1024 * 1024;
+    const auto readResult = Utils::IO::readFile((m_fileStorage->storageDir() / Path(RULES_FILE_NAME)), maxFileSize);
+    if (!readResult)
+    {
+        if (readResult.error().status == Utils::IO::ReadError::NotExist)
+        {
+            loadRulesLegacy();
+            return;
+        }
 
-    if (!rulesFile.exists())
-        loadRulesLegacy();
-    else if (rulesFile.open(QFile::ReadOnly))
-        loadRules(rulesFile.readAll());
-    else
-        LogMsg(tr("Couldn't read RSS AutoDownloader rules from %1. Error: %2")
-               .arg(rulesFile.fileName(), rulesFile.errorString()), Log::CRITICAL);
+        LogMsg((tr("Failed to read RSS AutoDownloader rules. %1").arg(readResult.error().message)), Log::WARNING);
+        return;
+    }
+
+    loadRules(readResult.value());
 }
 
 void AutoDownloader::loadRules(const QByteArray &data)
@@ -439,29 +522,31 @@ void AutoDownloader::loadRules(const QByteArray &data)
         const auto rules = rulesFromJSON(data);
         for (const auto &rule : rules)
             setRule_impl(rule);
+        sortRules();
     }
     catch (const ParsingError &error)
     {
         LogMsg(tr("Couldn't load RSS AutoDownloader rules. Reason: %1")
-               .arg(error.message()), Log::CRITICAL);
+                .arg(error.message()), Log::CRITICAL);
     }
 }
 
 void AutoDownloader::loadRulesLegacy()
 {
-    const SettingsPtr settings = Profile::instance()->applicationSettings(QStringLiteral("qBittorrent-rss"));
-    const QVariantHash rules = settings->value(QStringLiteral("download_rules")).toHash();
+    const std::unique_ptr<QSettings> settings = Profile::instance()->applicationSettings(u"qBittorrent-rss"_s);
+    const QVariantHash rules = settings->value(u"download_rules"_s).toHash();
     for (const QVariant &ruleVar : rules)
     {
         const auto rule = AutoDownloadRule::fromLegacyDict(ruleVar.toHash());
         if (!rule.name().isEmpty())
-            insertRule(rule);
+            setRule(rule);
     }
 }
 
 void AutoDownloader::store()
 {
-    if (!m_dirty) return;
+    if (!m_dirty)
+        return;
 
     m_dirty = false;
     m_savingTimer.stop();
@@ -470,7 +555,7 @@ void AutoDownloader::store()
     for (const auto &rule : asConst(m_rules))
         jsonObj.insert(rule.name(), rule.toJsonObject());
 
-    m_fileStorage->store(RulesFileName, QJsonDocument(jsonObj).toJson());
+    m_fileStorage->store(Path(RULES_FILE_NAME), QJsonDocument(jsonObj).toJson());
 }
 
 void AutoDownloader::storeDeferred()
@@ -481,13 +566,14 @@ void AutoDownloader::storeDeferred()
 
 bool AutoDownloader::isProcessingEnabled() const
 {
-    return m_processingEnabled;
+    return m_storeProcessingEnabled;
 }
 
 void AutoDownloader::resetProcessingQueue()
 {
     m_processingQueue.clear();
-    if (!m_processingEnabled) return;
+    if (!isProcessingEnabled())
+        return;
 
     for (Article *article : asConst(Session::instance()->rootFolder()->articles()))
     {
@@ -499,18 +585,23 @@ void AutoDownloader::resetProcessingQueue()
 void AutoDownloader::startProcessing()
 {
     resetProcessingQueue();
-    connect(Session::instance()->rootFolder(), &Folder::newArticle, this, &AutoDownloader::handleNewArticle);
+
+    const RSS::Folder *rootFolder = Session::instance()->rootFolder();
+    for (const Article *article : asConst(rootFolder->articles()))
+        handleNewArticle(article);
+
+    connect(rootFolder, &Folder::newArticle, this, &AutoDownloader::handleNewArticle);
 }
 
 void AutoDownloader::setProcessingEnabled(const bool enabled)
 {
-    if (m_processingEnabled != enabled)
+    if (m_storeProcessingEnabled != enabled)
     {
-        m_processingEnabled = enabled;
-        SettingsStorage::instance()->storeValue(SettingsKey_ProcessingEnabled, m_processingEnabled);
-        if (m_processingEnabled)
+        m_storeProcessingEnabled = enabled;
+        if (enabled)
         {
-            startProcessing();
+            if (BitTorrent::Session::instance()->isRestored())
+                startProcessing();
         }
         else
         {
@@ -518,12 +609,11 @@ void AutoDownloader::setProcessingEnabled(const bool enabled)
             disconnect(Session::instance()->rootFolder(), &Folder::newArticle, this, &AutoDownloader::handleNewArticle);
         }
 
-        emit processingStateChanged(m_processingEnabled);
+        emit processingStateChanged(enabled);
     }
 }
 
-void AutoDownloader::timerEvent(QTimerEvent *event)
+void AutoDownloader::timerEvent([[maybe_unused]] QTimerEvent *event)
 {
-    Q_UNUSED(event);
     store();
 }
